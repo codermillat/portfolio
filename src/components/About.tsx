@@ -30,10 +30,10 @@ const About: React.FC = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {/* Section Header */}
+          {/* Section Header - SEO Optimized */}
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-3">
-              About Me
+              About MD MILLAT HOSEN
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
             <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed text-justify">
@@ -42,7 +42,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          {/* Simple Grid Layout - All Equal Heights */}
+          {/* Balanced Grid Layout */}
           <div className="space-y-8">
             {/* Row 1: Two Equal Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -64,8 +64,9 @@ const About: React.FC = () => {
                     </p>
                     
                     <p className="text-base text-justify">
+                      Known as <strong>MD MILLAT</strong>, <strong>Mohd MILLAT</strong>, and <strong>codermillat</strong> in the developer community, 
                       I specialize in creating efficient, user-centered solutions that bridge technical 
-                      capability with business objectives through systematic problem-solving and creative strategy.
+                      capability with business objectives.
                     </p>
                   </div>
                 </div>

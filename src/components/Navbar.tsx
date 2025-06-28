@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - Constrained width to prevent overlap */}
+          {/* Logo - SEO Optimized */}
           <div className="flex-shrink-0 min-w-0">
             <button
               onClick={scrollToTop}
@@ -52,12 +52,13 @@ const Navbar: React.FC = () => {
                   ? 'text-primary-900' 
                   : 'text-white drop-shadow-lg'
               }`}
+              aria-label="MD MILLAT HOSEN - Go to top"
             >
-              <span className={isScrolled ? 'text-primary-700' : 'text-blue-300'}>MD</span> Millat
+              <span className={isScrolled ? 'text-primary-700' : 'text-blue-300'}>MD</span> MILLAT
             </button>
           </div>
 
-          {/* Desktop Navigation - Hidden on smaller screens */}
+          {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center space-x-1 flex-shrink-0">
             {navItems.map((item) => (
               <button
@@ -68,6 +69,7 @@ const Navbar: React.FC = () => {
                     ? 'text-gray-700 hover:text-primary-700 hover:bg-primary-50' 
                     : 'text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm'
                 }`}
+                aria-label={`Navigate to ${item.name} section`}
               >
                 {item.name}
                 <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-6 ${
@@ -77,7 +79,7 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile menu button - Show on xl and below */}
+          {/* Mobile menu button */}
           <div className="xl:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -86,13 +88,14 @@ const Navbar: React.FC = () => {
                   ? 'text-gray-700 hover:text-primary-700 hover:bg-primary-50' 
                   : 'text-white hover:text-blue-200 hover:bg-white/10'
               }`}
+              aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation - Improved design */}
+        {/* Mobile Navigation */}
         <div className={`xl:hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen 
             ? 'max-h-96 opacity-100' 
@@ -106,6 +109,7 @@ const Navbar: React.FC = () => {
                   onClick={() => scrollToSection(item.href)}
                   className="w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-all duration-200 flex items-center justify-between group"
                   style={{ animationDelay: `${index * 50}ms` }}
+                  aria-label={`Navigate to ${item.name} section`}
                 >
                   <span>{item.name}</span>
                   <div className="w-2 h-2 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />

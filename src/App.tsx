@@ -19,8 +19,18 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // SEO: Set document title dynamically
+  useEffect(() => {
+    document.title = "MD MILLAT HOSEN — Full Stack Developer & Creative Strategist | Portfolio";
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-inter overflow-x-hidden">
+      {/* SEO: Hidden heading for screen readers and search engines */}
+      <h1 className="sr-only">
+        MD MILLAT HOSEN - Full Stack Developer, WordPress Expert, React Developer, Creative Strategist from Greater Noida, India
+      </h1>
+      
       <Navbar />
       <Hero scrollY={scrollY} />
       <About />
