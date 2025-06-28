@@ -20,18 +20,20 @@ const experiences: ExperienceItem[] = [
     title: "Intern",
     organization: "International Relations Division, Sharda University",
     location: "Greater Noida, India",
-    period: "2024 – Present",
+    period: "May 2025 – Present",
     description: [
-      "Supporting international student services and cross-cultural communication initiatives",
-      "Assisting with digital documentation and process optimization",
-      "Contributing to international partnership development projects"
+      "Strategic digital outreach for international student campaigns",
+      "Social media content planning, optimization, and execution",
+      "Record video, edit the video, publish on social media, SEO",
+      "Data coordination between departments and student leads",
+      "Working under Deputy Director Ajitak Singh"
     ],
     achievements: [
-      "Streamlined documentation process reducing processing time by 30%",
-      "Assisted in organizing international student orientation programs",
-      "Contributed to improving cross-cultural communication protocols"
+      "Helped launch a pilot campaign targeting Bangladeshi students",
+      "Built internal digital asset repository",
+      "Assisted in promotional video and voiceover scripting"
     ],
-    skills: ["Documentation", "Process Optimization", "Cross-cultural Communication", "Project Management"],
+    skills: ["SEO", "Canva", "Google Sheets", "YouTube Studio", "Meta Ads", "Video Editing on CapCut", "Content localization", "Cultural optimization"],
     current: true,
     type: 'work',
     website: "https://www.sharda.ac.in"
@@ -42,34 +44,34 @@ const experiences: ExperienceItem[] = [
     location: "Remote",
     period: "Feb 2023 – Mar 2024",
     description: [
-      "Developed and maintained WordPress-based websites for international education services",
-      "Implemented custom functionality for student application management systems",
-      "Optimized site performance and user experience across multiple platforms"
+      "Managed WordPress websites and SEO for educational migration consultancy",
+      "Created outreach landing pages for Sharda University and similar institutions",
+      "Handled on-page optimization, schema integration, and lead form workflows"
     ],
     achievements: [
-      "Improved website loading speed by 40% through optimization",
-      "Built custom student portal with 95% user satisfaction rate",
-      "Reduced bounce rate by 25% through UX improvements"
+      "Ranked multiple pages on Google Search in Bangladesh",
+      "Reduced site bounce rate by restructuring user flows",
+      "Supported over 300+ lead inquiries through SEO-driven pages"
     ],
-    skills: ["WordPress", "PHP", "JavaScript", "MySQL", "Performance Optimization", "UX Design"],
+    skills: ["WordPress", "Elementor", "SEO Tools (Ubersuggest, Ahrefs)", "Google Analytics", "Mailchimp"],
     type: 'work'
   },
   {
     title: "B.Tech Computer Science",
     organization: "Sharda University",
     location: "Greater Noida, India",
-    period: "Class of 2026",
+    period: "Aug 2022 – June 2026",
     description: [
-      "Focused on software engineering, data structures, and algorithms",
-      "Active in coding competitions and technical societies",
-      "Maintaining strong academic performance while building real-world projects"
+      "Hands-on learning through building real-world projects",
+      "Participation in coding platforms like LeetCode",
+      "Self-taught exploration of DevOps, PWA, ML"
     ],
     achievements: [
-      "Consistent academic performance with focus on practical applications",
-      "Active participation in coding competitions and hackathons",
-      "Member of technical societies and development clubs"
+      "Top 10% performance in class coding competitions",
+      "Developed complete restaurant delivery system plugin as academic-industry bridge",
+      "Used AI agents (Copilot, Claude, Gemini) for intelligent project scaffolding"
     ],
-    skills: ["Data Structures", "Algorithms", "Software Engineering", "Database Management", "System Design"],
+    skills: ["PHP", "JavaScript", "MySQL", "React", "Git", "Docker", "AI agent workflows (Cursor IDE + GitHub Copilot + Gemini Studio)"],
     type: 'education',
     website: "https://www.sharda.ac.in"
   }
@@ -147,16 +149,16 @@ const Experience: React.FC = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
                 <Users size={20} className="text-white" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 mb-2">50+</div>
-              <div className="text-sm text-gray-600">Clients Served</div>
+              <div className="text-2xl font-bold text-gray-900 mb-2">300+</div>
+              <div className="text-sm text-gray-600">Leads Generated</div>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center group hover:shadow-xl transition-all duration-300">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
                 <Award size={20} className="text-white" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 mb-2">95%</div>
-              <div className="text-sm text-gray-600">Success Rate</div>
+              <div className="text-2xl font-bold text-gray-900 mb-2">Top 10%</div>
+              <div className="text-sm text-gray-600">Academic Performance</div>
             </div>
           </div>
 

@@ -37,8 +37,8 @@ const About: React.FC = () => {
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
             <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed text-justify">
-              Computer Science student turned full-stack developer, building meaningful solutions 
-              that bridge technical excellence with human-centered design.
+              A developer who builds in silence, led by faith and logic, not noise or vanity.
+              Building meaningful solutions that bridge technical excellence with human-centered design.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ const About: React.FC = () => {
           <div className="space-y-8">
             {/* Row 1: Two Equal Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* My Journey Card */}
+              {/* Journey Card */}
               <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary-100/30 to-transparent rounded-full -translate-y-12 translate-x-12" />
                 <div className="relative z-10">
@@ -54,19 +54,20 @@ const About: React.FC = () => {
                     <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                       <Lightbulb size={24} className="text-primary-700" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900">My Journey</h3>
+                    <h3 className="text-2xl font-semibold text-gray-900">Journey</h3>
                   </div>
                   
                   <div className="space-y-4 text-gray-700 leading-relaxed">
                     <p className="text-base text-justify">
-                      Currently pursuing Computer Science at Sharda University while gaining hands-on experience 
-                      in full-stack development, WordPress ecosystems, and mobile applications.
+                      From a quiet village in Bangladesh to the fast-moving digital ecosystem of India, 
+                      I've walked a path defined by <strong>resourcefulness</strong>, <strong>faith</strong>, 
+                      and a desire to build systems that actually serve people.
                     </p>
                     
                     <p className="text-base text-justify">
-                      Known as <strong>MD MILLAT</strong>, <strong>Mohd MILLAT</strong>, and <strong>codermillat</strong> in the developer community, 
-                      I specialize in creating efficient, user-centered solutions that bridge technical 
-                      capability with business objectives.
+                      I don't chase motivation. I chase meaning. Known as <strong>MD MILLAT</strong>, 
+                      <strong>Mohd MILLAT</strong>, and <strong>codermillat</strong> in the developer community, 
+                      I specialize in creating solutions that bridge technical capability with real-world impact.
                     </p>
                   </div>
                 </div>
@@ -86,15 +87,15 @@ const About: React.FC = () => {
                   </div>
                   
                   <blockquote className="text-xl italic mb-6 text-blue-100 font-light text-justify">
-                    "I don't chase spotlight or motivation. I build for clarity, not applause."
+                    "I believe that code is not just logic—it's language. And sometimes, silence speaks the loudest."
                   </blockquote>
                   
                   <div className="grid grid-cols-1 gap-3">
                     {[
-                      "Build with purpose, not for praise",
-                      "Silence speaks louder than noise", 
-                      "Code is poetry in motion",
-                      "Quality over quantity, always"
+                      "Purpose over praise, clarity over clutter",
+                      "Minimal, purpose-driven approach", 
+                      "Emotionally grounded solutions",
+                      "Faith and logic guide decisions"
                     ].map((principle, index) => (
                       <div key={index} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-blue-300 rounded-full flex-shrink-0" />
@@ -114,7 +115,7 @@ const About: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 text-2xl mb-2">Based in Greater Noida, India</h3>
-                  <p className="text-lg text-gray-600 mb-4">Open to remote opportunities worldwide</p>
+                  <p className="text-lg text-gray-600 mb-4">From Bangladesh to India • Open to remote opportunities worldwide</p>
                   <div className="flex gap-3 justify-center">
                     <span className="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200">
                       Remote Ready
@@ -133,38 +134,24 @@ const About: React.FC = () => {
               <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">At a Glance</h3>
                 
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform duration-300">
-                      <Code size={24} className="text-white" />
+                <div className="space-y-4">
+                  {[
+                    { icon: Code, label: "Full Stack Developer", color: "from-primary-500 to-primary-600" },
+                    { icon: Zap, label: "Plugin Architect (WordPress/WooCommerce)", color: "from-green-500 to-green-600" },
+                    { icon: Award, label: "Storytelling Creator", color: "from-purple-500 to-purple-600" },
+                    { icon: Coffee, label: "SEO & ASO Strategist", color: "from-orange-500 to-orange-600" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-4 group">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                        <item.icon size={20} className="text-white" />
+                      </div>
+                      <span className="text-gray-700 font-medium">{item.label}</span>
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 mb-1">3+</div>
-                    <div className="text-sm text-gray-600">Years Coding</div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform duration-300">
-                      <Award size={24} className="text-white" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900 mb-1">15+</div>
-                    <div className="text-sm text-gray-600">Projects Built</div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform duration-300">
-                      <Coffee size={24} className="text-white" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900 mb-1">∞</div>
-                    <div className="text-sm text-gray-600">Cups of Coffee</div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform duration-300">
-                      <Zap size={24} className="text-white" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900 mb-1">24/7</div>
-                    <div className="text-sm text-gray-600">Learning Mode</div>
-                  </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                  <p className="text-sm text-gray-600 italic">Emotionally silent. Technically loud.</p>
                 </div>
               </div>
 
@@ -176,32 +163,32 @@ const About: React.FC = () => {
                   <div className="flex items-start gap-3">
                     <div className="w-3 h-3 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Full-Stack Development</h4>
-                      <p className="text-sm text-gray-600">WordPress, React, Node.js, PHP</p>
+                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Custom WordPress & WooCommerce solutions</h4>
+                      <p className="text-sm text-gray-600">Plugin development from scratch</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Problem Solving</h4>
-                      <p className="text-sm text-gray-600">Systematic approach to complex challenges</p>
+                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Mobile-first product development</h4>
+                      <p className="text-sm text-gray-600">PWA & GPS-based delivery apps</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 text-base">User Experience</h4>
-                      <p className="text-sm text-gray-600">Creating intuitive, accessible interfaces</p>
+                      <h4 className="font-semibold text-gray-900 mb-1 text-base">AI-assisted workflows</h4>
+                      <p className="text-sm text-gray-600">Cursor, Copilot, Gemini integration</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <div className="w-3 h-3 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Performance Optimization</h4>
-                      <p className="text-sm text-gray-600">Speed, SEO, and scalability focused</p>
+                      <h4 className="font-semibold text-gray-900 mb-1 text-base">Real-world problem solving</h4>
+                      <p className="text-sm text-gray-600">Under constraints (budget, bandwidth, rural limitations)</p>
                     </div>
                   </div>
                 </div>
@@ -216,10 +203,15 @@ const About: React.FC = () => {
               <div className="relative z-10 text-center">
                 <h3 className="text-2xl font-semibold mb-4">Currently Exploring</h3>
                 <p className="text-gray-300 mb-6 text-lg max-w-3xl mx-auto">
-                  Expanding my expertise in cutting-edge technologies to build the future of web development
+                  Expanding expertise in cutting-edge technologies to build the future of meaningful digital solutions
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
-                  {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
+                  {[
+                    "AI/ML integration for local applications", 
+                    "PWA & GPS-based delivery apps", 
+                    "Voiceover + story-based content using ElevenLabs", 
+                    "API-first architecture & automation systems"
+                  ].map((tech, index) => (
                     <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300">
                       {tech}
                     </span>

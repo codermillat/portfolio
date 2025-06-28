@@ -17,12 +17,12 @@ const projects: Project[] = [
     title: "Restaurant Delivery Plugin",
     description: "Custom WooCommerce system with GPS tracking and PWA capabilities for seamless food delivery management.",
     highlights: [
+      "WooCommerce order customization",
       "Real-time GPS tracking integration",
-      "Progressive Web App functionality", 
-      "Custom order management dashboard",
-      "Multi-restaurant support"
+      "Delivery status and staff management", 
+      "PWA interface for mobile use"
     ],
-    technologies: ["WordPress", "WooCommerce", "PHP", "JavaScript", "PWA", "GPS API"],
+    technologies: ["PHP", "JavaScript", "WooCommerce REST API", "WP Admin UI", "Firebase", "Service Workers"],
     icon: Zap,
     metrics: "12+ restaurants deployed",
     image: "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -30,14 +30,14 @@ const projects: Project[] = [
   },
   {
     title: "Rupkotha Restora Website", 
-    description: "Complete WordPress-based food ordering platform built with budget constraints and performance optimization.",
+    description: "WordPress-based online food ordering platform built under real-world constraints with mobile-friendly design.",
     highlights: [
-      "Custom food ordering system",
-      "Mobile-optimized interface",
-      "Payment gateway integration", 
-      "Inventory management"
+      "WordPress-based online food ordering",
+      "Custom WooCommerce flow for local delivery",
+      "Mobile-friendly design", 
+      "Built under real-world constraints"
     ],
-    technologies: ["WordPress", "Custom PHP", "Payment Integration", "Mobile Optimization"],
+    technologies: ["WordPress", "Elementor", "CSS", "WooCommerce", "Google Fonts"],
     icon: Users,
     metrics: "99.8% uptime",
     image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -45,14 +45,14 @@ const projects: Project[] = [
   },
   {
     title: "VPN App Rebranding",
-    description: "Successfully rebranded and optimized VPN application for Play Store, achieving significant download growth.",
+    description: "Full UI redesign and Play Store listing optimization that achieved significant download growth and revenue.",
     highlights: [
-      "Complete app store optimization",
-      "UI/UX redesign and improvement", 
-      "Strategic market positioning",
-      "Performance optimization"
+      "Full UI redesign and Play Store listing",
+      "ASO optimization", 
+      "Sold on Play Store for $500",
+      "Achieved significant download growth"
     ],
-    technologies: ["Android", "ASO Strategy", "UI/UX Design", "Marketing"],
+    technologies: ["Android Studio", "XML", "Firebase", "Play Console", "ASO strategies"],
     icon: DollarSign,
     metrics: "$500 revenue, 10K+ downloads",
     image: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
             <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto text-justify">
               A collection of projects that showcase my approach to building meaningful solutions 
-              that combine technical excellence with user-centered design and business impact.
+              that combine technical excellence with user-centered design and real-world impact.
             </p>
           </div>
 

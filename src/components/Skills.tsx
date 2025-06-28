@@ -11,7 +11,7 @@ const skillCategories = [
   {
     title: "Mobile & PWA", 
     icon: Smartphone,
-    skills: ["Android Development", "Progressive Web Apps", "Mobile Optimization"],
+    skills: ["Android Development", "Progressive Web Apps", "Firebase", "Service Workers"],
     color: "from-green-500 to-green-600"
   },
   {
@@ -23,31 +23,31 @@ const skillCategories = [
   {
     title: "SEO & ASO",
     icon: TrendingUp,
-    skills: ["Search Engine Optimization", "App Store Optimization", "Analytics"],
+    skills: ["Search Engine Optimization", "App Store Optimization", "YouTube SEO", "Analytics"],
     color: "from-orange-500 to-orange-600"
   },
   {
     title: "Backend & Database",
     icon: Database,
-    skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "API Design"],
+    skills: ["MySQL", "Firebase Realtime DB", "REST APIs", "Node.js"],
     color: "from-indigo-500 to-indigo-600"
   },
   {
     title: "Frontend Frameworks",
     icon: Globe,
-    skills: ["React", "Vue.js", "TypeScript", "Tailwind CSS", "Next.js"],
+    skills: ["React", "Tailwind CSS", "HTML5", "Elementor"],
     color: "from-cyan-500 to-cyan-600"
   },
   {
     title: "Design & UX",
     icon: Palette,
-    skills: ["UI/UX Design", "Figma", "Adobe Creative Suite", "Prototyping"],
+    skills: ["Figma", "Canva", "UX Writing", "Color Theory"],
     color: "from-pink-500 to-pink-600"
   },
   {
     title: "DevOps & Tools",
     icon: Zap,
-    skills: ["Git", "Docker", "AWS", "CI/CD", "Linux"],
+    skills: ["Git", "GitHub", "DigitalOcean", "Docker (basic)"],
     color: "from-yellow-500 to-yellow-600"
   }
 ];
