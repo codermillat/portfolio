@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Download, FileText, Eye, Calendar } from 'lucide-react';
+import { Download, FileText, Eye, Calendar, Award, Briefcase, GraduationCap, Code, Globe, Mail } from 'lucide-react';
 
 const Resume: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,6 +35,56 @@ const Resume: React.FC = () => {
     window.open('/resume.pdf', '_blank');
   };
 
+  const resumeHighlights = [
+    {
+      icon: Briefcase,
+      title: "Professional Experience",
+      items: [
+        "Current Intern at Sharda University International Relations Division",
+        "Former Web Developer at SIAC Abroad (Feb 2023 - Mar 2024)",
+        "Strategic digital outreach and SEO optimization",
+        "WordPress development and plugin architecture"
+      ]
+    },
+    {
+      icon: GraduationCap,
+      title: "Education & Certifications",
+      items: [
+        "B.Tech Computer Science - Sharda University (2022-2026)",
+        "Top 10% academic performance in coding competitions",
+        "Self-taught expertise in modern development frameworks",
+        "Continuous learning in AI/ML and DevOps technologies"
+      ]
+    },
+    {
+      icon: Code,
+      title: "Technical Expertise",
+      items: [
+        "Full Stack Development: PHP, JavaScript, React, Node.js",
+        "WordPress & WooCommerce: Custom plugins and themes",
+        "Mobile Development: Android, PWA, Firebase integration",
+        "SEO & ASO: Search optimization and analytics"
+      ]
+    },
+    {
+      icon: Award,
+      title: "Key Achievements",
+      items: [
+        "Developed restaurant delivery system serving 12+ establishments",
+        "Generated 300+ leads through SEO-optimized campaigns",
+        "Successfully sold VPN app for $500 with 10K+ downloads",
+        "Built and deployed multiple WordPress solutions"
+      ]
+    }
+  ];
+
+  const resumeStats = [
+    { label: "Years Experience", value: "2+", icon: Briefcase },
+    { label: "Projects Completed", value: "15+", icon: Code },
+    { label: "Technologies Mastered", value: "20+", icon: Globe },
+    { label: "Clients Served", value: "50+", icon: Award }
+  ];
+
   return (
     <section id="resume" ref={sectionRef} className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Background Elements */}
@@ -46,15 +96,64 @@ const Resume: React.FC = () => {
           {/* Section Header */}
           <div className="text-center mb-12 lg:mb-20">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-serif font-semibold text-gray-900 mb-4">
-              Resume
+              Professional Resume
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-6" />
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Download my comprehensive resume with detailed experience, education, and technical skills 
-              showcasing my journey as a full-stack developer and creative strategist.
+              Comprehensive overview of my professional journey, technical expertise, and achievements 
+              as a Full Stack Developer and Creative Strategist.
             </p>
           </div>
 
+          {/* Resume Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 lg:mb-20">
+            {resumeStats.map((stat, index) => (
+              <div 
+                key={index}
+                className={`bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-100 text-center group hover:shadow-xl transition-all duration-300 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
+                  <stat.icon size={16} className="sm:w-5 sm:h-5 text-white" />
+                </div>
+                <div className="text-lg sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Resume Content Overview */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-20">
+            {resumeHighlights.map((section, index) => (
+              <div 
+                key={index}
+                className={`bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 group hover:shadow-xl transition-all duration-300 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${(index + 4) * 100}ms` }}
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-300">
+                    <section.icon size={20} className="text-primary-700" />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{section.title}</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  {section.items.map((item, itemIndex) => (
+                    <div key={itemIndex} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Download Section */}
           <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-6 sm:p-8 lg:p-12 border border-primary-100 relative overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-primary-200/30 rounded-full -translate-y-12 translate-x-12 sm:-translate-y-16 sm:translate-x-16 lg:-translate-y-20 lg:translate-x-20" />
@@ -73,25 +172,29 @@ const Resume: React.FC = () => {
                     </div>
                     
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 text-center">
-                      Professional Resume
+                      MD MILLAT HOSEN Resume
                     </h3>
                     
                     <div className="space-y-3 text-sm sm:text-base text-gray-600 mb-6">
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0" />
-                        <span>Complete work experience</span>
+                        <span>Complete professional experience timeline</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0" />
-                        <span>Technical skills & certifications</span>
+                        <span>Detailed technical skills and proficiencies</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0" />
-                        <span>Project portfolio highlights</span>
+                        <span>Project portfolio with quantified results</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0" />
-                        <span>Education & achievements</span>
+                        <span>Education background and certifications</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-primary-400 rounded-full flex-shrink-0" />
+                        <span>Contact information and social profiles</span>
                       </div>
                     </div>
 
@@ -105,12 +208,13 @@ const Resume: React.FC = () => {
                 {/* Download Section */}
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
                   <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6">
-                    Get My Complete Resume
+                    Download Complete Resume
                   </h3>
                   
                   <p className="text-gray-700 leading-relaxed mb-8 text-sm sm:text-base lg:text-lg">
-                    Download my professionally formatted PDF resume containing detailed information about my 
-                    experience, skills, projects, and educational background. Perfect for HR teams and hiring managers.
+                    Get the full PDF resume with comprehensive details about my professional journey, 
+                    technical expertise, project achievements, and educational background. 
+                    Optimized for ATS systems and professional review.
                   </p>
 
                   <div className="space-y-4">
@@ -135,26 +239,47 @@ const Resume: React.FC = () => {
 
                   <div className="mt-8 p-4 bg-white/50 rounded-xl border border-primary-200">
                     <p className="text-xs sm:text-sm text-gray-600 text-center lg:text-left">
-                      <strong>File Details:</strong> PDF format, 2 pages, optimized for ATS systems
+                      <strong>File Details:</strong> PDF format, ATS-optimized, includes contact info and portfolio links
                     </p>
                   </div>
                 </div>
               </div>
 
+              {/* Contact Information */}
+              <div className="mt-12 lg:mt-16 pt-8 border-t border-primary-200">
+                <div className="text-center">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-6">Quick Contact Information</h4>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Mail size={16} className="text-primary-600" />
+                      <span className="text-sm sm:text-base">millat6575@gmail.com</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Globe size={16} className="text-primary-600" />
+                      <span className="text-sm sm:text-base">Greater Noida, India</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Code size={16} className="text-primary-600" />
+                      <span className="text-sm sm:text-base">github.com/codermillat</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Additional Info */}
-              <div className="mt-12 lg:mt-20 pt-8 border-t border-primary-200">
+              <div className="mt-8 lg:mt-12">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">2 Pages</div>
-                    <div className="text-xs sm:text-sm text-gray-600">Comprehensive yet concise</div>
+                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">Professional</div>
+                    <div className="text-xs sm:text-sm text-gray-600">ATS-optimized format for easy parsing</div>
                   </div>
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">ATS Ready</div>
-                    <div className="text-xs sm:text-sm text-gray-600">Optimized for applicant tracking systems</div>
+                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">Comprehensive</div>
+                    <div className="text-xs sm:text-sm text-gray-600">Complete career and education history</div>
                   </div>
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">Updated</div>
-                    <div className="text-xs sm:text-sm text-gray-600">Regularly maintained and current</div>
+                    <div className="text-xl sm:text-2xl font-bold text-primary-700 mb-2">Current</div>
+                    <div className="text-xs sm:text-sm text-gray-600">Regularly updated with latest achievements</div>
                   </div>
                 </div>
               </div>
