@@ -105,8 +105,8 @@ const About: React.FC = () => {
             </div>
 
             {/* Row 2: Location - Same Height as Row 1 (320px) */}
-            <div className="h-80 flex items-center justify-center">
-              <div className="flex items-center gap-6 text-primary-700 bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-2xl w-full">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-80 flex items-center justify-center">
+              <div className="flex items-center gap-6 text-primary-700 max-w-2xl w-full">
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
                   <MapPin size={28} className="text-primary-700" />
                 </div>
@@ -199,16 +199,14 @@ const About: React.FC = () => {
             </div>
 
             {/* Row 4: Currently Exploring - Same Height as Row 3 (384px) */}
-            <div className="h-96 flex items-center justify-center">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-lg max-w-4xl w-full h-full flex flex-col justify-center">
-                <h3 className="text-2xl font-semibold mb-8 text-center">Currently Exploring</h3>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
-                    <span key={index} className="px-6 py-3 bg-white/10 rounded-xl font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300 text-base">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-lg h-96 flex flex-col justify-center">
+              <h3 className="text-2xl font-semibold mb-8 text-center">Currently Exploring</h3>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
+                  <span key={index} className="px-6 py-3 bg-white/10 rounded-xl font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300 text-base">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
