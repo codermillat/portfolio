@@ -104,16 +104,25 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Row 2: Location - Same Height as Row 1 (320px) - CENTERED */}
+            {/* Row 2: Location - Same Height as Row 1 (320px) */}
             <div className="h-80 flex items-center justify-center">
-              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 max-w-2xl w-full">
-                <div className="flex items-center justify-center gap-6 text-primary-700">
-                  <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin size={28} className="text-primary-700" />
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 w-full max-w-4xl relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary-100/30 to-transparent rounded-full -translate-y-12 translate-x-12" />
+                <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-6 text-center lg:text-left">
+                  <div className="w-20 h-20 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-200 transition-colors duration-300">
+                    <MapPin size={32} className="text-primary-700" />
                   </div>
-                  <div className="text-center">
-                    <p className="font-semibold text-gray-900 text-xl lg:text-2xl mb-2">Based in Greater Noida, India</p>
-                    <p className="text-base lg:text-lg text-gray-600">Open to remote opportunities worldwide</p>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900 text-2xl lg:text-3xl mb-3">Based in Greater Noida, India</h3>
+                    <p className="text-lg lg:text-xl text-gray-600 mb-4">Open to remote opportunities worldwide</p>
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+                      <span className="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200">
+                        Remote Ready
+                      </span>
+                      <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-medium border border-green-200">
+                        Available Now
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -202,14 +211,22 @@ const About: React.FC = () => {
 
             {/* Row 4: Currently Exploring - Same Height as Row 3 (384px) */}
             <div className="h-96 flex items-center justify-center">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 text-white shadow-lg max-w-2xl w-full">
-                <h3 className="text-lg font-semibold mb-4 text-center">Currently Exploring</h3>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300">
-                      {tech}
-                    </span>
-                  ))}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-8 text-white shadow-lg w-full max-w-4xl relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12" />
+                
+                <div className="relative z-10 text-center">
+                  <h3 className="text-2xl font-semibold mb-6">Currently Exploring</h3>
+                  <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+                    Expanding my expertise in cutting-edge technologies to build the future of web development
+                  </p>
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
+                      <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
