@@ -26,7 +26,7 @@ const experiences: ExperienceItem[] = [
       "Social media content planning, optimization, and execution",
       "Record video, edit the video, publish on social media, SEO",
       "Data coordination between departments and student leads",
-      "Working under Deputy Director Ajitak Singh"
+      "Working under Deputy Director Ajetak Singh"
     ],
     achievements: [
       "Helped launch a pilot campaign targeting Bangladeshi students",
