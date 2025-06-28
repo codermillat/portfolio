@@ -10,6 +10,8 @@ interface Project {
   metrics?: string;
   image?: string;
   color: string;
+  githubUrl?: string;
+  websiteUrl?: string;
 }
 
 const projects: Project[] = [
@@ -26,7 +28,8 @@ const projects: Project[] = [
     icon: Zap,
     metrics: "12+ restaurants deployed",
     image: "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800",
-    color: "from-yellow-400 to-orange-500"
+    color: "from-yellow-400 to-orange-500",
+    githubUrl: "https://github.com/codermillat/"
   },
   {
     title: "Rupkotha Restora Website", 
@@ -41,7 +44,8 @@ const projects: Project[] = [
     icon: Users,
     metrics: "99.8% uptime",
     image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
-    color: "from-green-400 to-blue-500"
+    color: "from-green-400 to-blue-500",
+    websiteUrl: "https://rupkotharestora.com/"
   },
   {
     title: "VPN App Rebranding",
@@ -140,12 +144,28 @@ const Projects: React.FC = () => {
                             {project.title}
                           </h3>
                           <div className="flex gap-2 flex-shrink-0">
-                            <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                              <Github size={16} className="text-gray-600 group-hover:text-primary-600" />
-                            </button>
-                            <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                              <ExternalLink size={16} className="text-gray-600 group-hover:text-primary-600" />
-                            </button>
+                            {project.githubUrl && (
+                              <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                                aria-label={`View ${project.title} on GitHub`}
+                              >
+                                <Github size={16} className="text-gray-600 group-hover:text-primary-600" />
+                              </a>
+                            )}
+                            {project.websiteUrl && (
+                              <a
+                                href={project.websiteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                                aria-label={`Visit ${project.title} website`}
+                              >
+                                <ExternalLink size={16} className="text-gray-600 group-hover:text-primary-600" />
+                              </a>
+                            )}
                           </div>
                         </div>
                         
