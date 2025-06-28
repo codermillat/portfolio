@@ -36,16 +36,16 @@ const About: React.FC = () => {
               About Me
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-6" />
-            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light text-justify">
               Computer Science student turned full-stack developer, building meaningful solutions 
               that bridge technical excellence with human-centered design.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Left Column - Main Content */}
-            <div className="lg:col-span-7 space-y-8">
-              {/* Journey Card */}
+          <div className="space-y-12">
+            {/* First Row: My Journey and Philosophy side by side */}
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* My Journey Card */}
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-100/40 to-transparent rounded-full -translate-y-16 translate-x-16" />
                 <div className="relative z-10">
@@ -57,12 +57,12 @@ const About: React.FC = () => {
                   </div>
                   
                   <div className="space-y-4 text-gray-700 leading-relaxed">
-                    <p className="text-lg">
+                    <p className="text-base lg:text-lg text-justify">
                       Currently pursuing Computer Science at Sharda University while gaining hands-on experience 
                       in full-stack development, WordPress ecosystems, and mobile applications.
                     </p>
                     
-                    <p className="text-lg">
+                    <p className="text-base lg:text-lg text-justify">
                       I specialize in creating efficient, user-centered solutions that bridge technical 
                       capability with business objectives through systematic problem-solving and creative strategy.
                     </p>
@@ -83,11 +83,11 @@ const About: React.FC = () => {
                     <h3 className="text-2xl font-bold">Philosophy</h3>
                   </div>
                   
-                  <blockquote className="text-2xl italic mb-6 text-blue-100 font-light leading-relaxed">
+                  <blockquote className="text-xl lg:text-2xl italic mb-6 text-blue-100 font-light leading-relaxed text-justify">
                     "I don't chase spotlight or motivation. I build for clarity, not applause."
                   </blockquote>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-3">
                     {[
                       "Build with purpose, not for praise",
                       "Silence speaks louder than noise", 
@@ -96,15 +96,17 @@ const About: React.FC = () => {
                     ].map((principle, index) => (
                       <div key={index} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-blue-300 rounded-full flex-shrink-0" />
-                        <p className="text-blue-100">{principle}</p>
+                        <p className="text-blue-100 text-sm lg:text-base">{principle}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Location */}
-              <div className="flex items-center gap-4 text-primary-700 bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+            {/* Location Section - Full Width Below */}
+            <div className="flex items-center justify-center">
+              <div className="flex items-center gap-4 text-primary-700 bg-white rounded-xl p-6 shadow-lg border border-gray-100 max-w-md">
                 <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
                   <MapPin size={20} className="text-primary-700" />
                 </div>
@@ -115,9 +117,9 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column - Stats & Skills */}
-            <div className="lg:col-span-5 space-y-8">
-              {/* Quick Stats */}
+            {/* Second Row: At a Glance and Core Strengths side by side */}
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* At a Glance */}
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
                 <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">At a Glance</h3>
                 
@@ -194,9 +196,11 @@ const About: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Current Focus */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-xl">
+            {/* Currently Exploring - Full Width Below */}
+            <div className="flex justify-center">
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-xl max-w-2xl w-full">
                 <h3 className="text-xl font-bold mb-6 text-center">Currently Exploring</h3>
                 <div className="flex flex-wrap gap-3 justify-center">
                   {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
