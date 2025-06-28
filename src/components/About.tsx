@@ -42,8 +42,8 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-12">
-            {/* Row 1: My Journey and Philosophy - Equal Heights */}
+          <div className="space-y-10">
+            {/* Row 1: My Journey and Philosophy - Equal Heights (320px) */}
             <div className="grid lg:grid-cols-2 gap-8">
               {/* My Journey Card */}
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 relative overflow-hidden group hover:shadow-xl transition-all duration-300 h-80 flex flex-col">
@@ -83,7 +83,7 @@ const About: React.FC = () => {
                     <h3 className="text-2xl font-semibold">Philosophy</h3>
                   </div>
                   
-                  <blockquote className="text-xl italic mb-6 text-blue-100 font-light">
+                  <blockquote className="text-lg italic mb-6 text-blue-100 font-light">
                     "I don't chase spotlight or motivation. I build for clarity, not applause."
                   </blockquote>
                   
@@ -96,7 +96,7 @@ const About: React.FC = () => {
                     ].map((principle, index) => (
                       <div key={index} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-blue-300 rounded-full flex-shrink-0" />
-                        <p className="text-blue-100">{principle}</p>
+                        <p className="text-blue-100 text-sm">{principle}</p>
                       </div>
                     ))}
                   </div>
@@ -104,20 +104,20 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Row 2: Location - Same Height as Row 1 */}
+            {/* Row 2: Location - Same Height as Row 1 (320px) */}
             <div className="h-80 flex items-center justify-center">
-              <div className="flex items-center gap-4 text-primary-700 bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-2xl w-full">
+              <div className="flex items-center gap-6 text-primary-700 bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-2xl w-full">
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center">
-                  <MapPin size={24} className="text-primary-700" />
+                  <MapPin size={28} className="text-primary-700" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 text-2xl">Based in Greater Noida, India</p>
+                  <p className="font-semibold text-gray-900 text-2xl mb-2">Based in Greater Noida, India</p>
                   <p className="text-lg text-gray-600">Open to remote opportunities worldwide</p>
                 </div>
               </div>
             </div>
 
-            {/* Row 3: At a Glance and Core Strengths - Equal Heights */}
+            {/* Row 3: At a Glance and Core Strengths - Equal Heights (384px) */}
             <div className="grid lg:grid-cols-2 gap-8">
               {/* At a Glance */}
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-96 flex flex-col">
@@ -166,45 +166,45 @@ const About: React.FC = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-3 h-3 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Full-Stack Development</h4>
-                      <p className="text-gray-600">WordPress, React, Node.js, PHP</p>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-base">Full-Stack Development</h4>
+                      <p className="text-gray-600 text-sm">WordPress, React, Node.js, PHP</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <div className="w-3 h-3 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Problem Solving</h4>
-                      <p className="text-gray-600">Systematic approach to complex challenges</p>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-base">Problem Solving</h4>
+                      <p className="text-gray-600 text-sm">Systematic approach to complex challenges</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">User Experience</h4>
-                      <p className="text-gray-600">Creating intuitive, accessible interfaces</p>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-base">User Experience</h4>
+                      <p className="text-gray-600 text-sm">Creating intuitive, accessible interfaces</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <div className="w-3 h-3 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Performance Optimization</h4>
-                      <p className="text-gray-600">Speed, SEO, and scalability focused</p>
+                      <h4 className="font-semibold text-gray-900 mb-2 text-base">Performance Optimization</h4>
+                      <p className="text-gray-600 text-sm">Speed, SEO, and scalability focused</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Row 4: Currently Exploring - Same Height as Row 3 */}
+            {/* Row 4: Currently Exploring - Same Height as Row 3 (384px) */}
             <div className="h-96 flex items-center justify-center">
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-lg max-w-4xl w-full">
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white shadow-lg max-w-4xl w-full h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-semibold mb-8 text-center">Currently Exploring</h3>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {["AI Integration", "Mobile Development", "Cloud Architecture", "DevOps"].map((tech, index) => (
-                    <span key={index} className="px-6 py-3 bg-white/10 rounded-xl font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300">
+                    <span key={index} className="px-6 py-3 bg-white/10 rounded-xl font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300 text-base">
                       {tech}
                     </span>
                   ))}
