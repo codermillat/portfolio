@@ -36,7 +36,7 @@ const About: React.FC = () => {
               About Me
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
-            <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed text-justify">
               Computer Science student turned full-stack developer, building meaningful solutions 
               that bridge technical excellence with human-centered design.
             </p>
@@ -57,12 +57,12 @@ const About: React.FC = () => {
                   </div>
                   
                   <div className="space-y-3 text-gray-700 leading-relaxed">
-                    <p className="text-sm lg:text-base">
+                    <p className="text-sm lg:text-base text-justify">
                       Currently pursuing Computer Science at Sharda University while gaining hands-on experience 
                       in full-stack development, WordPress ecosystems, and mobile applications.
                     </p>
                     
-                    <p className="text-sm lg:text-base">
+                    <p className="text-sm lg:text-base text-justify">
                       I specialize in creating efficient, user-centered solutions that bridge technical 
                       capability with business objectives through systematic problem-solving and creative strategy.
                     </p>
@@ -83,7 +83,7 @@ const About: React.FC = () => {
                     <h3 className="text-xl font-semibold">Philosophy</h3>
                   </div>
                   
-                  <blockquote className="text-lg italic mb-4 text-blue-100 font-light">
+                  <blockquote className="text-lg italic mb-4 text-blue-100 font-light text-justify">
                     "I don't chase spotlight or motivation. I build for clarity, not applause."
                   </blockquote>
                   
@@ -156,7 +156,7 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Core Strengths - Optimized */}
+              {/* Core Strengths - Restored Original Design */}
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <h3 className="text-xl font-semibold text-gray-900 mb-5 text-center">Core Strengths</h3>
                 
