@@ -158,41 +158,42 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Core Strengths */}
+              {/* Core Strengths - Restored to original design */}
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Core Strengths</h3>
                 
-                <div className="space-y-4">
-                  {[
-                    { 
-                      title: "Full-Stack Development", 
-                      desc: "WordPress, React, Node.js, PHP",
-                      color: "from-blue-500 to-blue-600"
-                    },
-                    { 
-                      title: "Problem Solving", 
-                      desc: "Systematic approach to complex challenges",
-                      color: "from-green-500 to-green-600"
-                    },
-                    { 
-                      title: "User Experience", 
-                      desc: "Creating intuitive, accessible interfaces",
-                      color: "from-purple-500 to-purple-600"
-                    },
-                    { 
-                      title: "Performance Optimization", 
-                      desc: "Speed, SEO, and scalability focused",
-                      color: "from-orange-500 to-orange-600"
-                    }
-                  ].map((strength, index) => (
-                    <div key={index} className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300 group">
-                      <div className={`w-3 h-3 bg-gradient-to-r ${strength.color} rounded-full mt-2 group-hover:scale-125 transition-transform duration-300`} />
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">{strength.title}</h4>
-                        <p className="text-sm text-gray-600">{strength.desc}</p>
-                      </div>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Full-Stack Development</h4>
+                      <p className="text-sm text-gray-600">WordPress, React, Node.js, PHP</p>
                     </div>
-                  ))}
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Problem Solving</h4>
+                      <p className="text-sm text-gray-600">Systematic approach to complex challenges</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">User Experience</h4>
+                      <p className="text-sm text-gray-600">Creating intuitive, accessible interfaces</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Performance Optimization</h4>
+                      <p className="text-sm text-gray-600">Speed, SEO, and scalability focused</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
