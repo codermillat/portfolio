@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Download, FileText, Eye, Calendar, Award, Briefcase, GraduationCap, Code, Globe, Mail } from 'lucide-react';
+import { Download, FileText, Eye, Calendar, Award, Briefcase, GraduationCap, Code, Globe, Mail, ExternalLink } from 'lucide-react';
 
 const Resume: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,7 +32,20 @@ const Resume: React.FC = () => {
   };
 
   const handlePreviewResume = () => {
-    window.open('/resume.pdf', '_blank');
+    // Check if the file exists before opening
+    fetch('/resume.pdf')
+      .then(response => {
+        if (response.ok) {
+          window.open('/resume.pdf', '_blank');
+        } else {
+          // Fallback: show a message or redirect to a resume page
+          alert('Resume preview is currently unavailable. Please use the download button to get the PDF resume.');
+        }
+      })
+      .catch(() => {
+        // Fallback for network errors
+        alert('Resume preview is currently unavailable. Please use the download button to get the PDF resume.');
+      });
   };
 
   const resumeHighlights = [
@@ -250,18 +263,27 @@ const Resume: React.FC = () => {
                 <div className="text-center">
                   <h4 className="text-lg font-semibold text-gray-900 mb-6">Quick Contact Information</h4>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <a 
+                      href="mailto:millat6575@gmail.com"
+                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    >
                       <Mail size={16} className="text-primary-600" />
                       <span className="text-sm sm:text-base">millat6575@gmail.com</span>
-                    </div>
+                    </a>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Globe size={16} className="text-primary-600" />
                       <span className="text-sm sm:text-base">Greater Noida, India</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <a 
+                      href="https://github.com/codermillat"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    >
                       <Code size={16} className="text-primary-600" />
                       <span className="text-sm sm:text-base">github.com/codermillat</span>
-                    </div>
+                      <ExternalLink size={12} className="opacity-50" />
+                    </a>
                   </div>
                 </div>
               </div>
