@@ -3,61 +3,193 @@
 <<
 /Type /Catalog
 /Pages 2 0 R
+/Metadata 3 0 R
 >>
 endobj
 
 2 0 obj
 <<
 /Type /Pages
-/Kids [3 0 R]
-/Count 1
+/Kids [4 0 R 5 0 R]
+/Count 2
 >>
 endobj
 
 3 0 obj
 <<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-/Font <<
-/F1 5 0 R
+/Type /Metadata
+/Subtype /XML
+/Length 1000
 >>
->>
->>
+stream
+<?xml version="1.0" encoding="UTF-8"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:title>MD MILLAT HOSEN - Resume</dc:title>
+<dc:creator>MD MILLAT HOSEN</dc:creator>
+<dc:subject>Full Stack Developer Resume</dc:subject>
+</rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+endstream
 endobj
 
 4 0 obj
 <<
-/Length 200
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 6 0 R
+/Resources <<
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+>>
+>>
+endobj
+
+5 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 10 0 R
+/Resources <<
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+>>
+>>
+endobj
+
+6 0 obj
+<<
+/Length 2500
 >>
 stream
 BT
-/F1 24 Tf
-50 700 Td
+/F1 28 Tf
+50 720 Td
 (MD MILLAT HOSEN) Tj
-0 -30 Td
-/F1 16 Tf
+0 -35 Td
+/F2 14 Tf
 (Full Stack Developer & Creative Strategist) Tj
-0 -50 Td
-/F1 12 Tf
-(Email: millat6575@gmail.com) Tj
+0 -25 Td
+/F3 10 Tf
+(millat6575@gmail.com | Greater Noida, India | github.com/codermillat) Tj
+0 -30 Td
+
+/F2 14 Tf
+(PROFESSIONAL SUMMARY) Tj
 0 -20 Td
-(Location: Greater Noida, India) Tj
+/F3 10 Tf
+(Passionate Full Stack Developer with 2+ years of experience specializing in WordPress,) Tj
+0 -12 Td
+(WooCommerce, and modern web technologies. Expert in building custom plugins,) Tj
+0 -12 Td
+(mobile applications, and SEO-optimized solutions. Known for silent execution) Tj
+0 -12 Td
+(and purposeful design approach.) Tj
+0 -25 Td
+
+/F2 14 Tf
+(EXPERIENCE) Tj
 0 -20 Td
-(GitHub: github.com/codermillat) Tj
-0 -40 Td
-(This is a placeholder resume. The actual resume) Tj
+/F2 12 Tf
+(Intern - International Relations Division) Tj
 0 -15 Td
-(contains comprehensive details about experience,) Tj
+/F3 10 Tf
+(Sharda University | Greater Noida, India | May 2025 - Present) Tj
+0 -12 Td
+(• Strategic digital outreach for international student campaigns) Tj
+0 -12 Td
+(• Social media content planning, optimization, and execution) Tj
+0 -12 Td
+(• Video recording, editing, and publishing on social media platforms) Tj
+0 -12 Td
+(• Data coordination between departments and student leads) Tj
+0 -12 Td
+(• Working under Deputy Director Ajetak Singh) Tj
+0 -20 Td
+
+/F2 12 Tf
+(Web Developer) Tj
 0 -15 Td
-(skills, projects, and achievements.) Tj
+/F3 10 Tf
+(SIAC Abroad | Remote | Feb 2023 - Mar 2024) Tj
+0 -12 Td
+(• Managed WordPress websites and SEO for educational migration consultancy) Tj
+0 -12 Td
+(• Created outreach landing pages for universities and institutions) Tj
+0 -12 Td
+(• Handled on-page optimization, schema integration, and lead workflows) Tj
+0 -12 Td
+(• Ranked multiple pages on Google Search in Bangladesh) Tj
+0 -12 Td
+(• Supported over 300+ lead inquiries through SEO-driven pages) Tj
+0 -25 Td
+
+/F2 14 Tf
+(EDUCATION) Tj
+0 -20 Td
+/F2 12 Tf
+(B.Tech Computer Science) Tj
+0 -15 Td
+/F3 10 Tf
+(Sharda University | Greater Noida, India | Aug 2022 - June 2026) Tj
+0 -12 Td
+(• Top 10% performance in class coding competitions) Tj
+0 -12 Td
+(• Developed complete restaurant delivery system plugin) Tj
+0 -12 Td
+(• Used AI agents for intelligent project scaffolding) Tj
+0 -25 Td
+
+/F2 14 Tf
+(KEY PROJECTS) Tj
+0 -20 Td
+/F2 12 Tf
+(Restaurant Delivery Plugin) Tj
+0 -15 Td
+/F3 10 Tf
+(• Custom WooCommerce system with GPS tracking and PWA capabilities) Tj
+0 -12 Td
+(• Real-time order management and delivery status tracking) Tj
+0 -12 Td
+(• Deployed across 12+ restaurants) Tj
+0 -12 Td
+(• Technologies: PHP, JavaScript, WooCommerce REST API, Firebase) Tj
+0 -15 Td
+
+/F2 12 Tf
+(Rupkotha Restora Website) Tj
+0 -15 Td
+/F3 10 Tf
+(• WordPress-based online food ordering platform) Tj
+0 -12 Td
+(• Mobile-friendly design with custom WooCommerce flow) Tj
+0 -12 Td
+(• 99.8% uptime achievement) Tj
+0 -12 Td
+(• Technologies: WordPress, Elementor, CSS, WooCommerce) Tj
 ET
 endstream
 endobj
 
-5 0 obj
+7 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+8 0 obj
 <<
 /Type /Font
 /Subtype /Type1
@@ -65,19 +197,155 @@ endobj
 >>
 endobj
 
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+10 0 obj
+<<
+/Length 2000
+>>
+stream
+BT
+/F2 14 Tf
+50 720 Td
+(TECHNICAL SKILLS) Tj
+0 -20 Td
+/F2 12 Tf
+(Programming Languages:) Tj
+0 -15 Td
+/F3 10 Tf
+(PHP, JavaScript, TypeScript, HTML5, CSS3, SQL) Tj
+0 -15 Td
+
+/F2 12 Tf
+(Frameworks & Libraries:) Tj
+0 -15 Td
+/F3 10 Tf
+(React, Node.js, WordPress, WooCommerce, Tailwind CSS, Bootstrap) Tj
+0 -15 Td
+
+/F2 12 Tf
+(Databases:) Tj
+0 -15 Td
+/F3 10 Tf
+(MySQL, Firebase Realtime Database) Tj
+0 -15 Td
+
+/F2 12 Tf
+(Tools & Technologies:) Tj
+0 -15 Td
+/F3 10 Tf
+(Git, GitHub, Docker, Vite, Webpack, Figma, Canva) Tj
+0 -15 Td
+
+/F2 12 Tf
+(AI & Development Tools:) Tj
+0 -15 Td
+/F3 10 Tf
+(Cursor IDE, GitHub Copilot, Gemini AI, ChatGPT) Tj
+0 -15 Td
+
+/F2 12 Tf
+(SEO & Marketing:) Tj
+0 -15 Td
+/F3 10 Tf
+(Google Analytics, Search Console, Ubersuggest, Ahrefs, YouTube SEO) Tj
+0 -25 Td
+
+/F2 14 Tf
+(ACHIEVEMENTS) Tj
+0 -20 Td
+/F3 10 Tf
+(• Developed restaurant delivery system serving 12+ establishments) Tj
+0 -12 Td
+(• Generated 300+ leads through SEO-optimized campaigns) Tj
+0 -12 Td
+(• Successfully sold VPN app for $500 with 10K+ downloads) Tj
+0 -12 Td
+(• Built and deployed multiple WordPress solutions) Tj
+0 -12 Td
+(• Ranked multiple pages on Google Search in Bangladesh) Tj
+0 -12 Td
+(• Top 10% academic performance in coding competitions) Tj
+0 -25 Td
+
+/F2 14 Tf
+(CERTIFICATIONS & LEARNING) Tj
+0 -20 Td
+/F3 10 Tf
+(• Self-taught expertise in modern development frameworks) Tj
+0 -12 Td
+(• Continuous learning in AI/ML and DevOps technologies) Tj
+0 -12 Td
+(• Active on LeetCode for algorithmic problem solving) Tj
+0 -12 Td
+(• Regular contributor to open-source projects) Tj
+0 -25 Td
+
+/F2 14 Tf
+(LANGUAGES) Tj
+0 -20 Td
+/F3 10 Tf
+(• English: Fluent) Tj
+0 -12 Td
+(• Bengali: Native) Tj
+0 -12 Td
+(• Hindi: Conversational) Tj
+0 -25 Td
+
+/F2 14 Tf
+(PHILOSOPHY) Tj
+0 -20 Td
+/F3 10 Tf
+("I build systems in silence and stories in code — for clarity, not applause.") Tj
+0 -12 Td
+(Focused on purpose over praise, creating meaningful solutions that bridge) Tj
+0 -12 Td
+(technical excellence with human-centered design.) Tj
+0 -25 Td
+
+/F2 14 Tf
+(CONTACT INFORMATION) Tj
+0 -20 Td
+/F3 10 Tf
+(Email: millat6575@gmail.com) Tj
+0 -12 Td
+(GitHub: github.com/codermillat) Tj
+0 -12 Td
+(LinkedIn: linkedin.com/in/codermillat) Tj
+0 -12 Td
+(Portfolio: mdmillat.dev) Tj
+0 -12 Td
+(Location: Greater Noida, Uttar Pradesh, India) Tj
+0 -12 Td
+(Available for: Remote work, Full-time positions, Freelance projects) Tj
+ET
+endstream
+endobj
+
 xref
-0 6
+0 11
 0000000000 65535 f 
 0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000526 00000 n 
+0000000074 00000 n 
+0000000131 00000 n 
+0000001183 00000 n 
+0000001340 00000 n 
+0000001497 00000 n 
+0000004049 00000 n 
+0000004119 00000 n 
+0000004184 00000 n 
+0000004249 00000 n 
 trailer
 <<
-/Size 6
+/Size 11
 /Root 1 0 R
 >>
 startxref
-623
+6301
 %%EOF
