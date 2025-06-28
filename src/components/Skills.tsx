@@ -54,7 +54,6 @@ const skillCategories = [
 
 const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleSkills, setVisibleSkills] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -62,15 +61,9 @@ const Skills: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate skill categories one by one
-          skillCategories.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleSkills(prev => [...prev, index]);
-            }, index * 150);
-          });
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
     );
 
     if (sectionRef.current) {
@@ -81,13 +74,13 @@ const Skills: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+    <section id="skills" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/3 w-96 h-96 bg-gradient-to-br from-primary-100 to-transparent rounded-full -translate-y-48 opacity-60" />
       <div className="absolute bottom-0 right-1/3 w-72 h-72 bg-gradient-to-tl from-blue-100 to-transparent rounded-full translate-y-36 opacity-60" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-4">
               Skills & Technologies
@@ -101,12 +94,10 @@ const Skills: React.FC = () => {
             {skillCategories.map((category, index) => (
               <div 
                 key={index}
-                className={`transition-all duration-700 ${
-                  visibleSkills.includes(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
+                className={`transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100 h-full">
                   {/* Header with Gradient */}

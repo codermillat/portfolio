@@ -12,7 +12,7 @@ const About: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold and added margin for mobile
     );
 
     if (sectionRef.current) {
@@ -23,13 +23,13 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary-50 to-transparent rounded-full -translate-y-48 translate-x-48 opacity-50" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-50 to-transparent rounded-full translate-y-32 -translate-x-32 opacity-50" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-16 text-center">
             About Me
           </h2>
@@ -114,9 +114,9 @@ const About: React.FC = () => {
                 </div>
               </div>
               
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-200 rounded-full opacity-20 animate-float" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }} />
+              {/* Decorative Elements - Hidden on mobile for performance */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-200 rounded-full opacity-20 hidden lg:block" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-200 rounded-full opacity-20 hidden lg:block" />
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github, DollarSign, Users, Zap, Star, TrendingUp } from 'lucide-react';
+import { ExternalLink, Github, DollarSign, Users, Zap, Star } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -62,7 +62,6 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -70,15 +69,9 @@ const Projects: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate projects one by one
-          projects.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleProjects(prev => [...prev, index]);
-            }, index * 300);
-          });
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
     );
 
     if (sectionRef.current) {
@@ -89,13 +82,13 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
+    <section id="projects" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-primary-50 to-transparent rounded-full -translate-y-48 opacity-60" />
       <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-tr from-blue-50 to-transparent rounded-full translate-y-36 opacity-60" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-4">
               Featured Projects
@@ -105,16 +98,14 @@ const Projects: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-1 gap-12">
+          <div className="grid lg:grid-cols-1 gap-8 lg:gap-12">
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className={`transition-all duration-700 ${
-                  visibleProjects.includes(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
+                className={`transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${index * 200}ms` }}
               >
                 <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100">
                   <div className="lg:flex">
@@ -139,7 +130,7 @@ const Projects: React.FC = () => {
                     </div>
 
                     {/* Content Section */}
-                    <div className="lg:w-3/5 p-8 lg:p-12">
+                    <div className="lg:w-3/5 p-6 lg:p-12">
                       <div className="flex items-start justify-between mb-6">
                         <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
                           {project.title}

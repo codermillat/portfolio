@@ -12,7 +12,7 @@ const Resume: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
     );
 
     if (sectionRef.current) {
@@ -23,13 +23,13 @@ const Resume: React.FC = () => {
   }, []);
 
   return (
-    <section id="resume" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
+    <section id="resume" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-primary-50 to-transparent rounded-full translate-x-48 opacity-60" />
       <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-gradient-to-r from-blue-50 to-transparent rounded-full -translate-x-36 opacity-60" />
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-4">
               Resume
@@ -39,17 +39,17 @@ const Resume: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-8 lg:p-12 border border-primary-100 relative overflow-hidden">
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-200/30 rounded-full -translate-y-16 translate-x-16" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-200/30 rounded-full translate-y-12 -translate-x-12" />
+          <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-6 lg:p-12 border border-primary-100 relative overflow-hidden">
+            {/* Decorative Elements - Hidden on mobile */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-200/30 rounded-full -translate-y-16 translate-x-16 hidden lg:block" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-200/30 rounded-full translate-y-12 -translate-x-12 hidden lg:block" />
 
             <div className="relative z-10">
               {/* Resume Preview */}
               <div className="lg:flex items-center gap-12">
                 {/* Preview Card */}
                 <div className="lg:w-1/2 mb-8 lg:mb-0">
-                  <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200 group hover:shadow-2xl transition-all duration-300">
+                  <div className="bg-white rounded-xl shadow-xl p-6 lg:p-8 border border-gray-200 group hover:shadow-2xl transition-all duration-300">
                     <div className="flex items-center justify-center mb-6">
                       <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-300">
                         <FileText size={32} className="text-primary-700" />

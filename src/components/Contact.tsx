@@ -54,7 +54,6 @@ const socialLinks = [
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleLinks, setVisibleLinks] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -62,15 +61,9 @@ const Contact: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate social links one by one
-          socialLinks.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleLinks(prev => [...prev, index]);
-            }, index * 100);
-          });
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
     );
 
     if (sectionRef.current) {
@@ -81,13 +74,13 @@ const Contact: React.FC = () => {
   }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary-100 to-transparent rounded-full -translate-y-48 opacity-60" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-gradient-to-tl from-blue-100 to-transparent rounded-full translate-y-36 opacity-60" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-4">
               Let's Connect
@@ -118,12 +111,10 @@ const Contact: React.FC = () => {
             {socialLinks.map((link, index) => (
               <div
                 key={index}
-                className={`transition-all duration-700 ${
-                  visibleLinks.includes(index) 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
+                className={`transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <a
                   href={link.url}
@@ -168,7 +159,7 @@ const Contact: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  <div className="w-3 h-3 bg-green-500 rounded-full" />
                 </div>
                 <h4 className="font-medium text-gray-900 mb-1">Currently Available</h4>
                 <p className="text-sm text-gray-600">Open for new opportunities</p>

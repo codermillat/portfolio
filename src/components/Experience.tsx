@@ -53,7 +53,6 @@ const experiences: ExperienceItem[] = [
 
 const Experience: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -61,15 +60,9 @@ const Experience: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate items one by one
-          experiences.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleItems(prev => [...prev, index]);
-            }, index * 200);
-          });
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
     );
 
     if (sectionRef.current) {
@@ -80,13 +73,13 @@ const Experience: React.FC = () => {
   }, []);
 
   return (
-    <section id="experience" ref={sectionRef} className="py-20 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+    <section id="experience" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-r from-primary-100 to-transparent rounded-full -translate-x-36 opacity-60" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-l from-blue-100 to-transparent rounded-full translate-x-48 opacity-60" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-16 text-center">
             Experience & Education
           </h2>
@@ -95,16 +88,14 @@ const Experience: React.FC = () => {
             {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-primary-400 to-primary-300 hidden lg:block" />
 
-            <div className="space-y-12">
+            <div className="space-y-8 lg:space-y-12">
               {experiences.map((exp, index) => (
                 <div 
                   key={index}
-                  className={`relative transition-all duration-700 ${
-                    visibleItems.includes(index) 
-                      ? 'opacity-100 translate-x-0' 
-                      : 'opacity-0 translate-x-10'
+                  className={`relative transition-all duration-500 ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
                   }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  style={{ transitionDelay: `${index * 200}ms` }}
                 >
                   {/* Timeline Dot */}
                   <div className="absolute left-6 top-6 w-5 h-5 rounded-full border-4 border-white shadow-lg hidden lg:block z-10"
@@ -114,7 +105,7 @@ const Experience: React.FC = () => {
 
                   {/* Content Card */}
                   <div className="lg:ml-20 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                    <div className="p-8">
+                    <div className="p-6 lg:p-8">
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                         <div className="flex-grow">
                           <div className="flex items-center gap-3 mb-2">
@@ -137,7 +128,7 @@ const Experience: React.FC = () => {
                           </p>
                         </div>
                         
-                        <div className="text-sm text-gray-500 lg:text-right space-y-1">
+                        <div className="text-sm text-gray-500 lg:text-right space-y-1 mt-2 lg:mt-0">
                           <div className="flex items-center gap-2 lg:justify-end">
                             <Calendar size={14} />
                             <span>{exp.period}</span>
