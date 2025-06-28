@@ -22,6 +22,19 @@ const Resume: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'MD_MILLAT_HOSEN_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handlePreviewResume = () => {
+    window.open('/resume.pdf', '_blank');
+  };
+
   return (
     <section id="resume" ref={sectionRef} className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Background Elements */}
@@ -101,12 +114,20 @@ const Resume: React.FC = () => {
                   </p>
 
                   <div className="space-y-4">
-                    <button className="w-full lg:w-auto group bg-primary-600 hover:bg-primary-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <button 
+                      onClick={handleDownloadResume}
+                      className="w-full lg:w-auto group bg-primary-600 hover:bg-primary-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      aria-label="Download MD MILLAT HOSEN Resume PDF"
+                    >
                       <Download size={18} className="sm:w-5 sm:h-5" />
                       Download PDF Resume
                     </button>
                     
-                    <button className="w-full lg:w-auto group border-2 border-primary-600 text-primary-600 hover:bg-primary-50 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-3">
+                    <button 
+                      onClick={handlePreviewResume}
+                      className="w-full lg:w-auto group border-2 border-primary-600 text-primary-600 hover:bg-primary-50 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-3"
+                      aria-label="Preview MD MILLAT HOSEN Resume online"
+                    >
                       <Eye size={18} className="sm:w-5 sm:h-5" />
                       Preview Online
                     </button>

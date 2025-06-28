@@ -13,6 +13,15 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
     }
   };
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'MD_MILLAT_HOSEN_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
@@ -63,6 +72,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center items-center mb-12 lg:mb-16">
             <button 
+              onClick={handleDownloadResume}
               className="group bg-white text-primary-900 px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-medium hover:bg-blue-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto"
               aria-label="Download MD MILLAT HOSEN Resume"
             >
