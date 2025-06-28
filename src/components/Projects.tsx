@@ -95,13 +95,13 @@ const Projects: React.FC = () => {
               Featured Projects
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto text-justify">
+            <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto text-justify">
               A collection of projects that showcase my approach to building meaningful solutions 
               that combine technical excellence with user-centered design and business impact.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-1 gap-6 lg:gap-8">
+          <div className="space-y-8">
             {projects.map((project, index) => (
               <div 
                 key={index}
@@ -111,66 +111,68 @@ const Projects: React.FC = () => {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
-                  <div className="lg:flex">
+                  <div className="lg:flex lg:h-80">
                     {/* Image Section */}
                     <div className="lg:w-2/5 relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-90`} />
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-48 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                          <project.icon size={24} className="text-white" />
+                        <div className="w-16 h-16 lg:w-20 lg:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                          <project.icon size={32} className="text-white" />
                         </div>
                       </div>
                       {project.metrics && (
-                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-gray-800">
+                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800">
                           {project.metrics}
                         </div>
                       )}
                     </div>
 
                     {/* Content Section */}
-                    <div className="lg:w-3/5 p-4 lg:p-8">
-                      <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-xl lg:text-2xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 flex-1 pr-4">
-                          {project.title}
-                        </h3>
-                        <div className="flex gap-2 flex-shrink-0">
-                          <button className="w-8 h-8 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                            <Github size={14} className="text-gray-600 group-hover:text-primary-600" />
-                          </button>
-                          <button className="w-8 h-8 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                            <ExternalLink size={14} className="text-gray-600 group-hover:text-primary-600" />
-                          </button>
+                    <div className="lg:w-3/5 p-6 lg:p-8 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-start justify-between mb-4">
+                          <h3 className="text-xl lg:text-2xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 flex-1 pr-4">
+                            {project.title}
+                          </h3>
+                          <div className="flex gap-2 flex-shrink-0">
+                            <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
+                              <Github size={16} className="text-gray-600 group-hover:text-primary-600" />
+                            </button>
+                            <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
+                              <ExternalLink size={16} className="text-gray-600 group-hover:text-primary-600" />
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <p className="text-sm lg:text-base text-gray-700 leading-relaxed mb-4 text-justify">
-                        {project.description}
-                      </p>
-                      
-                      <div className="mb-4">
-                        <h4 className="text-xs font-semibold text-gray-900 mb-2 uppercase tracking-wide">Key Features</h4>
-                        <div className="grid sm:grid-cols-2 gap-1">
-                          {project.highlights.map((highlight, highlightIndex) => (
-                            <div key={highlightIndex} className="flex items-start gap-2">
-                              <Star size={12} className="text-primary-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-xs text-gray-600">{highlight}</span>
-                            </div>
-                          ))}
+                        
+                        <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                          {project.description}
+                        </p>
+                        
+                        <div className="mb-6">
+                          <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Key Features</h4>
+                          <div className="grid sm:grid-cols-2 gap-2">
+                            {project.highlights.map((highlight, highlightIndex) => (
+                              <div key={highlightIndex} className="flex items-start gap-2">
+                                <Star size={14} className="text-primary-500 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-gray-600">{highlight}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                       
                       <div>
-                        <h4 className="text-xs font-semibold text-gray-900 mb-2 uppercase tracking-wide">Technologies</h4>
-                        <div className="flex flex-wrap gap-1">
+                        <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Technologies</h4>
+                        <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, techIndex) => (
                             <span 
                               key={techIndex}
-                              className="px-2 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200"
+                              className="px-3 py-1 text-sm font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200"
                             >
                               {tech}
                             </span>
