@@ -83,20 +83,21 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" ref={sectionRef} className="py-12 lg:py-20 px-4 lg:px-6 bg-white relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Background Elements */}
       <div className="absolute top-0 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-bl from-primary-50/60 to-transparent rounded-full -translate-y-32 lg:-translate-y-48 opacity-60" />
       <div className="absolute bottom-0 left-1/4 w-48 h-48 lg:w-72 lg:h-72 bg-gradient-to-tr from-blue-50/60 to-transparent rounded-full translate-y-24 lg:translate-y-36 opacity-60" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {/* Compact Section Header */}
+          {/* Section Header */}
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-3">
               Featured Projects
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A collection of projects that showcase my approach to building meaningful solutions
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto text-justify">
+              A collection of projects that showcase my approach to building meaningful solutions 
+              that combine technical excellence with user-centered design and business impact.
             </p>
           </div>
 
@@ -111,7 +112,7 @@ const Projects: React.FC = () => {
               >
                 <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
                   <div className="lg:flex">
-                    {/* Image Section - Optimized for mobile */}
+                    {/* Image Section */}
                     <div className="lg:w-2/5 relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-90`} />
                       <img 
@@ -131,7 +132,7 @@ const Projects: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Content Section - Optimized spacing */}
+                    {/* Content Section */}
                     <div className="lg:w-3/5 p-4 lg:p-8">
                       <div className="flex items-start justify-between mb-4">
                         <h3 className="text-xl lg:text-2xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 flex-1 pr-4">
@@ -147,7 +148,7 @@ const Projects: React.FC = () => {
                         </div>
                       </div>
                       
-                      <p className="text-sm lg:text-base text-gray-700 leading-relaxed mb-4">
+                      <p className="text-sm lg:text-base text-gray-700 leading-relaxed mb-4 text-justify">
                         {project.description}
                       </p>
                       

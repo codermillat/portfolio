@@ -24,29 +24,30 @@ const Creative: React.FC = () => {
 
   return (
     <section id="creative" ref={sectionRef} className="py-12 lg:py-20 px-4 lg:px-6 bg-gray-900 relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-950 to-gray-900" />
       <div className="absolute top-1/4 left-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-primary-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-48 h-48 lg:w-72 lg:h-72 bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {/* Compact Section Header */}
+          {/* Section Header */}
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-white mb-3">
               Storytelling in Silence
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-400 to-blue-400 mx-auto rounded-full mb-4" />
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Beyond code lies the art of expression — where emotions find their voice through visual poetry
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto text-justify">
+              Beyond code lies the art of expression — where emotions find their voice through visual poetry 
+              and meaningful narratives that speak to the human experience.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
-            {/* Featured Creative Work - Optimized */}
+            {/* Featured Creative Work */}
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden group hover:border-primary-500/50 transition-all duration-500">
               <div className="lg:flex">
-                {/* Visual Preview - Compact */}
+                {/* Visual Preview */}
                 <div className="lg:w-2/5 relative">
                   <div className="aspect-video lg:aspect-square bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent" />
@@ -59,7 +60,7 @@ const Creative: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Content - Optimized spacing */}
+                {/* Content */}
                 <div className="lg:w-3/5 p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Heart size={18} className="text-red-400" />
@@ -69,17 +70,17 @@ const Creative: React.FC = () => {
                   </div>
                   
                   <div className="space-y-4 text-gray-300 leading-relaxed text-sm lg:text-base">
-                    <p>
+                    <p className="text-justify">
                       Sometimes the most profound truths live in the spaces between words. 
                       This piece explores the quiet anguish that exists beneath the surface of everyday interactions.
                     </p>
                     
-                    <p>
+                    <p className="text-justify">
                       The weight of unspoken thoughts, the burden of carrying others' expectations, 
                       the delicate art of maintaining composure while everything inside whispers otherwise.
                     </p>
 
-                    {/* Quote - Compact */}
+                    {/* Quote */}
                     <blockquote className="border-l-4 border-primary-500 pl-4 py-3 bg-gray-800/30 rounded-r-lg">
                       <Quote size={14} className="text-primary-400 mb-2" />
                       <p className="italic text-primary-200 font-light text-sm">
@@ -88,7 +89,7 @@ const Creative: React.FC = () => {
                     </blockquote>
                   </div>
 
-                  {/* Engagement Stats - Compact */}
+                  {/* Engagement Stats */}
                   <div className="flex items-center gap-4 mt-6 pt-4 border-t border-gray-700">
                     <div className="flex items-center gap-2 text-gray-400">
                       <Eye size={14} />
@@ -107,7 +108,7 @@ const Creative: React.FC = () => {
               </div>
             </div>
 
-            {/* Philosophy Section - Compact */}
+            {/* Philosophy Section */}
             <div className="mt-12 lg:mt-16 text-center">
               <div className="max-w-3xl mx-auto">
                 <h3 className="text-lg font-serif text-white mb-6">Creative Philosophy</h3>

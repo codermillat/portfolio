@@ -24,13 +24,13 @@ const About: React.FC = () => {
 
   return (
     <section id="about" ref={sectionRef} className="py-12 lg:py-20 px-4 lg:px-6 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-bl from-primary-100/40 to-transparent rounded-full -translate-y-32 translate-x-32 lg:-translate-y-48 lg:translate-x-48" />
       <div className="absolute bottom-0 left-0 w-48 h-48 lg:w-64 lg:h-64 bg-gradient-to-tr from-blue-100/40 to-transparent rounded-full translate-y-24 -translate-x-24 lg:translate-y-32 lg:-translate-x-32" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {/* Compact Section Header */}
+          {/* Section Header */}
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-3">
               About Me
@@ -156,7 +156,7 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Core Strengths - Restored Original Design */}
+              {/* Core Strengths */}
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
                 <h3 className="text-xl font-semibold text-gray-900 mb-5 text-center">Core Strengths</h3>
                 

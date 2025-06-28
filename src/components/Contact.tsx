@@ -75,29 +75,30 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" ref={sectionRef} className="py-12 lg:py-20 px-4 lg:px-6 bg-gray-50 relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Background Elements */}
       <div className="absolute top-0 left-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-br from-primary-100/60 to-transparent rounded-full -translate-y-32 lg:-translate-y-48 opacity-60" />
       <div className="absolute bottom-0 right-1/4 w-48 h-48 lg:w-72 lg:h-72 bg-gradient-to-tl from-blue-100/60 to-transparent rounded-full translate-y-24 lg:translate-y-36 opacity-60" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {/* Compact Section Header */}
+          {/* Section Header */}
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-3">
               Let's Connect
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-              Open to opportunities, collaborations, and meaningful conversations about technology and creativity
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6 text-justify">
+              Open to opportunities, collaborations, and meaningful conversations about technology and creativity. 
+              Let's build something amazing together.
             </p>
             
-            {/* Call to Action - Compact */}
+            {/* Call to Action */}
             <div className="bg-gradient-to-r from-primary-600 to-blue-600 text-white p-6 rounded-xl max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-3">
                 <MessageCircle size={20} />
                 <h3 className="text-lg font-semibold">Want to build with purpose?</h3>
               </div>
-              <p className="text-blue-100 mb-4 text-sm">Let's discuss your project and create something meaningful together</p>
+              <p className="text-blue-100 mb-4 text-sm text-justify">Let's discuss your project and create something meaningful together</p>
               <a 
                 href="mailto:millat6575@gmail.com"
                 className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors duration-300"
@@ -108,7 +109,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Social Links Grid - Optimized */}
+          {/* Social Links Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
             {socialLinks.map((link, index) => (
               <div
@@ -124,7 +125,7 @@ const Contact: React.FC = () => {
                   rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
                   className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-100"
                 >
-                  {/* Header with Gradient - Compact */}
+                  {/* Header with Gradient */}
                   <div className={`bg-gradient-to-r ${link.color} p-3 text-white relative overflow-hidden`}>
                     <div className="absolute top-0 right-0 w-12 h-12 bg-white/10 rounded-full -translate-y-6 translate-x-6" />
                     <div className="relative z-10 flex items-center gap-3">
@@ -136,7 +137,7 @@ const Contact: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Content - Compact */}
+                  {/* Content */}
                   <div className="p-3">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600 text-xs font-mono truncate flex-grow">
@@ -155,7 +156,7 @@ const Contact: React.FC = () => {
             ))}
           </div>
 
-          {/* Additional Contact Info - Compact */}
+          {/* Additional Contact Info */}
           <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 text-center">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Availability</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
