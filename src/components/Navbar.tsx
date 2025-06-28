@@ -33,15 +33,19 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
-        : 'bg-transparent'
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
+        : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="font-serif font-semibold text-xl text-primary-900">
-              <span className="text-primary-700">MD</span> Millat
+            <div className={`font-serif font-semibold text-xl transition-colors duration-300 ${
+              isScrolled 
+                ? 'text-primary-900' 
+                : 'text-white drop-shadow-lg'
+            }`}>
+              <span className={isScrolled ? 'text-primary-700' : 'text-blue-300'}>MD</span> Millat
             </div>
           </div>
 
@@ -52,10 +56,16 @@ const Navbar: React.FC = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-700 hover:text-primary-700 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative group ${
+                    isScrolled 
+                      ? 'text-gray-700 hover:text-primary-700' 
+                      : 'text-white/90 hover:text-white drop-shadow-sm'
+                  }`}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-300 group-hover:w-full"></span>
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    isScrolled ? 'bg-primary-700' : 'bg-white'
+                  }`}></span>
                 </button>
               ))}
             </div>
@@ -65,7 +75,11 @@ const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-primary-700 p-2"
+              className={`p-2 transition-colors duration-300 ${
+                isScrolled 
+                  ? 'text-gray-700 hover:text-primary-700' 
+                  : 'text-white hover:text-blue-200'
+              }`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
