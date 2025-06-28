@@ -213,7 +213,7 @@ const Resume: React.FC = () => {
 
                     <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
                       <Calendar size={14} />
-                      <span>Last updated: January 2025</span>
+                      <span>Last updated: June 2025</span>
                     </div>
                   </div>
                 </div>
