@@ -15,14 +15,14 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
+      {/* Optimized Animated Background */}
       <div className="absolute inset-0 bg-hero-gradient animate-gradient bg-[length:400%_400%]">
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+        {/* Reduced Floating Particles for mobile performance */}
+        <div className="absolute inset-0 hidden lg:block">
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full animate-particles"
+              className="absolute w-1 h-1 lg:w-2 lg:h-2 bg-white/20 rounded-full animate-particles"
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 20}s`,
@@ -36,58 +36,56 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-900/20 to-primary-950/40" />
       </div>
 
-      {/* Content - Added proper top padding to avoid navbar overlap */}
+      {/* Content - Optimized spacing and typography */}
       <div 
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20 pb-8"
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+        className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-16 pb-8"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
       >
         <div className="animate-fade-in">
-          {/* Logo/Name */}
-          <div className="mb-8">
-            <h1 className="font-serif font-semibold text-5xl md:text-7xl text-white mb-4 tracking-tight">
+          {/* Logo/Name - Improved typography */}
+          <div className="mb-6 lg:mb-8">
+            <h1 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-white mb-3 tracking-tight">
               <span className="text-blue-300">MD</span> Millat
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full" />
+            <div className="w-16 lg:w-24 h-0.5 lg:h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full" />
           </div>
 
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 font-light leading-relaxed">
+          {/* Tagline - Improved spacing */}
+          <p className="text-lg md:text-xl lg:text-2xl text-blue-100 mb-6 lg:mb-8 font-light leading-relaxed">
             I build systems in silence and stories in code.
           </p>
 
-          {/* Philosophy */}
-          <p className="text-lg text-blue-200/80 mb-12 font-light italic max-w-2xl mx-auto">
+          {/* Philosophy - Compact */}
+          <p className="text-base lg:text-lg text-blue-200/80 mb-8 lg:mb-12 font-light italic max-w-2xl mx-auto">
             "I don't chase spotlight or motivation. I build for clarity, not applause."
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button className="group bg-white text-primary-900 px-8 py-4 rounded-lg font-medium hover:bg-blue-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              <Download size={20} />
+          {/* CTA Buttons - Improved mobile layout */}
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center items-center mb-12 lg:mb-16">
+            <button className="group bg-white text-primary-900 px-6 lg:px-8 py-3 lg:py-4 rounded-lg font-medium hover:bg-blue-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto">
+              <Download size={18} />
               View Resume
-              <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
             
             <button 
               onClick={scrollToProjects}
-              className="group border-2 border-white/30 text-white px-8 py-4 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
+              className="group border-2 border-white/30 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm w-full sm:w-auto"
             >
-              <Code size={20} />
+              <Code size={18} />
               See My Work
             </button>
           </div>
 
           {/* Scroll Indicator */}
           <div className="animate-bounce">
-            <ArrowDown size={24} className="text-white/60 mx-auto" />
+            <ArrowDown size={20} className="text-white/60 mx-auto" />
           </div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-10 left-10 w-20 h-20 border border-white/20 rounded-full animate-float hidden lg:block" />
-      <div className="absolute top-1/4 right-10 w-16 h-16 border border-white/20 rounded-lg animate-float hidden lg:block" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/3 left-1/4 w-12 h-12 border border-white/20 rounded-full animate-float hidden lg:block" style={{ animationDelay: '4s' }} />
+      {/* Decorative Elements - Hidden on mobile for performance */}
+      <div className="absolute bottom-10 left-10 w-16 h-16 lg:w-20 lg:h-20 border border-white/20 rounded-full animate-float hidden lg:block" />
+      <div className="absolute top-1/4 right-10 w-12 h-12 lg:w-16 lg:h-16 border border-white/20 rounded-lg animate-float hidden lg:block" style={{ animationDelay: '2s' }} />
     </section>
   );
 };

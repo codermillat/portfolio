@@ -71,7 +71,7 @@ const Projects: React.FC = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold for mobile
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     if (sectionRef.current) {
@@ -82,92 +82,94 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-16 lg:py-32 px-6 lg:px-8 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-primary-50 to-transparent rounded-full -translate-y-48 opacity-60" />
-      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-gradient-to-tr from-blue-50 to-transparent rounded-full translate-y-36 opacity-60" />
+    <section id="projects" ref={sectionRef} className="py-12 lg:py-20 px-4 lg:px-6 bg-white relative overflow-hidden">
+      {/* Optimized Background Elements */}
+      <div className="absolute top-0 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-gradient-to-bl from-primary-50/60 to-transparent rounded-full -translate-y-32 lg:-translate-y-48 opacity-60" />
+      <div className="absolute bottom-0 left-1/4 w-48 h-48 lg:w-72 lg:h-72 bg-gradient-to-tr from-blue-50/60 to-transparent rounded-full translate-y-24 lg:translate-y-36 opacity-60" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-4">
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          {/* Compact Section Header */}
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-serif font-semibold text-gray-900 mb-3">
               Featured Projects
             </h2>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-4" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               A collection of projects that showcase my approach to building meaningful solutions
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-1 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-1 gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <div 
                 key={index}
                 className={`transition-all duration-500 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-gray-100">
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
                   <div className="lg:flex">
-                    {/* Image Section */}
+                    {/* Image Section - Optimized for mobile */}
                     <div className="lg:w-2/5 relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-90`} />
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-64 lg:h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-48 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                          <project.icon size={32} className="text-white" />
+                        <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                          <project.icon size={24} className="text-white" />
                         </div>
                       </div>
                       {project.metrics && (
-                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-800">
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-gray-800">
                           {project.metrics}
                         </div>
                       )}
                     </div>
 
-                    {/* Content Section */}
-                    <div className="lg:w-3/5 p-6 lg:p-12">
-                      <div className="flex items-start justify-between mb-6">
-                        <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300">
+                    {/* Content Section - Optimized spacing */}
+                    <div className="lg:w-3/5 p-4 lg:p-8">
+                      <div className="flex items-start justify-between mb-4">
+                        <h3 className="text-xl lg:text-2xl font-semibold text-gray-900 group-hover:text-primary-700 transition-colors duration-300 flex-1 pr-4">
                           {project.title}
                         </h3>
-                        <div className="flex gap-2 ml-4">
-                          <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                            <Github size={18} className="text-gray-600 group-hover:text-primary-600" />
+                        <div className="flex gap-2 flex-shrink-0">
+                          <button className="w-8 h-8 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
+                            <Github size={14} className="text-gray-600 group-hover:text-primary-600" />
                           </button>
-                          <button className="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
-                            <ExternalLink size={18} className="text-gray-600 group-hover:text-primary-600" />
+                          <button className="w-8 h-8 bg-gray-100 hover:bg-primary-100 rounded-full flex items-center justify-center transition-colors duration-300 group">
+                            <ExternalLink size={14} className="text-gray-600 group-hover:text-primary-600" />
                           </button>
                         </div>
                       </div>
                       
-                      <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      <p className="text-sm lg:text-base text-gray-700 leading-relaxed mb-4">
                         {project.description}
                       </p>
                       
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Key Features</h4>
-                        <div className="grid sm:grid-cols-2 gap-2">
+                      <div className="mb-4">
+                        <h4 className="text-xs font-semibold text-gray-900 mb-2 uppercase tracking-wide">Key Features</h4>
+                        <div className="grid sm:grid-cols-2 gap-1">
                           {project.highlights.map((highlight, highlightIndex) => (
                             <div key={highlightIndex} className="flex items-start gap-2">
-                              <Star size={14} className="text-primary-500 mt-1 flex-shrink-0" />
-                              <span className="text-sm text-gray-600">{highlight}</span>
+                              <Star size={12} className="text-primary-500 mt-0.5 flex-shrink-0" />
+                              <span className="text-xs text-gray-600">{highlight}</span>
                             </div>
                           ))}
                         </div>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Technologies</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-xs font-semibold text-gray-900 mb-2 uppercase tracking-wide">Technologies</h4>
+                        <div className="flex flex-wrap gap-1">
                           {project.technologies.map((tech, techIndex) => (
                             <span 
                               key={techIndex}
-                              className="px-3 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200"
+                              className="px-2 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200"
                             >
                               {tech}
                             </span>
