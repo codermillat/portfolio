@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0 min-w-0">
             <button
               onClick={scrollToTop}
-              className={`font-serif font-semibold text-lg sm:text-xl transition-colors duration-300 truncate ${
+              className={`font-serif font-semibold text-base sm:text-lg lg:text-xl transition-colors duration-300 truncate ${
                 isScrolled 
                   ? 'text-primary-900' 
                   : 'text-white drop-shadow-lg'
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center space-x-1 flex-shrink-0">
+          <div className="hidden lg:flex items-center space-x-1 flex-shrink-0">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="xl:hidden flex-shrink-0">
+          <div className="lg:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2 rounded-lg transition-all duration-300 ${
@@ -90,24 +90,24 @@ const Navbar: React.FC = () => {
               }`}
               aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`xl:hidden transition-all duration-300 ease-in-out ${
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
           isMobileMenuOpen 
             ? 'max-h-96 opacity-100' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 rounded-b-xl shadow-lg mx-2 mb-2">
+          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 rounded-b-2xl shadow-lg mx-2 mb-2">
             <div className="px-4 py-3 space-y-1">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-all duration-200 flex items-center justify-between group"
+                  className="w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl transition-all duration-200 flex items-center justify-between group"
                   style={{ animationDelay: `${index * 50}ms` }}
                   aria-label={`Navigate to ${item.name} section`}
                 >
