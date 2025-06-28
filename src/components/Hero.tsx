@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-hero-gradient animate-gradient bg-[length:400%_400%]">
         {/* Floating Particles */}
@@ -36,9 +36,9 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-900/20 to-primary-950/40" />
       </div>
 
-      {/* Content */}
+      {/* Content - Added proper top padding to avoid navbar overlap */}
       <div 
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20 pb-8"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
         <div className="animate-fade-in">
