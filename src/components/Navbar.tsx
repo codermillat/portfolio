@@ -30,6 +30,11 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -39,10 +44,10 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - Fixed width to prevent overlap */}
-          <div className="flex-shrink-0 w-32 sm:w-40">
+          <div className="flex-shrink-0">
             <button
-              onClick={() => scrollToSection('#hero')}
-              className={`font-serif font-semibold text-lg sm:text-xl transition-colors duration-300 ${
+              onClick={scrollToTop}
+              className={`font-serif font-semibold text-lg sm:text-xl transition-colors duration-300 whitespace-nowrap ${
                 isScrolled 
                   ? 'text-primary-900' 
                   : 'text-white drop-shadow-lg'

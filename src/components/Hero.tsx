@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, ArrowDown, Code, Heart } from 'lucide-react';
+import { Download, ArrowDown, Code } from 'lucide-react';
 
 interface HeroProps {
   scrollY: number;
@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-hero-gradient animate-gradient bg-[length:400%_400%]">
         {/* Floating Particles */}
