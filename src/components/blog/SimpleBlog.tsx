@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BookOpen, Calendar, User, Tag, ArrowRight, Clock, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface BlogPost {
   slug: string;
@@ -100,6 +101,7 @@ const staticBlogPosts: BlogPost[] = [
 ];
 
 const SimpleBlog: React.FC = () => {
+  const navigate = useNavigate();
   const featuredPosts = staticBlogPosts.filter(post => post.featured);
   const allTags = Array.from(new Set(staticBlogPosts.flatMap(post => post.tags))).sort();
 
@@ -124,12 +126,7 @@ const SimpleBlog: React.FC = () => {
   };
 
   const handleBlogClick = (slug: string) => {
-    // For now, we'll show an alert with the blog post info
-    // In a real implementation, this would navigate to a blog post page
-    const post = staticBlogPosts.find(p => p.slug === slug);
-    if (post) {
-      alert(`Blog Post: ${post.title}\n\nThis is a preview. In a full implementation, this would navigate to the complete article.\n\nDescription: ${post.description}`);
-    }
+    navigate(`/blog/${slug}`);
   };
 
   return (
@@ -169,14 +166,21 @@ const SimpleBlog: React.FC = () => {
         {/* All Posts */}
         {staticBlogPosts.length > 0 && (
           <div className="mb-16 sm:mb-20 lg:mb-24">
-            <div className="flex items-center justify-center sm:justify-start mb-8 sm:mb-12">
+            <div className="flex items-center justify-between mb-8 sm:mb-12">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center">
                 <span className="inline-block w-8 h-1 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mr-4"></span>
                 All Articles
               </h3>
+              <button
+                onClick={() => navigate('/blog')}
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 font-semibold"
+              >
+                Visit Blog
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-              {staticBlogPosts.map((post) => (
+              {staticBlogPosts.slice(0, 3).map((post) => (
                 <PostCard key={post.slug} post={post} formatDate={formatDate} onBlogClick={handleBlogClick} />
               ))}
             </div>

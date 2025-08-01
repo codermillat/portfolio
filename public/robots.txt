@@ -1,40 +1,15 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.millat.tech/sitemap-index.xml
+# Sitemap
 Sitemap: https://www.millat.tech/sitemap.xml
-Sitemap: https://www.millat.tech/image-sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 
-# Allow all search engines to crawl
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Disallow specific paths (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow important files
-Allow: /sitemap.xml
-Allow: /image-sitemap.xml
-Allow: /robots.txt
-Allow: /manifest.json
-Allow: /resume.pdf 
+# Allow all other content
+Allow: /blog/
+Allow: /resume.pdf
+Allow: /manifest.json 

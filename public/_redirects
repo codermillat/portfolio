@@ -1,12 +1,1 @@
-# Redirect old domain to new domain
-https://mdmillat.dev/* https://www.millat.tech/:splat 301!
-http://mdmillat.dev/* https://www.millat.tech/:splat 301!
-
-# Force HTTPS
-http://www.millat.tech/* https://www.millat.tech/:splat 301!
-
-# Remove trailing slashes
-/* /:splat 200
-
-# Handle 404s
-/* /index.html 200 
+/*    /index.html   200 

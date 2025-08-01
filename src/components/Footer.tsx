@@ -1,44 +1,72 @@
 import React from 'react';
-import { Heart, Code } from 'lucide-react';
+import { Heart, Code, Mail, MapPin, Phone, Github, Linkedin, Twitter, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-8 lg:py-12 px-4 lg:px-6 bg-gray-900 text-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-950 to-gray-900" />
-      <div className="absolute top-0 left-1/4 w-48 h-48 lg:w-64 lg:h-64 bg-primary-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-32 h-32 lg:w-48 lg:h-48 bg-blue-500/5 rounded-full blur-3xl" />
+    <footer className="bg-gray-900 text-white py-12 lg:py-16">
+      {/* Top Line */}
+      <div className="border-t-4 border-gray-700"></div>
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center">
-          {/* Logo/Name - SEO Optimized */}
-          <div className="mb-6">
-            <h3 className="font-serif font-semibold text-xl lg:text-2xl text-white mb-2">
+      {/* Footer Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
+          {/* About Section */}
+          <div className="lg:col-span-2">
+            <h3 className="text-2xl font-bold mb-4 flex items-center">
               <span className="text-primary-400">MD MILLAT</span> HOSEN
             </h3>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-primary-400 to-blue-400 mx-auto rounded-full" />
-          </div>
-
-          {/* Signature Quote */}
-          <div className="mb-6">
-            <blockquote className="text-base lg:text-lg text-gray-300 italic font-light mb-3 max-w-2xl mx-auto">
-              "Silent by choice. Purposeful by design."
-            </blockquote>
-            <p className="text-gray-400 text-sm">
-              Building systems in silence and stories in code
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Full Stack Developer & Creative Strategist specializing in WordPress, React, Node.js, and mobile app development. 
+              Building meaningful solutions with technical excellence and creative strategy.
             </p>
+            <div className="flex space-x-4">
+              <a href="https://github.com/codermillat" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/codermillat" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://twitter.com/codermillat" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
-          {/* SEO Keywords for Brand Recognition */}
-          <div className="mb-6 text-xs text-gray-500">
-            <p>Also known as: MD MILLAT • Mohd MILLAT • codermillat</p>
+          {/* Services */}
+          <div>
+            <h4 className="font-bold mb-4 text-lg">Services</h4>
+            <ul className="text-gray-300 space-y-2">
+              <li><a href="#projects" className="hover:text-white transition-colors">WordPress Development</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">React Applications</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">Mobile App Development</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">SEO Optimization</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">UI/UX Design</a></li>
+            </ul>
           </div>
 
-          {/* Divider */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6" />
+          {/* Contact */}
+          <div>
+            <h4 className="font-bold mb-4 text-lg">Contact</h4>
+            <div className="space-y-3 text-gray-300">
+              <div className="flex items-center">
+                <Mail className="w-4 h-4 mr-2 text-primary-400" />
+                <a href="mailto:millat6575@gmail.com" className="hover:text-white transition-colors">millat6575@gmail.com</a>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="w-4 h-4 mr-2 text-primary-400" />
+                <span>Greater Noida, India</span>
+              </div>
+              <div className="flex items-center">
+                <ExternalLink className="w-4 h-4 mr-2 text-primary-400" />
+                <a href="https://www.millat.tech" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">www.millat.tech</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          {/* Footer Bottom */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
               © 2025 MD MILLAT HOSEN. All rights reserved.
             </div>
@@ -52,12 +80,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Additional Footer Note */}
-          <div className="mt-6 pt-4 border-t border-gray-800">
-            <p className="text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              This portfolio represents my journey as <strong>MD MILLAT HOSEN</strong> - a full-stack developer and creative strategist. 
-              Every project, every line of code, and every design choice reflects my commitment 
-              to building meaningful solutions that make a difference.
+          {/* Additional Info */}
+          <div className="mt-4 pt-4 border-t border-gray-800">
+            <p className="text-xs text-gray-500 text-center max-w-2xl mx-auto leading-relaxed">
+              Also known as: <strong>MD MILLAT</strong> • <strong>Mohd MILLAT</strong> • <strong>codermillat</strong> • 
+              "Silent by choice. Purposeful by design." - Building systems in silence and stories in code.
             </p>
           </div>
         </div>

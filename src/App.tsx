@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +11,8 @@ import Resume from './components/Resume';
 import SimpleBlog from './components/blog/SimpleBlog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -54,31 +57,41 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 font-inter overflow-x-hidden">
-      {/* SEO: Hidden heading for screen readers and search engines */}
-      <h1 className="sr-only">
-        MD MILLAT HOSEN - Full Stack Developer, WordPress Expert, React Developer, Creative Strategist from Greater Noida, India
-      </h1>
-      
-      {/* SEO: Additional hidden content for search engines */}
-      <div className="sr-only">
-        <p>MD MILLAT HOSEN is a Full Stack Developer and Creative Strategist based in Greater Noida, India. Specializing in WordPress development, React applications, Node.js backend development, and mobile app development. Expert in WooCommerce, Progressive Web Apps, and Android development.</p>
-        <p>Services include: WordPress Development, React Development, Node.js Development, Mobile App Development, WooCommerce Development, PWA Development, SEO Optimization, UI/UX Design</p>
-        <p>Technologies: PHP, JavaScript, React, Node.js, WordPress, WooCommerce, Android, Firebase, MySQL, REST APIs, Tailwind CSS, Git, Docker</p>
-      </div>
-      
-      <Navbar />
-      <Hero scrollY={scrollY} />
-      <About />
-      <Experience />
-      <Projects />
-      <Creative />
-      <Skills />
-      <Resume />
-      <SimpleBlog />
-      <Contact />
-      <Footer />
-    </main>
+    <Router>
+      <main className="min-h-screen bg-gray-50 text-gray-900 font-inter overflow-x-hidden">
+        <Routes>
+          <Route path="/" element={
+            <>
+              {/* SEO: Hidden heading for screen readers and search engines */}
+              <h1 className="sr-only">
+                MD MILLAT HOSEN - Full Stack Developer, WordPress Expert, React Developer, Creative Strategist from Greater Noida, India
+              </h1>
+              
+              {/* SEO: Additional hidden content for search engines */}
+              <div className="sr-only">
+                <p>MD MILLAT HOSEN is a Full Stack Developer and Creative Strategist based in Greater Noida, India. Specializing in WordPress development, React applications, Node.js backend development, and mobile app development. Expert in WooCommerce, Progressive Web Apps, and Android development.</p>
+                <p>Services include: WordPress Development, React Development, Node.js Development, Mobile App Development, WooCommerce Development, PWA Development, SEO Optimization, UI/UX Design</p>
+                <p>Technologies: PHP, JavaScript, React, Node.js, WordPress, WooCommerce, Android, Firebase, MySQL, REST APIs, Tailwind CSS, Git, Docker</p>
+              </div>
+              
+              <Navbar />
+              <Hero scrollY={scrollY} />
+              <About />
+              <Experience />
+              <Projects />
+              <Creative />
+              <Skills />
+              <Resume />
+              <SimpleBlog />
+              <Contact />
+              <Footer />
+            </>
+          } />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 
