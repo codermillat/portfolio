@@ -124,4 +124,29 @@
     <priority>0.1</priority>
   </url>
 
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.millat.tech/blog/getting-started-with-wordpress-development</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.millat.tech/blog/wordpress-development.jpg</image:loc>
+      <image:title>Getting Started with WordPress Development: A Complete Guide</image:title>
+      <image:caption>Learn the fundamentals of WordPress development, from setting up your environment to creating custom themes and plugins</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.millat.tech/blog/react-performance-optimization</loc>
+    <lastmod>2025-01-26T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.millat.tech/blog/react-performance.jpg</image:loc>
+      <image:title>React Performance Optimization: 10 Essential Techniques</image:title>
+      <image:caption>Master React performance optimization with these 10 essential techniques for building faster applications</image:caption>
+    </image:image>
+  </url>
+
 </urlset> 

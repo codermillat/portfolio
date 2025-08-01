@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Creative from './components/Creative';
 import Skills from './components/Skills';
 import Resume from './components/Resume';
+import Blog from './components/blog/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -74,6 +75,7 @@ function App() {
       <Creative />
       <Skills />
       <Resume />
+      <Blog />
       <Contact />
       <Footer />
     </main>
