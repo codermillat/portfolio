@@ -10,9 +10,26 @@ interface BlogPost {
   tags: string[];
   featured: boolean;
   excerpt: string;
+  gradient: string;
 }
 
-// Static blog posts data
+// Dynamic gradient combinations for colorful cards
+const gradients = [
+  'from-blue-500 to-purple-600',
+  'from-green-500 to-blue-600',
+  'from-purple-500 to-pink-600',
+  'from-orange-500 to-red-600',
+  'from-teal-500 to-cyan-600',
+  'from-indigo-500 to-purple-600',
+  'from-pink-500 to-rose-600',
+  'from-yellow-500 to-orange-600',
+  'from-emerald-500 to-teal-600',
+  'from-violet-500 to-purple-600',
+  'from-cyan-500 to-blue-600',
+  'from-rose-500 to-pink-600'
+];
+
+// Static blog posts data with dynamic gradients
 const staticBlogPosts: BlogPost[] = [
   {
     slug: 'getting-started-with-wordpress-development',
@@ -22,7 +39,8 @@ const staticBlogPosts: BlogPost[] = [
     date: '2025-01-27',
     tags: ['WordPress', 'Web Development', 'PHP', 'Tutorial'],
     featured: true,
-    excerpt: 'WordPress powers over 40% of all websites on the internet, making it one of the most popular content management systems. Whether you\'re a beginner or an experienced developer, understanding WordPress development can open up numerous opportunities.'
+    excerpt: 'WordPress powers over 40% of all websites on the internet, making it one of the most popular content management systems. Whether you\'re a beginner or an experienced developer, understanding WordPress development can open up numerous opportunities.',
+    gradient: gradients[0] // Blue to Purple
   },
   {
     slug: 'react-performance-optimization',
@@ -32,7 +50,52 @@ const staticBlogPosts: BlogPost[] = [
     date: '2025-01-26',
     tags: ['React', 'JavaScript', 'Performance', 'Frontend', 'Optimization'],
     featured: false,
-    excerpt: 'React is a powerful library for building user interfaces, but as applications grow, performance can become a concern. In this comprehensive guide, we\'ll explore 10 essential techniques to optimize your React applications.'
+    excerpt: 'React is a powerful library for building user interfaces, but as applications grow, performance can become a concern. In this comprehensive guide, we\'ll explore 10 essential techniques to optimize your React applications.',
+    gradient: gradients[1] // Green to Blue
+  },
+  {
+    slug: 'modern-css-techniques',
+    title: 'Modern CSS Techniques for Better Web Design',
+    description: 'Explore cutting-edge CSS techniques including Grid, Flexbox, Custom Properties, and advanced animations to create stunning web designs.',
+    author: 'MD MILLAT HOSEN',
+    date: '2025-01-25',
+    tags: ['CSS', 'Web Design', 'Frontend', 'Animation'],
+    featured: true,
+    excerpt: 'CSS has evolved dramatically over the years, offering powerful new features that make web design more flexible and creative than ever before. From CSS Grid to Custom Properties, modern CSS techniques are revolutionizing how we build websites.',
+    gradient: gradients[2] // Purple to Pink
+  },
+  {
+    slug: 'nodejs-backend-development',
+    title: 'Building Scalable Backends with Node.js',
+    description: 'Learn how to build robust, scalable backend applications using Node.js, Express, and modern JavaScript practices.',
+    author: 'MD MILLAT HOSEN',
+    date: '2025-01-24',
+    tags: ['Node.js', 'Backend', 'JavaScript', 'API'],
+    featured: false,
+    excerpt: 'Node.js has become the go-to platform for building fast, scalable backend applications. With its event-driven, non-blocking I/O model, Node.js is perfect for building real-time applications and APIs.',
+    gradient: gradients[3] // Orange to Red
+  },
+  {
+    slug: 'mobile-app-development',
+    title: 'Mobile App Development: React Native vs Flutter',
+    description: 'Compare React Native and Flutter for cross-platform mobile development. Learn the pros, cons, and when to use each framework.',
+    author: 'MD MILLAT HOSEN',
+    date: '2025-01-23',
+    tags: ['Mobile', 'React Native', 'Flutter', 'Cross-platform'],
+    featured: false,
+    excerpt: 'Cross-platform mobile development has revolutionized how we build apps. With frameworks like React Native and Flutter, developers can create native-quality apps for both iOS and Android with a single codebase.',
+    gradient: gradients[4] // Teal to Cyan
+  },
+  {
+    slug: 'seo-best-practices',
+    title: 'SEO Best Practices for Modern Websites',
+    description: 'Master the latest SEO techniques to improve your website\'s search engine rankings and drive more organic traffic.',
+    author: 'MD MILLAT HOSEN',
+    date: '2025-01-22',
+    tags: ['SEO', 'Marketing', 'Web Development', 'Analytics'],
+    featured: false,
+    excerpt: 'Search Engine Optimization is crucial for any website that wants to be found online. With constantly evolving algorithms, staying up-to-date with SEO best practices is essential for success.',
+    gradient: gradients[5] // Indigo to Purple
   }
 ];
 
@@ -60,6 +123,15 @@ const SimpleBlog: React.FC = () => {
     });
   };
 
+  const handleBlogClick = (slug: string) => {
+    // For now, we'll show an alert with the blog post info
+    // In a real implementation, this would navigate to a blog post page
+    const post = staticBlogPosts.find(p => p.slug === slug);
+    if (post) {
+      alert(`Blog Post: ${post.title}\n\nThis is a preview. In a full implementation, this would navigate to the complete article.\n\nDescription: ${post.description}`);
+    }
+  };
+
   return (
     <section id="blog" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +152,7 @@ const SimpleBlog: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Featured Articles</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredPosts.map((post) => (
-                <FeaturedPostCard key={post.slug} post={post} formatDate={formatDate} />
+                <FeaturedPostCard key={post.slug} post={post} formatDate={formatDate} onBlogClick={handleBlogClick} />
               ))}
             </div>
           </div>
@@ -94,7 +166,7 @@ const SimpleBlog: React.FC = () => {
               {allTags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium"
+                  className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors cursor-pointer"
                 >
                   <Tag className="w-4 h-4 mr-2" />
                   {tag}
@@ -110,7 +182,7 @@ const SimpleBlog: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-8">All Articles</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {staticBlogPosts.map((post) => (
-                <PostCard key={post.slug} post={post} formatDate={formatDate} />
+                <PostCard key={post.slug} post={post} formatDate={formatDate} onBlogClick={handleBlogClick} />
               ))}
             </div>
           </div>
@@ -140,10 +212,14 @@ const SimpleBlog: React.FC = () => {
 };
 
 // Featured Post Card Component
-const FeaturedPostCard: React.FC<{ post: BlogPost; formatDate: (date: string) => string }> = ({ post, formatDate }) => {
+const FeaturedPostCard: React.FC<{ 
+  post: BlogPost; 
+  formatDate: (date: string) => string;
+  onBlogClick: (slug: string) => void;
+}> = ({ post, formatDate, onBlogClick }) => {
   return (
-    <article className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 relative">
+    <article className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer`} onClick={() => onBlogClick(post.slug)}>
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="absolute top-4 left-4">
           <span className="inline-flex items-center px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full">
@@ -185,13 +261,13 @@ const FeaturedPostCard: React.FC<{ post: BlogPost; formatDate: (date: string) =>
               </span>
             ))}
           </div>
-          <a
-            href={`/blog/${post.slug}`}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
+          <button
+            onClick={() => onBlogClick(post.slug)}
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
           >
             Read More
             <ArrowRight className="w-4 h-4 ml-1" />
-          </a>
+          </button>
         </div>
       </div>
     </article>
@@ -199,13 +275,17 @@ const FeaturedPostCard: React.FC<{ post: BlogPost; formatDate: (date: string) =>
 };
 
 // Regular Post Card Component
-const PostCard: React.FC<{ post: BlogPost; formatDate: (date: string) => string }> = ({ post, formatDate }) => {
+const PostCard: React.FC<{ 
+  post: BlogPost; 
+  formatDate: (date: string) => string;
+  onBlogClick: (slug: string) => void;
+}> = ({ post, formatDate, onBlogClick }) => {
   return (
-    <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 relative">
-        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+    <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer`} onClick={() => onBlogClick(post.slug)}>
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+          <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
             {post.title}
           </h3>
         </div>
@@ -239,13 +319,13 @@ const PostCard: React.FC<{ post: BlogPost; formatDate: (date: string) => string 
               </span>
             ))}
           </div>
-          <a
-            href={`/blog/${post.slug}`}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
+          <button
+            onClick={() => onBlogClick(post.slug)}
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
           >
             Read More
             <ArrowRight className="w-4 h-4 ml-1" />
-          </a>
+          </button>
         </div>
       </div>
     </article>
