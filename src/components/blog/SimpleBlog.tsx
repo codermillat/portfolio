@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BookOpen, Calendar, User, Tag, ArrowRight, Clock } from 'lucide-react';
+import { BookOpen, Calendar, User, Tag, ArrowRight, Clock, Sparkles } from 'lucide-react';
 
 interface BlogPost {
   slug: string;
@@ -133,24 +133,32 @@ const SimpleBlog: React.FC = () => {
   };
 
   return (
-    <section id="blog" className="py-20 bg-white">
+    <section id="blog" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        {/* Enhanced Header */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6">
+            <Sparkles className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Blog & Insights
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Sharing knowledge and insights on web development, WordPress, React, and modern web technologies. 
-            Practical tutorials and best practices for developers.
+            <span className="block sm:inline"> Practical tutorials and best practices for developers.</span>
           </p>
         </div>
 
         {/* Featured Posts */}
         {featuredPosts.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Featured Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mb-16 sm:mb-20 lg:mb-24">
+            <div className="flex items-center justify-center sm:justify-start mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center">
+                <span className="inline-block w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mr-4"></span>
+                Featured Articles
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
               {featuredPosts.map((post) => (
                 <FeaturedPostCard key={post.slug} post={post} formatDate={formatDate} onBlogClick={handleBlogClick} />
               ))}
@@ -158,29 +166,16 @@ const SimpleBlog: React.FC = () => {
           </div>
         )}
 
-        {/* Tags Filter */}
-        {allTags.length > 0 && (
-          <div className="mb-12">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Browse by Topic</h3>
-            <div className="flex flex-wrap gap-3">
-              {allTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors cursor-pointer"
-                >
-                  <Tag className="w-4 h-4 mr-2" />
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* All Posts */}
         {staticBlogPosts.length > 0 && (
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">All Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mb-16 sm:mb-20 lg:mb-24">
+            <div className="flex items-center justify-center sm:justify-start mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center">
+                <span className="inline-block w-8 h-1 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mr-4"></span>
+                All Articles
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
               {staticBlogPosts.map((post) => (
                 <PostCard key={post.slug} post={post} formatDate={formatDate} onBlogClick={handleBlogClick} />
               ))}
@@ -188,22 +183,28 @@ const SimpleBlog: React.FC = () => {
           </div>
         )}
 
-        {/* Newsletter Signup */}
-        <div className="mt-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Get the latest articles on web development, WordPress tips, and React optimization techniques 
-            delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <button className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
-              Subscribe
-            </button>
+        {/* Enhanced Newsletter Signup */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 rounded-3xl p-8 sm:p-12 lg:p-16 text-center text-white">
+          <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+          <div className="relative z-10">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-2xl mb-6">
+              <BookOpen className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">Stay Updated</h3>
+            <p className="text-blue-100 mb-8 sm:mb-10 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
+              Get the latest articles on web development, WordPress tips, and React optimization techniques 
+              delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md sm:max-w-lg mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30 text-base"
+              />
+              <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-base">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -211,50 +212,51 @@ const SimpleBlog: React.FC = () => {
   );
 };
 
-// Featured Post Card Component
+// Enhanced Featured Post Card Component
 const FeaturedPostCard: React.FC<{ 
   post: BlogPost; 
   formatDate: (date: string) => string;
   onBlogClick: (slug: string) => void;
 }> = ({ post, formatDate, onBlogClick }) => {
   return (
-    <article className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer`} onClick={() => onBlogClick(post.slug)}>
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+    <article className="group bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer overflow-hidden`} onClick={() => onBlogClick(post.slug)}>
+        <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
         <div className="absolute top-4 left-4">
-          <span className="inline-flex items-center px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full">
+          <span className="inline-flex items-center px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full shadow-lg">
             Featured
           </span>
         </div>
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
             {post.title}
           </h3>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       
-      <div className="p-6">
-        <p className="text-gray-600 mb-4 line-clamp-3">
+      <div className="p-6 sm:p-8">
+        <p className="text-gray-600 mb-6 sm:mb-8 line-clamp-3 text-sm sm:text-base leading-relaxed">
           {post.excerpt}
         </p>
         
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-500 mb-6 sm:mb-8 space-y-2 sm:space-y-0">
           <div className="flex items-center">
-            <User className="w-4 h-4 mr-1" />
-            {post.author}
+            <User className="w-4 h-4 mr-2 text-blue-500" />
+            <span className="font-medium">{post.author}</span>
           </div>
           <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-1" />
-            {formatDate(post.date)}
+            <Calendar className="w-4 h-4 mr-2 text-green-500" />
+            <span>{formatDate(post.date)}</span>
           </div>
         </div>
         
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div className="flex flex-wrap gap-2">
             {post.tags.slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}
@@ -263,10 +265,10 @@ const FeaturedPostCard: React.FC<{
           </div>
           <button
             onClick={() => onBlogClick(post.slug)}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 hover:scale-105"
           >
             Read More
-            <ArrowRight className="w-4 h-4 ml-1" />
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>
       </div>
@@ -274,45 +276,46 @@ const FeaturedPostCard: React.FC<{
   );
 };
 
-// Regular Post Card Component
+// Enhanced Regular Post Card Component
 const PostCard: React.FC<{ 
   post: BlogPost; 
   formatDate: (date: string) => string;
   onBlogClick: (slug: string) => void;
 }> = ({ post, formatDate, onBlogClick }) => {
   return (
-    <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer`} onClick={() => onBlogClick(post.slug)}>
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+    <article className="group bg-white rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border border-gray-100">
+      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative cursor-pointer overflow-hidden`} onClick={() => onBlogClick(post.slug)}>
+        <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
             {post.title}
           </h3>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       
-      <div className="p-6">
-        <p className="text-gray-600 mb-4 line-clamp-3">
+      <div className="p-6 sm:p-8">
+        <p className="text-gray-600 mb-6 sm:mb-8 line-clamp-3 text-sm sm:text-base leading-relaxed">
           {post.excerpt}
         </p>
         
-        <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-500 mb-6 sm:mb-8 space-y-2 sm:space-y-0">
           <div className="flex items-center">
-            <User className="w-4 h-4 mr-1" />
-            {post.author}
+            <User className="w-4 h-4 mr-2 text-blue-500" />
+            <span className="font-medium">{post.author}</span>
           </div>
           <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-1" />
-            {formatDate(post.date)}
+            <Calendar className="w-4 h-4 mr-2 text-green-500" />
+            <span>{formatDate(post.date)}</span>
           </div>
         </div>
         
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div className="flex flex-wrap gap-2">
             {post.tags.slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors"
               >
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}
@@ -321,10 +324,10 @@ const PostCard: React.FC<{
           </div>
           <button
             onClick={() => onBlogClick(post.slug)}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 hover:scale-105"
           >
             Read More
-            <ArrowRight className="w-4 h-4 ml-1" />
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>
       </div>

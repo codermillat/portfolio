@@ -37,13 +37,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50' 
+        ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200/50' 
         : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo - SEO Optimized */}
           <div className="flex-shrink-0 min-w-0">
             <button
@@ -60,12 +60,12 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1 flex-shrink-0">
+          <div className="hidden lg:flex items-center space-x-2 flex-shrink-0">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`px-3 py-2 text-sm font-medium transition-all duration-300 relative group rounded-lg whitespace-nowrap ${
+                className={`px-4 py-2 text-sm font-medium transition-all duration-300 relative group rounded-xl whitespace-nowrap hover:scale-105 ${
                   isScrolled 
                     ? 'text-gray-700 hover:text-primary-700 hover:bg-primary-50' 
                     : 'text-white/90 hover:text-white hover:bg-white/10 drop-shadow-sm'
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 aria-label={`Navigate to ${item.name} section`}
               >
                 {item.name}
-                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-6 ${
+                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-8 ${
                   isScrolled ? 'bg-primary-700' : 'bg-white'
                 }`}></span>
               </button>
@@ -97,23 +97,23 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+        <div className={`lg:hidden transition-all duration-500 ease-in-out ${
           isMobileMenuOpen 
             ? 'max-h-96 opacity-100' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 rounded-b-2xl shadow-lg mx-2 mb-2">
-            <div className="px-4 py-3 space-y-1">
+          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 rounded-b-3xl shadow-xl mx-2 mb-2">
+            <div className="px-4 py-4 space-y-2">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-xl transition-all duration-200 flex items-center justify-between group"
+                  className="w-full text-left px-4 py-4 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-2xl transition-all duration-300 flex items-center justify-between group hover:scale-105"
                   style={{ animationDelay: `${index * 50}ms` }}
                   aria-label={`Navigate to ${item.name} section`}
                 >
                   <span>{item.name}</span>
-                  <div className="w-2 h-2 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <div className="w-3 h-3 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100" />
                 </button>
               ))}
             </div>
