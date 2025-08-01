@@ -12,7 +12,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.millat.tech/og-image.jpg</image:loc>
-      <image:title>MD MILLAT HOSEN - Full Stack Developer & Creative Strategist</image:title>
+      <image:title>MD MILLAT HOSEN - Full Stack Developer &amp; Creative Strategist</image:title>
       <image:caption>Professional portfolio showcasing WordPress, React, Node.js, and mobile app development expertise</image:caption>
     </image:image>
   </url>
@@ -77,7 +77,7 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.pexels.com/photos/3183159/pexels-photo-3183159.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
-      <image:title>Skills & Technologies - Web, Mobile, AI, SEO, Backend, Frontend</image:title>
+      <image:title>Skills &amp; Technologies - Web, Mobile, AI, SEO, Backend, Frontend</image:title>
       <image:caption>Comprehensive toolkit including WordPress, React, Node.js, Android, Firebase, and more</image:caption>
     </image:image>
   </url>
