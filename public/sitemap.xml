@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://www.millat.tech/</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.millat.tech/og-image.jpg</image:loc>
+      <image:title>MD MILLAT HOSEN - Full Stack Developer & Creative Strategist</image:title>
+      <image:caption>Professional portfolio showcasing WordPress, React, Node.js, and mobile app development expertise</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Section -->
+  <url>
+    <loc>https://www.millat.tech/#about</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>About MD MILLAT HOSEN - Personal Journey and Philosophy</image:title>
+      <image:caption>Learn about the journey from Bangladesh to India and the philosophy behind building meaningful solutions</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Experience Section -->
+  <url>
+    <loc>https://www.millat.tech/#experience</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Professional Experience - Work History and Education</image:title>
+      <image:caption>Current internship at Sharda University and previous roles in web development</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Projects Section - High Priority for Portfolio -->
+  <url>
+    <loc>https://www.millat.tech/#projects</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Featured Projects - Restaurant Delivery Plugin, Rupkotha Restora, VPN App</image:title>
+      <image:caption>Showcase of custom WooCommerce solutions, WordPress platforms, and mobile app development</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Creative Section -->
+  <url>
+    <loc>https://www.millat.tech/#creative</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183156/pexels-photo-3183156.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Creative Work - Visual Poetry and Storytelling</image:title>
+      <image:caption>Creative expression through digital media and emotion-first approach to design</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Skills Section -->
+  <url>
+    <loc>https://www.millat.tech/#skills</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183159/pexels-photo-3183159.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Skills & Technologies - Web, Mobile, AI, SEO, Backend, Frontend</image:title>
+      <image:caption>Comprehensive toolkit including WordPress, React, Node.js, Android, Firebase, and more</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Resume Section -->
+  <url>
+    <loc>https://www.millat.tech/#resume</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183162/pexels-photo-3183162.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Resume Download - Professional Experience and Achievements</image:title>
+      <image:caption>Downloadable PDF resume with ATS optimization and detailed professional background</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://www.millat.tech/#contact</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800</image:loc>
+      <image:title>Contact Information - Get in Touch</image:title>
+      <image:caption>Professional contact details and social media links for collaboration opportunities</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Resume PDF File -->
+  <url>
+    <loc>https://www.millat.tech/resume.pdf</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Manifest File for PWA -->
+  <url>
+    <loc>https://www.millat.tech/manifest.json</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset> 

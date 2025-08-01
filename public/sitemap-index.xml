@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Main Sitemap -->
+  <sitemap>
+    <loc>https://www.millat.tech/sitemap.xml</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+  </sitemap>
+  
+  <!-- Image Sitemap -->
+  <sitemap>
+    <loc>https://www.millat.tech/image-sitemap.xml</loc>
+    <lastmod>2025-01-27T10:00:00+00:00</lastmod>
+  </sitemap>
+  
+</sitemapindex> 
