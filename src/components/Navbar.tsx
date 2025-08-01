@@ -84,14 +84,14 @@ const Navbar: React.FC = () => {
           <div className="lg:hidden flex-shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-all duration-300 ${
+              className={`p-3 rounded-lg transition-all duration-300 mobile-touch-target ${
                 isScrolled 
                   ? 'text-gray-700 hover:text-primary-700 hover:bg-primary-50' 
                   : 'text-white hover:text-blue-200 hover:bg-white/10'
               }`}
               aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -103,17 +103,17 @@ const Navbar: React.FC = () => {
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
           <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 rounded-b-3xl shadow-xl mx-2 mb-2">
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-4 py-4 space-y-3">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full text-left px-4 py-4 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-2xl transition-all duration-300 flex items-center justify-between group hover:scale-105"
+                  className="w-full text-left px-6 py-5 text-base font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-2xl transition-all duration-300 flex items-center justify-between group hover:scale-105 mobile-touch-target"
                   style={{ animationDelay: `${index * 50}ms` }}
                   aria-label={`Navigate to ${item.name} section`}
                 >
-                  <span>{item.name}</span>
-                  <div className="w-3 h-3 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100" />
+                  <span className="text-lg">{item.name}</span>
+                  <div className="w-4 h-4 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100" />
                 </button>
               ))}
             </div>

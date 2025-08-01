@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dot-Clicker Mini Game</title>
+    <style>
+        /* ----------  BASIC LAYOUT  ---------- */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #111;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            user-select: none;
+
+        }
+
+        #gameBox {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #444;
+            background: #222;
+            cursor: pointer;
+
+        }
+
+        #dot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: tomato;
+            border-radius: 50%;
+            display: none;
+
+        }
+
+        #ui {
+            margin-top: 1rem;
+            text-align: center;
+
+        }
+
+        button {
+            padding: .5rem 1rem;
+            margin: .5rem .25rem;
+            border: none;
+            background: #0af;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Dot-Clicker Mini</h2>
+    <div id="gameBox">
+        <div id="dot"></div>
+    </div>
+    <div id="ui">
+        <div>
+            Time left: <span id="time">10</span>s</div>
+        <div>Score: <span id="score">0</span></div> <button id="startBtn">Start</button>
+    </div>
+    <script>    /* ----------  ELEMENTS  ---------- */    const dot = document.getElementById(\'dot\');    const timeTxt = document.getElementById(\'time\');    const scoreTxt= document.getElementById(\'score\');    const startBtn= document.getElementById(\'startBtn\');    const box     = document.getElementById(\'gameBox\');    /* ----------  STATE  ---------- */    let score = 0;    let timeLeft = 10;    let timer;    let appearTimer;    /* ----------  GAME LOGIC  ---------- */    function randomPos(){      const maxX = box.clientWidth  - dot.clientWidth;      const maxY = box.clientHeight - dot.clientHeight;      dot.style.left = Math.floor(Math.random()*maxX) + \'px\';      dot.style.top  = Math.floor(Math.random()*maxY) + \'px\';    }    function nextDot(){      randomPos();      dot.style.display=\'block\';      appearTimer = setTimeout(nextDot, 1000 + Math.random()*1000); // 1-2s    }    function tick(){      timeLeft--;      timeTxt.textContent = timeLeft;      if(timeLeft <= 0) endGame();    }    function endGame(){      clearInterval(timer);      clearTimeout(appearTimer);      dot.style.display=\'none\';      startBtn.disabled = false;      alert(`Game over! Your score: ${score}`);    }    /* ----------  EVENT HANDLERS  ---------- */    startBtn.addEventListener(\'click\', ()=>{      score = 0;      timeLeft = 10;      scoreTxt.textContent = score;      timeTxt.textContent  = timeLeft;      startBtn.disabled = true;      timer = setInterval(tick,1000);      nextDot();    });    dot.addEventListener(\'click\', ()=>{      score++;      scoreTxt.textContent = score;      dot.style.display=\'none\';      clearTimeout(appearTimer);      nextDot();    });  </script>
+
+</body>
+
+</html>

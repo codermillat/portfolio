@@ -8,4 +8,9 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   assetsInclude: ['**/*.md'],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 });

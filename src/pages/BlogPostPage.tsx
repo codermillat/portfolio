@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Tag, Clock, Share2, ExternalLink, Copy, Check } from 'lucide-react';
-import { blogPosts } from '../data/blogPosts';
+import { ArrowLeft, Calendar, User, Tag, Clock, Share2, Copy, Check } from 'lucide-react';
+import { getArticleBySlug, Article } from '../utils/markdownLoader';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -13,8 +13,32 @@ const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
-  
-  const post = blogPosts.find(p => p.slug === slug);
+  const [post, setPost] = useState<Article | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  // Load article
+  useEffect(() => {
+    const loadArticle = async () => {
+      if (!slug) return;
+      
+      try {
+        console.log('🔄 BlogPostPage: Loading article with slug:', slug);
+        const article = await getArticleBySlug(slug);
+        console.log('✅ BlogPostPage: Article loaded:', article ? {
+          title: article.metadata.title,
+          contentLength: article.content.length,
+          contentPreview: article.content.substring(0, 100)
+        } : 'null');
+        setPost(article);
+      } catch (error) {
+        console.error('❌ BlogPostPage: Error loading article:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadArticle();
+  }, [slug]);
 
   // Copy code functionality
   const copyToClipboard = async (code: string) => {
@@ -190,12 +214,12 @@ const BlogPostPage: React.FC = () => {
   useEffect(() => {
     if (post) {
       // Update document title
-      document.title = `${post.title} - MD MILLAT HOSEN | Blog`;
+      document.title = `${post.metadata.title} - MD MILLAT HOSEN | Blog`;
       
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
-        metaDescription.setAttribute('content', post.description);
+        metaDescription.setAttribute('content', post.metadata.description);
       }
 
       // Add Open Graph meta tags
@@ -221,18 +245,18 @@ const BlogPostPage: React.FC = () => {
       };
 
       // Open Graph tags
-      addMetaTag('og:title', post.title);
-      addMetaTag('og:description', post.description);
+      addMetaTag('og:title', post.metadata.title);
+      addMetaTag('og:description', post.metadata.description);
       addMetaTag('og:type', 'article');
       addMetaTag('og:url', `https://www.millat.tech/blog/${post.slug}`);
       addMetaTag('og:site_name', 'MD MILLAT HOSEN');
-      addMetaTag('article:author', post.author);
-      addMetaTag('article:published_time', post.date);
+      addMetaTag('article:author', post.metadata.author);
+      addMetaTag('article:published_time', post.metadata.date);
 
       // Twitter Card tags
       addTwitterMetaTag('twitter:card', 'summary_large_image');
-      addTwitterMetaTag('twitter:title', post.title);
-      addTwitterMetaTag('twitter:description', post.description);
+      addTwitterMetaTag('twitter:title', post.metadata.title);
+      addTwitterMetaTag('twitter:description', post.metadata.description);
       addTwitterMetaTag('twitter:creator', '@codermillat');
 
       // Add canonical URL
@@ -251,15 +275,15 @@ const BlogPostPage: React.FC = () => {
         script.text = JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.description,
+          "headline": post.metadata.title,
+          "description": post.metadata.description,
           "author": {
             "@type": "Person",
-            "name": post.author,
+            "name": post.metadata.author,
             "url": "https://www.millat.tech"
           },
-          "datePublished": post.date,
-          "dateModified": post.date,
+          "datePublished": post.metadata.date,
+          "dateModified": post.metadata.date,
           "publisher": {
             "@type": "Organization",
             "name": "MD MILLAT HOSEN",
@@ -269,8 +293,8 @@ const BlogPostPage: React.FC = () => {
             "@type": "WebPage",
             "@id": `https://www.millat.tech/blog/${post.slug}`
           },
-          "keywords": post.tags.join(', '),
-          "articleSection": post.category
+          "keywords": post.metadata.tags.join(', '),
+          "articleSection": post.metadata.category
         });
         document.head.appendChild(script);
       };
@@ -278,6 +302,17 @@ const BlogPostPage: React.FC = () => {
       addStructuredData();
     }
   }, [post]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading article...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -312,6 +347,8 @@ const BlogPostPage: React.FC = () => {
     return Math.ceil(words / wordsPerMinute);
   };
 
+
+
   const readingTime = getReadingTime(post.content);
 
   return (
@@ -330,30 +367,30 @@ const BlogPostPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <div className={`bg-gradient-to-br ${post.gradient} text-white py-12 sm:py-16 lg:py-20`}>
+      <div className={`bg-gradient-to-br ${post.metadata.gradient} text-white py-12 sm:py-16 lg:py-20`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Badge */}
           <div className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-6">
-            {post.category}
+            {post.metadata.category}
           </div>
           
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-            {post.title}
+            {post.metadata.title}
           </h1>
           
           <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl leading-relaxed">
-            {post.description}
+            {post.metadata.description}
           </p>
           
           {/* Meta Information */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-blue-100 text-sm sm:text-base">
             <div className="flex items-center">
               <User className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span className="font-medium">{post.author}</span>
+              <span className="font-medium">{post.metadata.author}</span>
             </div>
             <div className="flex items-center">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span>{formatDate(post.date)}</span>
+              <span>{formatDate(post.metadata.date)}</span>
             </div>
             <div className="flex items-center">
               <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
@@ -369,7 +406,7 @@ const BlogPostPage: React.FC = () => {
           {/* Tags */}
           <div className="px-6 sm:px-8 lg:px-12 pt-6 sm:pt-8 lg:pt-12">
             <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
-              {post.tags.map((tag) => (
+              {post.metadata.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="inline-flex items-center px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors"
@@ -389,7 +426,7 @@ const BlogPostPage: React.FC = () => {
                 rehypePlugins={[rehypeHighlight, rehypeRaw]}
                 components={components}
               >
-                {post.content.replace(/^#\s+.*$/m, '')}
+                {post.content}
               </ReactMarkdown>
             </div>
           </div>
@@ -405,7 +442,7 @@ const BlogPostPage: React.FC = () => {
                 <button
                   onClick={() => {
                     const url = `https://www.millat.tech/blog/${post.slug}`;
-                    const text = post.title;
+                    const text = post.metadata.title;
                     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
                   }}
                   className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"

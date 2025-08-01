@@ -1,204 +1,35 @@
 # Contributing to MD MILLAT HOSEN Portfolio
 
-Thank you for your interest in contributing to this portfolio project! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to my portfolio website! This document provides guidelines and information for contributors.
 
 ## 🤝 How to Contribute
 
-### Reporting Issues
-- Use the GitHub issue tracker to report bugs
-- Provide detailed information about the issue
-- Include steps to reproduce the problem
-- Add screenshots if applicable
+### Types of Contributions
 
-### Suggesting Enhancements
-- Open an issue with the "enhancement" label
-- Describe the proposed feature or improvement
-- Explain why it would be valuable
-- Consider the scope and complexity
+We welcome various types of contributions:
 
-### Code Contributions
-1. Fork the repository
-2. Create a feature branch from `main`
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+- **Bug Reports**: Report issues you find
+- **Feature Requests**: Suggest new features or improvements
+- **Code Contributions**: Submit pull requests with code changes
+- **Documentation**: Improve or add documentation
+- **Design Suggestions**: Suggest UI/UX improvements
+- **Content**: Suggest content improvements or corrections
 
-## 🛠 Development Setup
+### Before You Start
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- Git
-- Code editor (VS Code recommended)
+1. **Check Existing Issues**: Look through existing issues to avoid duplicates
+2. **Read Documentation**: Familiarize yourself with the project structure
+3. **Follow Guidelines**: Ensure your contribution follows our guidelines
 
-### Local Development
-```bash
-# Clone your fork
-git clone https://github.com/your-username/portfolio.git
-cd portfolio
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Open http://localhost:5173
-```
-
-## 📝 Code Standards
-
-### TypeScript
-- Use strict TypeScript configuration
-- Provide proper type annotations
-- Avoid `any` types when possible
-- Use interfaces for object shapes
-
-### React Components
-- Use functional components with hooks
-- Follow React best practices
-- Implement proper error boundaries
-- Use meaningful component names
-
-### Styling
-- Use Tailwind CSS utility classes
-- Follow mobile-first responsive design
-- Maintain consistent spacing (8px grid)
-- Use semantic color names
-
-### Code Formatting
-```bash
-# Lint code
-npm run lint
-
-# Type checking
-npx tsc --noEmit
-```
-
-## 🎨 Design Guidelines
-
-### Visual Consistency
-- Follow the established blue color theme
-- Use consistent spacing and typography
-- Maintain visual hierarchy
-- Ensure proper contrast ratios
-
-### Responsive Design
-- Mobile-first approach
-- Test on multiple screen sizes
-- Use appropriate breakpoints
-- Optimize for touch interactions
-
-### Accessibility
-- Use semantic HTML elements
-- Provide proper ARIA labels
-- Ensure keyboard navigation
-- Maintain color contrast standards
-
-## 📱 Testing
-
-### Manual Testing
-- Test on different browsers
-- Verify responsive behavior
-- Check accessibility features
-- Validate SEO elements
-
-### Performance Testing
-- Monitor bundle size
-- Check loading times
-- Optimize images
-- Validate Core Web Vitals
-
-## 🚀 Pull Request Process
-
-### Before Submitting
-1. Ensure code follows style guidelines
-2. Test changes thoroughly
-3. Update documentation if needed
-4. Add appropriate commit messages
-
-### PR Description
-- Describe what changes were made
-- Explain why the changes are necessary
-- Include screenshots for UI changes
-- Reference related issues
-
-### Review Process
-- Maintainers will review your PR
-- Address any requested changes
-- Ensure CI checks pass
-- Merge when approved
-
-## 📋 Commit Guidelines
-
-### Conventional Commits
-Use the conventional commit format:
-```
-type(scope): description
-
-[optional body]
-
-[optional footer]
-```
-
-### Types
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes
-- `refactor`: Code refactoring
-- `test`: Adding tests
-- `chore`: Maintenance tasks
-
-### Examples
-```bash
-feat(hero): add parallax scrolling effect
-fix(navbar): resolve mobile menu toggle issue
-docs(readme): update installation instructions
-style(components): improve responsive spacing
-```
-
-## 🔍 Code Review Checklist
-
-### Functionality
-- [ ] Code works as expected
-- [ ] No console errors
-- [ ] Proper error handling
-- [ ] Edge cases considered
-
-### Code Quality
-- [ ] Follows TypeScript best practices
-- [ ] Proper component structure
-- [ ] Efficient algorithms
-- [ ] No code duplication
-
-### Design
-- [ ] Matches design specifications
-- [ ] Responsive on all devices
-- [ ] Accessible to all users
-- [ ] Consistent with existing UI
-
-### Performance
-- [ ] No unnecessary re-renders
-- [ ] Optimized images
-- [ ] Efficient bundle size
-- [ ] Fast loading times
-
-## 🐛 Bug Reports
-
-### Information to Include
-- Browser and version
-- Operating system
-- Screen size/device
-- Steps to reproduce
-- Expected behavior
-- Actual behavior
-- Screenshots/videos
+## 🐛 Reporting Bugs
 
 ### Bug Report Template
+
+When reporting a bug, please include:
+
 ```markdown
 **Bug Description**
-A clear description of the bug.
+A clear description of what the bug is.
 
 **Steps to Reproduce**
 1. Go to '...'
@@ -212,96 +43,327 @@ What you expected to happen.
 **Actual Behavior**
 What actually happened.
 
+**Screenshots**
+If applicable, add screenshots to help explain the problem.
+
 **Environment**
-- Browser: [e.g., Chrome 91]
-- OS: [e.g., macOS 11.4]
-- Device: [e.g., iPhone 12]
-- Screen size: [e.g., 1920x1080]
+- Browser: [e.g., Chrome, Safari, Firefox]
+- Version: [e.g., 22]
+- Operating System: [e.g., macOS, Windows, Linux]
+- Device: [e.g., Desktop, Mobile, Tablet]
 
 **Additional Context**
 Any other context about the problem.
 ```
 
-## 💡 Feature Requests
-
-### Information to Include
-- Clear feature description
-- Use case and benefits
-- Proposed implementation
-- Potential challenges
-- Alternative solutions
+## 💡 Suggesting Features
 
 ### Feature Request Template
+
 ```markdown
 **Feature Description**
-A clear description of the feature.
+A clear description of the feature you'd like to see.
 
 **Problem Statement**
-What problem does this solve?
+What problem does this feature solve?
 
 **Proposed Solution**
-How should this feature work?
+How would you like this feature to work?
 
-**Benefits**
-Why is this feature valuable?
-
-**Implementation Ideas**
-Technical approach suggestions.
+**Alternative Solutions**
+Any alternative solutions you've considered.
 
 **Additional Context**
-Any other relevant information.
+Any other context, mockups, or examples.
 ```
 
-## 📚 Resources
+## 🔧 Code Contributions
 
-### Documentation
-- [React Documentation](https://reactjs.org/docs)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide)
+### Development Setup
 
-### Tools
-- [VS Code](https://code.visualstudio.com/)
-- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools)
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Wave Accessibility Checker](https://wave.webaim.org/)
+1. **Fork the Repository**
+   ```bash
+   git clone https://github.com/your-username/portfolio.git
+   cd portfolio
+   ```
 
-## 🎯 Project Goals
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-### Primary Objectives
-- Showcase MD MILLAT HOSEN's professional journey
-- Demonstrate technical skills and creativity
-- Provide excellent user experience
-- Maintain high performance standards
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
 
-### Quality Standards
-- Clean, maintainable code
-- Responsive design
-- Accessibility compliance
-- SEO optimization
-- Fast loading times
+4. **Create a Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+### Code Standards
+
+#### TypeScript
+- Use TypeScript for all new code
+- Provide proper type definitions
+- Avoid `any` types when possible
+- Use interfaces for object shapes
+
+#### React
+- Use functional components with hooks
+- Follow React best practices
+- Use proper prop types
+- Implement proper error boundaries
+
+#### Styling
+- Use Tailwind CSS for styling
+- Follow mobile-first responsive design
+- Ensure accessibility standards
+- Test across different screen sizes
+
+#### Code Quality
+- Run linting: `npm run lint`
+- Fix formatting: `npm run format`
+- Check types: `npm run type-check`
+- Ensure all tests pass
+
+### Commit Guidelines
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+#### Types
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+
+#### Examples
+```bash
+feat: add dark mode toggle
+fix: resolve mobile navigation issue
+docs: update README with new features
+style: format code with prettier
+refactor: simplify hero component
+test: add unit tests for utils
+chore: update dependencies
+```
+
+### Pull Request Process
+
+1. **Create a Feature Branch**
+   - Branch from `main`
+   - Use descriptive branch names
+
+2. **Make Your Changes**
+   - Write clean, well-documented code
+   - Add tests if applicable
+   - Update documentation
+
+3. **Test Your Changes**
+   - Run the development server
+   - Test on different devices/browsers
+   - Check for accessibility issues
+   - Verify performance impact
+
+4. **Submit Pull Request**
+   - Use the PR template
+   - Provide clear description
+   - Include screenshots if UI changes
+   - Link related issues
+
+### Pull Request Template
+
+```markdown
+## Description
+Brief description of changes made.
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation update
+- [ ] Code refactoring
+- [ ] Performance improvement
+- [ ] Other (please describe)
+
+## Testing
+- [ ] Tested on desktop
+- [ ] Tested on mobile
+- [ ] Tested on tablet
+- [ ] Cross-browser testing
+- [ ] Accessibility testing
+
+## Screenshots
+If applicable, add screenshots of UI changes.
+
+## Checklist
+- [ ] Code follows project style guidelines
+- [ ] Self-review completed
+- [ ] Code is commented where necessary
+- [ ] Documentation updated
+- [ ] No console errors
+- [ ] Performance impact considered
+
+## Related Issues
+Closes #[issue number]
+```
+
+## 📝 Content Contributions
+
+### Adding Articles
+
+To add new blog articles:
+
+1. Create a new `.md` file in `public/articles/`
+2. Follow the frontmatter format (see `docs/ADDING_ARTICLES.md`)
+3. Write content in Markdown
+4. Test the article renders correctly
+5. Submit a pull request
+
+### Content Guidelines
+
+- **Accuracy**: Ensure all information is accurate and up-to-date
+- **Clarity**: Write clear, concise content
+- **SEO**: Use proper headings and meta descriptions
+- **Accessibility**: Include alt text for images
+- **Mobile**: Ensure content works well on mobile devices
+
+## 🎨 Design Contributions
+
+### Design Guidelines
+
+- **Consistency**: Follow existing design patterns
+- **Accessibility**: Ensure WCAG 2.1 AA compliance
+- **Responsive**: Design for all screen sizes
+- **Performance**: Optimize for fast loading
+- **Brand**: Maintain brand consistency
+
+### Design Process
+
+1. **Research**: Understand the problem and context
+2. **Ideate**: Generate multiple solutions
+3. **Prototype**: Create mockups or prototypes
+4. **Test**: Get feedback from users
+5. **Implement**: Code the final solution
+
+## 🧪 Testing
+
+### Testing Guidelines
+
+- **Unit Tests**: Write tests for utility functions
+- **Integration Tests**: Test component interactions
+- **E2E Tests**: Test complete user flows
+- **Accessibility Tests**: Ensure accessibility compliance
+- **Performance Tests**: Monitor performance impact
+
+### Testing Checklist
+
+- [ ] Code works as expected
+- [ ] No console errors
+- [ ] Responsive on all devices
+- [ ] Accessible to screen readers
+- [ ] Fast loading times
+- [ ] Cross-browser compatibility
+
+## 📚 Documentation
+
+### Documentation Standards
+
+- **Clarity**: Write clear, concise documentation
+- **Examples**: Include practical examples
+- **Updates**: Keep documentation current
+- **Structure**: Use proper headings and formatting
+
+### Documentation Areas
+
+- **README.md**: Project overview and setup
+- **CONTRIBUTING.md**: This file
+- **docs/**: Additional documentation
+- **Code Comments**: Inline documentation
+
+## 🚀 Deployment
+
+### Deployment Process
+
+1. **Build**: `npm run build`
+2. **Test**: Verify build works correctly
+3. **Deploy**: Push to production
+4. **Monitor**: Check for issues
+
+### Deployment Checklist
+
+- [ ] Build completes successfully
+- [ ] All assets load correctly
+- [ ] SEO meta tags are present
+- [ ] Performance is acceptable
+- [ ] No console errors
+- [ ] Mobile experience is good
+
+## 🤝 Community Guidelines
+
+### Code of Conduct
+
+- **Respect**: Be respectful to all contributors
+- **Inclusive**: Welcome diverse perspectives
+- **Constructive**: Provide constructive feedback
+- **Professional**: Maintain professional behavior
+
+### Communication
+
+- **Issues**: Use GitHub issues for discussions
+- **Discussions**: Use GitHub Discussions for general topics
+- **Email**: Contact maintainer for sensitive issues
 
 ## 📞 Getting Help
 
-### Communication Channels
-- GitHub Issues for bugs and features
-- Email: millat6575@gmail.com for direct contact
-- LinkedIn: [linkedin.com/in/codermillat](https://linkedin.com/in/codermillat)
+### Resources
 
-### Response Times
-- Issues: Within 48 hours
-- Pull requests: Within 72 hours
-- Email: Within 24 hours
+- **Documentation**: Check the docs folder
+- **Issues**: Search existing issues
+- **Discussions**: Check GitHub Discussions
+- **Email**: Contact millat6575@gmail.com
+
+### Questions
+
+If you have questions:
+
+1. Check the documentation first
+2. Search existing issues
+3. Create a new issue with the "question" label
+4. Contact the maintainer directly
 
 ## 🙏 Recognition
 
-Contributors will be recognized in:
-- README.md acknowledgments
-- GitHub contributors list
-- Project documentation
+### Contributors
 
-Thank you for contributing to this project! Your efforts help make this portfolio better for everyone.
+All contributors will be recognized in:
+
+- **README.md**: Contributors section
+- **GitHub**: Contributors tab
+- **Releases**: Release notes
+
+### Types of Recognition
+
+- **Code Contributors**: Listed in contributors
+- **Documentation**: Acknowledged in docs
+- **Design**: Credited in design files
+- **Testing**: Recognized in test files
+
+## 📄 License
+
+By contributing to this project, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Happy Coding! 🚀**
+Thank you for contributing to my portfolio! Your help makes this project better for everyone. 🎉

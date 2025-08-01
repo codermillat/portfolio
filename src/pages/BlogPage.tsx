@@ -1,19 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Calendar, User, Tag, ArrowLeft, BookOpen, Sparkles, Filter } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, User, Tag, ArrowLeft, Sparkles, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { blogPosts, categories } from '../data/blogPosts';
+import { loadArticles, getAllCategories, Article } from '../utils/markdownLoader';
 import Footer from '../components/Footer';
 
 const BlogPage: React.FC = () => {
   const navigate = useNavigate();
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const featuredPosts = blogPosts.filter(post => post.featured).slice(0, 3);
+  // Load articles and categories
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        console.log('🔄 BlogPage: Loading articles...');
+        const allArticles = await loadArticles();
+        const allCategories = await getAllCategories();
+        console.log('✅ BlogPage: Loaded articles:', allArticles.length);
+        console.log('📄 Articles:', allArticles.map(a => ({ 
+          slug: a.slug, 
+          title: a.metadata.title, 
+          contentLength: a.content.length,
+          featured: a.metadata.featured 
+        })));
+        setArticles(allArticles);
+        setCategories(allCategories);
+      } catch (error) {
+        console.error('❌ BlogPage: Error loading articles:', error);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  const featuredPosts = articles.filter(article => article.metadata.featured).slice(0, 3);
   const filteredPosts = selectedCategory === 'All' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
+    ? articles 
+    : articles.filter(article => article.metadata.category === selectedCategory);
   const allPosts = filteredPosts;
 
   // SEO Optimization
@@ -96,15 +121,14 @@ const BlogPage: React.FC = () => {
     addStructuredData();
   }, []);
 
+  // Auto-scroll functionality
   useEffect(() => {
-    if (!autoPlay) return;
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % Math.ceil(allPosts.length / 3));
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [autoPlay, allPosts.length]);
+  }, [allPosts.length]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -127,11 +151,6 @@ const BlogPage: React.FC = () => {
 
   const handleBlogClick = (slug: string) => {
     navigate(`/blog/${slug}`);
-  };
-
-  const getCurrentPosts = () => {
-    const startIndex = currentSlide * 3;
-    return allPosts.slice(startIndex, startIndex + 3);
   };
 
   return (
@@ -180,22 +199,21 @@ const BlogPage: React.FC = () => {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              All Articles ({blogPosts.length})
+              All Articles ({articles.length})
             </button>
             {categories.map((category) => {
-              const categoryCount = blogPosts.filter(post => post.category === category.name).length;
+              const categoryCount = articles.filter(article => article.metadata.category === category).length;
               return (
                 <button
-                  key={category.name}
-                  onClick={() => setSelectedCategory(category.name)}
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-                    selectedCategory === category.name
+                    selectedCategory === category
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  <span>{category.icon}</span>
-                  {category.name} ({categoryCount})
+                  {category} ({categoryCount})
                 </button>
               );
             })}
@@ -249,7 +267,9 @@ const BlogPage: React.FC = () => {
           {allPosts.length === 0 ? (
             <div className="text-center py-12">
               <div className="text-gray-400 mb-4">
-                <BookOpen className="w-16 h-16 mx-auto" />
+                <div className="w-16 h-16 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">📚</span>
+                </div>
               </div>
               <h3 className="text-xl font-semibold text-gray-600 mb-2">No articles found</h3>
               <p className="text-gray-500">Try selecting a different category or check back later for new content.</p>
@@ -303,13 +323,13 @@ const BlogPage: React.FC = () => {
 
 // Featured Card Component
 const FeaturedCard: React.FC<{
-  post: BlogPost;
+  post: Article;
   formatDate: (date: string) => string;
   onBlogClick: (slug: string) => void;
 }> = ({ post, formatDate, onBlogClick }) => {
   return (
     <article className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 cursor-pointer" onClick={() => onBlogClick(post.slug)}>
-      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative overflow-hidden`}>
+      <div className={`aspect-video bg-gradient-to-br ${post.metadata.gradient} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
         <div className="absolute top-4 left-4">
           <span className="inline-flex items-center px-3 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full shadow-lg">
@@ -318,7 +338,7 @@ const FeaturedCard: React.FC<{
         </div>
         <div className="absolute bottom-4 left-4 right-4">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            {post.title}
+            {post.metadata.title}
           </h3>
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -326,23 +346,23 @@ const FeaturedCard: React.FC<{
       
       <div className="p-6 sm:p-8">
         <p className="text-gray-600 mb-6 sm:mb-8 line-clamp-3 text-sm sm:text-base leading-relaxed">
-          {post.excerpt}
+          {post.metadata.excerpt}
         </p>
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-500 mb-6 sm:mb-8 space-y-2 sm:space-y-0">
           <div className="flex items-center">
             <User className="w-4 h-4 mr-2 text-blue-500" />
-            <span className="font-medium">{post.author}</span>
+            <span className="font-medium">{post.metadata.author}</span>
           </div>
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2 text-green-500" />
-            <span>{formatDate(post.date)}</span>
+            <span>{formatDate(post.metadata.date)}</span>
           </div>
         </div>
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div className="flex flex-wrap gap-2">
-            {post.tags.slice(0, 2).map((tag) => (
+            {post.metadata.tags.slice(0, 2).map((tag) => (
               <span key={tag} className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors">
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}
@@ -361,17 +381,17 @@ const FeaturedCard: React.FC<{
 
 // Article Card Component
 const ArticleCard: React.FC<{
-  post: BlogPost;
+  post: Article;
   formatDate: (date: string) => string;
   onBlogClick: (slug: string) => void;
 }> = ({ post, formatDate, onBlogClick }) => {
   return (
     <article className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 border border-gray-100 cursor-pointer" onClick={() => onBlogClick(post.slug)}>
-      <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative overflow-hidden`}>
+      <div className={`aspect-video bg-gradient-to-br ${post.metadata.gradient} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
         <div className="absolute bottom-4 left-4 right-4">
           <h3 className="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            {post.title}
+            {post.metadata.title}
           </h3>
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -379,23 +399,23 @@ const ArticleCard: React.FC<{
       
       <div className="p-6 sm:p-8">
         <p className="text-gray-600 mb-6 sm:mb-8 line-clamp-3 text-sm sm:text-base leading-relaxed">
-          {post.excerpt}
+          {post.metadata.excerpt}
         </p>
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-500 mb-6 sm:mb-8 space-y-2 sm:space-y-0">
           <div className="flex items-center">
             <User className="w-4 h-4 mr-2 text-blue-500" />
-            <span className="font-medium">{post.author}</span>
+            <span className="font-medium">{post.metadata.author}</span>
           </div>
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2 text-green-500" />
-            <span>{formatDate(post.date)}</span>
+            <span>{formatDate(post.metadata.date)}</span>
           </div>
         </div>
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div className="flex flex-wrap gap-2">
-            {post.tags.slice(0, 2).map((tag) => (
+            {post.metadata.tags.slice(0, 2).map((tag) => (
               <span key={tag} className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors">
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}

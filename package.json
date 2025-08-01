@@ -1,26 +1,50 @@
 {
   "name": "md-millat-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Professional portfolio website of MD MILLAT HOSEN - Full Stack Developer & Creative Strategist",
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "vite",
+    "full-stack-developer",
+    "wordpress",
+    "nodejs",
+    "mobile-development"
+  ],
+  "author": {
+    "name": "MD MILLAT HOSEN",
+    "email": "millat6575@gmail.com",
+    "url": "https://millat.tech"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codermillat/portfolio.git"
+  },
+  "homepage": "https://millat.tech",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist",
+    "clean": "rm -rf dist node_modules/.vite"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
     "lucide-react": "^0.344.0",
-    "marked": "^16.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.7.1",
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1",
-    "sharp": "^0.34.3"
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -36,6 +60,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vite-plugin-markdown": "^2.2.0"
   }
 }

@@ -13,6 +13,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import TestMarkdown from './pages/TestMarkdown';
+import MarkdownTest from './components/MarkdownTest';
+import BlogStatus from './components/BlogStatus';
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -87,8 +90,11 @@ function App() {
               <Footer />
             </>
           } />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
+                                <Route path="/blog" element={<BlogPage />} />
+                      <Route path="/blog/:slug" element={<BlogPostPage />} />
+                      <Route path="/test-markdown" element={<TestMarkdown />} />
+                      <Route path="/markdown-test" element={<MarkdownTest />} />
+                      <Route path="/blog-status" element={<BlogStatus />} />
         </Routes>
       </main>
     </Router>
