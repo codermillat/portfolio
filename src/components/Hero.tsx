@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ArrowDown, Code, Sparkles, Globe, Smartphone } from 'lucide-react';
+import { trackButtonClick, trackDownload } from '../utils/analytics';
 
 interface HeroProps {
   scrollY: number;
@@ -13,6 +14,7 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   }, []);
 
   const scrollToProjects = () => {
+    trackButtonClick('See My Work', 'Hero Section');
     const element = document.querySelector('#projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -20,6 +22,8 @@ const Hero: React.FC<HeroProps> = ({ scrollY }) => {
   };
 
   const handleDownloadResume = () => {
+    trackDownload('MD_MILLAT_HOSEN_Resume.pdf');
+    trackButtonClick('View Resume', 'Hero Section');
     const link = document.createElement('a');
     link.href = '/resume.pdf';
     link.download = 'MD_MILLAT_HOSEN_Resume.pdf';

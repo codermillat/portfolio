@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Github, Linkedin, Code, Twitter, BookOpen, ExternalLink, MessageCircle, Send } from 'lucide-react';
+import { trackSocialClick, trackLinkClick } from '../utils/analytics';
 
 const socialLinks = [
   {
@@ -105,6 +106,7 @@ const Contact: React.FC = () => {
                 <p className="text-blue-100 mb-6 text-sm sm:text-base">Let's discuss your project and create something meaningful together</p>
                 <a 
                   href="mailto:millat6575@gmail.com"
+                  onClick={() => trackLinkClick('Write to me', 'mailto:millat6575@gmail.com')}
                   className="inline-flex items-center gap-2 bg-white text-primary-700 px-6 sm:px-8 py-3 rounded-xl font-medium hover:bg-blue-50 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                 >
                   <Send size={16} className="sm:w-5 sm:h-5" />
@@ -128,6 +130,7 @@ const Contact: React.FC = () => {
                   href={link.url}
                   target={link.name !== 'Email' ? '_blank' : undefined}
                   rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+                  onClick={() => trackSocialClick(link.name.toLowerCase())}
                   className="block bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100 h-full"
                 >
                   {/* Header with Gradient */}

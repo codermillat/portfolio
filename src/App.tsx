@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,6 +16,18 @@ import BlogPostPage from './pages/BlogPostPage';
 import TestMarkdown from './pages/TestMarkdown';
 import MarkdownTest from './components/MarkdownTest';
 import BlogStatus from './components/BlogStatus';
+import { trackPageView } from './utils/analytics';
+
+// Component to track route changes
+function RouteTracker() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    trackPageView(location.pathname, document.title);
+  }, [location]);
+  
+  return null;
+}
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -61,6 +73,7 @@ function App() {
 
   return (
     <Router>
+      <RouteTracker />
       <main className="min-h-screen bg-gray-50 text-gray-900 font-inter overflow-x-hidden">
         <Routes>
           <Route path="/" element={

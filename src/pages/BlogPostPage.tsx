@@ -8,6 +8,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import 'highlight.js/styles/github-dark.css';
 import Footer from '../components/Footer';
+import { trackBlogView, trackButtonClick } from '../utils/analytics';
 
 // TypeScript interfaces for ReactMarkdown components
 interface MarkdownComponentProps {
@@ -38,6 +39,11 @@ const BlogPostPage: React.FC = () => {
           contentPreview: article.content.substring(0, 100)
         } : 'null');
         setPost(article);
+        
+        // Track blog article view
+        if (article) {
+          trackBlogView(slug, article.metadata.title);
+        }
       } catch (error) {
         console.error('❌ BlogPostPage: Error loading article:', error);
       } finally {
@@ -53,6 +59,7 @@ const BlogPostPage: React.FC = () => {
     try {
       await navigator.clipboard.writeText(code);
       setCopiedCode(code);
+      trackButtonClick('Copy Code', 'Blog Article');
       setTimeout(() => setCopiedCode(null), 2000);
     } catch (err) {
       console.error('Failed to copy code:', err);
