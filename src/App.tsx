@@ -95,6 +95,20 @@ function App() {
                       <Route path="/test-markdown" element={<TestMarkdown />} />
                       <Route path="/markdown-test" element={<MarkdownTest />} />
                       <Route path="/blog-status" element={<BlogStatus />} />
+                      <Route path="/sitemap" element={
+                        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                          <div className="text-center">
+                            <h1 className="text-2xl font-bold text-gray-800 mb-4">HTML Sitemap</h1>
+                            <p className="text-gray-600 mb-6">Redirecting to the HTML sitemap...</p>
+                            <a 
+                              href="/sitemap.html" 
+                              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                              View Sitemap
+                            </a>
+                          </div>
+                        </div>
+                      } />
         </Routes>
       </main>
     </Router>
