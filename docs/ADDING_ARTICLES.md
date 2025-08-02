@@ -1,248 +1,272 @@
-# Adding New Articles
+# Adding Articles to the Blog
 
-This guide explains how to add new articles to your portfolio website using the simple markdown-based system.
+This guide explains how to add new articles to the portfolio blog system.
 
-## Quick Start
+## Current Articles
 
-To add a new article, simply create a new `.md` file in the `src/articles/` directory.
+The blog currently contains these articles:
 
-## File Structure
+├── building-studyabroadgpt-ai-educational-guidance.md
+├── lora-fine-tuning-beginners-resource-constrained-ai.md
+├── future-ai-education-personalized-learning.md
+├── edupath-ai-platform-research-to-product.md
 
+## How to Add a New Article
+
+### 1. Create the Markdown File
+
+Create a new `.md` file in the `src/articles/` directory with a descriptive filename:
+
+```bash
+# Example: for an article about AI in healthcare
+touch src/articles/ai-healthcare-applications.md
 ```
-src/articles/
-├── wordpress-development-guide.md
-├── modern-css-techniques.md
-├── react-performance-optimization.md
-├── nodejs-backend-development.md
-└── your-new-article.md
-```
 
-## Article Format
+### 2. Add Frontmatter
 
-Each article must have:
+Every article needs frontmatter at the top of the file:
 
-1. **Frontmatter** (metadata at the top)
-2. **Content** (markdown content below)
-
-### Frontmatter Example
-
-```yaml
+```markdown
 ---
 title: "Your Article Title"
-description: "A brief description for SEO"
+description: "Brief description for SEO (150-160 characters)"
 author: "MD MILLAT HOSEN"
 date: "2025-01-28"
 tags: ["Tag1", "Tag2", "Tag3"]
-category: "Web Development"
+category: "AI & Research"
 featured: true
-excerpt: "A short excerpt that appears in article cards"
+excerpt: "A short excerpt that appears in the blog listing (2-3 sentences)"
 gradient: "from-blue-500 to-purple-600"
 ---
 ```
 
-### Frontmatter Fields
+### 3. Write Your Content
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `title` | string | ✅ | Article title |
-| `description` | string | ✅ | SEO description |
-| `author` | string | ✅ | Author name |
-| `date` | string | ✅ | Publication date (YYYY-MM-DD) |
-| `tags` | array | ✅ | Array of tags |
-| `category` | string | ✅ | Article category |
-| `featured` | boolean | ✅ | Show in featured section |
-| `excerpt` | string | ✅ | Short description |
-| `gradient` | string | ✅ | CSS gradient class |
+Use standard Markdown syntax for your content:
 
-### Available Gradients
-
-```css
-from-blue-500 to-purple-600
-from-green-500 to-blue-600
-from-purple-500 to-pink-600
-from-orange-500 to-red-600
-from-teal-500 to-cyan-600
-from-indigo-500 to-purple-600
-from-pink-500 to-rose-600
-from-yellow-500 to-orange-600
-from-emerald-500 to-teal-600
-from-violet-500 to-purple-600
-from-cyan-500 to-blue-600
-from-rose-500 to-pink-600
-```
-
-### Available Categories
-
-- Web Development
-- Frontend Development
-- Backend Development
-- Mobile Development
-- Web Design
-- Digital Marketing
-- AI & Research
-- Academic Research
-
-## Content Formatting
-
-The content supports full Markdown formatting:
-
-### Headings
 ```markdown
 # Main Title (H1)
+
 ## Section Title (H2)
+
 ### Subsection (H3)
-#### Sub-subsection (H4)
-```
 
-### Text Formatting
-```markdown
-**Bold text**
-*Italic text*
-`inline code`
-```
+Your content here...
 
-### Lists
-```markdown
-- Unordered list item
-- Another item
+- Bullet points
+- Code examples
+- Links and references
 
-1. Ordered list item
-2. Another item
-```
+## Code Examples
 
-### Code Blocks
-```markdown
-```javascript
-const example = "code block";
-console.log(example);
-```
-```
-
-### Tables
-```markdown
-| Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
-| Data 1   | Data 2   | Data 3   |
-| Data 4   | Data 5   | Data 6   |
-```
-
-### Links
-```markdown
-[Link text](https://example.com)
-```
-
-### Images
-```markdown
-![Alt text](image-url.jpg)
-```
-
-### Blockquotes
-```markdown
-> This is a blockquote
-> It can span multiple lines
-```
-
-## Complete Example
-
-```markdown
----
-title: "Getting Started with TypeScript"
-description: "Learn the basics of TypeScript and how to integrate it into your JavaScript projects"
-author: "MD MILLAT HOSEN"
-date: "2025-01-28"
-tags: ["TypeScript", "JavaScript", "Programming", "Tutorial"]
-category: "Frontend Development"
-featured: true
-excerpt: "TypeScript is a powerful superset of JavaScript that adds static typing and modern features to your code."
-gradient: "from-blue-500 to-purple-600"
----
-
-# Getting Started with TypeScript
-
-TypeScript is a powerful superset of JavaScript that adds static typing and modern features to your code.
-
-## Why TypeScript?
-
-TypeScript offers several benefits:
-
-- **Static typing**: Catch errors at compile time
-- **Better IDE support**: Enhanced autocomplete and refactoring
-- **Modern JavaScript features**: Use latest ECMAScript features
-- **Gradual adoption**: Add TypeScript to existing JavaScript projects
-
-## Installation
-
-```bash
-npm install -g typescript
-npm install --save-dev typescript @types/node
-```
-
-## Basic Configuration
-
-Create a `tsconfig.json` file:
-
-```json
-{
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
-}
-```
-
-## Your First TypeScript File
-
-```typescript
-interface User {
-  name: string;
-  age: number;
-  email?: string;
-}
-
-function greetUser(user: User): string {
-  return `Hello, ${user.name}!`;
-}
-
-const user: User = {
-  name: "John Doe",
-  age: 30
-};
-
-console.log(greetUser(user));
+```python
+def example_function():
+    return "Hello World"
 ```
 
 ## Conclusion
 
-TypeScript is an excellent choice for building robust, maintainable applications.
-
-> **Pro Tip**: Start with `strict: false` in your tsconfig.json and gradually enable strict mode as you become more comfortable with TypeScript.
+Wrap up your article...
 ```
 
-## File Naming Convention
+### 4. Update the Markdown Loader
 
-- Use kebab-case for filenames
-- Make it descriptive and SEO-friendly
-- Example: `getting-started-with-typescript.md`
+Add your new article to `src/utils/markdownLoader.ts`:
 
-## Automatic Updates
+```typescript
+// Import your new article
+const newArticleContent = await import('../articles/your-new-article.md?raw');
 
-Once you add a new `.md` file to the `src/articles/` directory:
+// Add it to the articles array
+articles.push(processArticle('your-new-article-slug', newArticleContent.default));
+```
 
-1. The article will automatically appear in the blog
-2. It will be included in the featured articles slider (if `featured: true`)
-3. It will be available at `/blog/[filename]` route
-4. All metadata will be automatically parsed and displayed
+### 5. Update the Sitemap
 
-## Tips
+Add your article URL to `public/sitemap.xml`:
 
-- Keep your frontmatter consistent
-- Use descriptive titles and excerpts
-- Choose appropriate tags and categories
-- Test your markdown formatting
-- Keep content well-structured with proper headings
+```xml
+<url>
+  <loc>https://www.millat.tech/blog/your-new-article-slug</loc>
+  <lastmod>2025-01-28</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+```
 
-That's it! Your new article will be automatically loaded and displayed on the website. 
+## Article Guidelines
+
+### Content Strategy
+
+Focus on topics that showcase your expertise:
+
+- **AI & Machine Learning**: Research, implementations, tutorials
+- **Web Development**: Full-stack development, modern technologies
+- **Educational Technology**: AI in education, learning platforms
+- **Product Development**: From idea to implementation
+- **Technical Tutorials**: Step-by-step guides and best practices
+
+### SEO Best Practices
+
+- **Title**: 50-60 characters, include main keyword
+- **Description**: 150-160 characters, compelling and descriptive
+- **Tags**: Use relevant keywords for categorization
+- **Content**: 2000-3000 words for comprehensive articles
+- **Headings**: Use proper H1, H2, H3 hierarchy
+- **Internal Links**: Link to related articles when relevant
+
+### Technical Requirements
+
+- **File Format**: Markdown (.md)
+- **Encoding**: UTF-8
+- **Images**: Place in `public/blog/` directory
+- **Code**: Use syntax highlighting for code blocks
+- **Links**: Use relative URLs for internal links
+
+## Available Categories
+
+- `AI & Research`
+- `Web Development`
+- `Frontend Development`
+- `Backend Development`
+- `Mobile Development`
+- `Web Design`
+- `Digital Marketing`
+- `Academic Research`
+
+## Available Tags
+
+Common tags include:
+- AI, Machine Learning, Deep Learning
+- React, TypeScript, JavaScript, Node.js
+- Web Development, Full-stack, Frontend, Backend
+- Educational Technology, Personalized Learning
+- Tutorial, Best Practices, Case Study
+- Research, Innovation, Technology
+
+## Gradient Options
+
+Available gradient classes for article cards:
+- `from-blue-500 to-purple-600`
+- `from-green-500 to-blue-600`
+- `from-purple-500 to-pink-600`
+- `from-orange-500 to-red-600`
+- `from-teal-500 to-cyan-600`
+- `from-indigo-500 to-purple-600`
+- `from-pink-500 to-rose-600`
+- `from-yellow-500 to-orange-600`
+
+## Example Article Structure
+
+```markdown
+---
+title: "Building AI-Powered Educational Platforms: A Complete Guide"
+description: "Learn how to create intelligent educational platforms using AI, from concept to deployment. Step-by-step guide with real-world examples."
+author: "MD MILLAT HOSEN"
+date: "2025-01-28"
+tags: ["AI", "Educational Technology", "Platform Development", "Machine Learning", "Tutorial"]
+category: "AI & Research"
+featured: true
+excerpt: "A comprehensive guide to building AI-powered educational platforms, covering everything from initial concept to final deployment with real-world examples."
+gradient: "from-blue-500 to-purple-600"
+---
+
+# Building AI-Powered Educational Platforms: A Complete Guide
+
+## Introduction
+
+Educational technology is rapidly evolving, and AI is at the forefront of this transformation...
+
+## Understanding the Requirements
+
+### User Needs Analysis
+
+Before building any platform, it's crucial to understand your users...
+
+### Technical Architecture
+
+The architecture of an AI-powered educational platform requires careful consideration...
+
+## Implementation
+
+### Frontend Development
+
+```typescript
+// Example React component
+const AIAssistant: React.FC = ({ userId }) => {
+  // Component implementation
+};
+```
+
+### Backend Integration
+
+```python
+# Example Python API
+class EducationalAI:
+    def __init__(self):
+        self.model = load_ai_model()
+    
+    def generate_response(self, query):
+        return self.model.predict(query)
+```
+
+## Testing and Deployment
+
+### Quality Assurance
+
+Testing AI systems requires special considerations...
+
+### Deployment Strategy
+
+Deploying AI systems involves unique challenges...
+
+## Conclusion
+
+Building AI-powered educational platforms is both challenging and rewarding...
+
+## Resources
+
+- [StudyAbroadGPT Research Paper](https://arxiv.org/abs/2504.15610)
+- [EduPath-AI Platform](https://github.com/codermillat/EduPath-AI)
+- [AI in Education Guide](https://example.com)
+
+---
+
+*This article is part of my series on AI-powered educational technology. Follow me for more insights on building practical AI solutions.*
+```
+
+## Testing Your Article
+
+After adding a new article:
+
+1. **Build the project**: `npm run build`
+2. **Test locally**: `npm run dev`
+3. **Check the blog page**: Visit `/blog` to see your article
+4. **Test the individual page**: Visit `/blog/your-article-slug`
+5. **Verify SEO**: Check meta tags and structured data
+
+## Troubleshooting
+
+### Common Issues
+
+- **Article not appearing**: Check the markdown loader import
+- **Build errors**: Verify frontmatter syntax
+- **SEO issues**: Check meta description length
+- **Styling problems**: Ensure proper Markdown syntax
+
+### Getting Help
+
+If you encounter issues:
+1. Check the existing articles for examples
+2. Verify the markdown loader configuration
+3. Test with a simple article first
+4. Review the build logs for errors
+
+## Best Practices
+
+1. **Write for your audience**: Focus on topics relevant to your expertise
+2. **Be consistent**: Follow the established format and style
+3. **Include examples**: Code examples and real-world applications
+4. **Link internally**: Connect related articles when relevant
+5. **Optimize for SEO**: Use proper keywords and meta descriptions
+6. **Keep it updated**: Regularly review and update older articles 

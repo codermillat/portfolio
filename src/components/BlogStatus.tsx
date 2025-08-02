@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { loadArticles, getArticleBySlug } from '../utils/markdownLoader';
+import { loadArticles, getArticleBySlug, Article } from '../utils/markdownLoader';
 
 const BlogStatus: React.FC = () => {
   const [status, setStatus] = useState<string>('Testing...');
-  const [articles, setArticles] = useState<any[]>([]);
-  const [testArticle, setTestArticle] = useState<any>(null);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [testArticle, setTestArticle] = useState<Article | null>(null);
 
   useEffect(() => {
     const testBlog = async () => {
@@ -16,7 +16,7 @@ const BlogStatus: React.FC = () => {
         setArticles(allArticles);
         
         // Test 2: Load specific article
-        const article = await getArticleBySlug('wordpress-development-guide');
+        const article = await getArticleBySlug('building-studyabroadgpt-ai-educational-guidance');
         setTestArticle(article);
         
         setStatus(`✅ Blog is working! Loaded ${allArticles.length} articles`);
@@ -62,10 +62,10 @@ const BlogStatus: React.FC = () => {
         <h3 className="font-semibold mb-2">Test URLs:</h3>
         <ul className="space-y-1 text-sm">
           <li><a href="/blog" className="text-blue-600 hover:underline">/blog</a> - Blog listing page</li>
-          <li><a href="/blog/wordpress-development-guide" className="text-blue-600 hover:underline">/blog/wordpress-development-guide</a> - WordPress article</li>
-          <li><a href="/blog/modern-css-techniques" className="text-blue-600 hover:underline">/blog/modern-css-techniques</a> - CSS article</li>
-          <li><a href="/blog/react-performance-optimization" className="text-blue-600 hover:underline">/blog/react-performance-optimization</a> - React article</li>
-          <li><a href="/blog/nodejs-backend-development" className="text-blue-600 hover:underline">/blog/nodejs-backend-development</a> - Node.js article</li>
+          <li><a href="/blog/building-studyabroadgpt-ai-educational-guidance" className="text-blue-600 hover:underline">/blog/building-studyabroadgpt-ai-educational-guidance</a> - StudyAbroadGPT AI Guide</li>
+          <li><a href="/blog/lora-fine-tuning-beginners-resource-constrained-ai" className="text-blue-600 hover:underline">/blog/lora-fine-tuning-beginners-resource-constrained-ai</a> - LoRA Fine-tuning Tutorial</li>
+          <li><a href="/blog/future-ai-education-personalized-learning" className="text-blue-600 hover:underline">/blog/future-ai-education-personalized-learning</a> - Future of AI in Education</li>
+          <li><a href="/blog/edupath-ai-platform-research-to-product" className="text-blue-600 hover:underline">/blog/edupath-ai-platform-research-to-product</a> - EduPath-AI Platform Guide</li>
         </ul>
       </div>
     </div>

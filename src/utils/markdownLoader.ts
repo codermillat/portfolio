@@ -1,4 +1,8 @@
 // Simple frontmatter parser for browser environment
+interface FrontmatterData {
+  [key: string]: string | boolean | string[];
+}
+
 const parseFrontmatter = (content: string) => {
   const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
@@ -8,7 +12,7 @@ const parseFrontmatter = (content: string) => {
   }
   
   const [, frontmatter, markdown] = match;
-  const data: any = {};
+  const data: FrontmatterData = {};
   
   // Parse YAML-like frontmatter
   frontmatter.split('\n').forEach(line => {
@@ -61,12 +65,7 @@ export interface Article {
   content: string;
 }
 
-// Cache for loaded articles
-let articlesCache: Article[] | null = null;
-
 export const loadArticles = async (): Promise<Article[]> => {
-  // Clear cache to ensure fresh content
-  articlesCache = null;
   
   try {
     console.log('🔄 Loading markdown articles...');
@@ -77,18 +76,50 @@ export const loadArticles = async (): Promise<Article[]> => {
     try {
       console.log('📄 Attempting to import markdown files...');
       
-      // Import each markdown file statically
-      const wordpressContent = await import('../articles/wordpress-development-guide.md?raw');
-      console.log('✅ WordPress content loaded:', typeof wordpressContent.default, 'length:', wordpressContent.default?.length);
+      // Import article content with dynamic imports for better code splitting
+const [
+  wordpressContent,
+  cssContent,
+  reactContent,
+  nodejsContent,
+  bangladeshIndiaContent,
+  aiSolutionsContent,
+  eduTechContent,
+  entrepreneurshipContent,
+  culturalAIContent,
+  loraGuideContent,
+  digitalMarketingContent,
+  openSourceContent,
+  psychologyContent,
+  researchProductContent,
+  studyabroadgptCulturalContent,
+  syntheticDataContent,
+  setforgeContent,
+  vpnAppContent,
+  edupathAIContent
+] = await Promise.all([
+  import('../articles/building-studyabroadgpt-ai-educational-guidance.md?raw'),
+  import('../articles/lora-fine-tuning-beginners-resource-constrained-ai.md?raw'),
+  import('../articles/future-ai-education-personalized-learning.md?raw'),
+  import('../articles/edupath-ai-platform-research-to-product.md?raw'),
+  import('../articles/from-bangladesh-to-india-international-student-ai-researcher.md?raw'),
+  import('../articles/building-ai-solutions-resource-constrained-environments.md?raw'),
+  import('../articles/future-educational-technology-ai-democratizing-education.md?raw'),
+  import('../articles/entrepreneurship-tech-lessons-codestbd-premium-vpn.md?raw'),
+  import('../articles/cultural-intelligence-ai-building-systems-local-contexts.md?raw'),
+  import('../articles/complete-guide-lora-fine-tuning-accessible-llms.md?raw'),
+  import('../articles/digital-marketing-ai-seo-content-strategy-educational-technology.md?raw'),
+  import('../articles/open-source-ai-contributing-global-ai-community.md?raw'),
+  import('../articles/psychology-solitude-introversion-innovation-technology.md?raw'),
+  import('../articles/research-product-complete-journey-ai-powered-educational-tools.md?raw'),
+  import('../articles/studyabroadgpt-cultural-context-ai-education.md?raw'),
+  import('../articles/creating-high-quality-synthetic-datasets-ecommerce-orders.md?raw'),
+  import('../articles/setforge-sophisticated-qa-generation-educational-content.md?raw'),
+  import('../articles/idea-to-appstore-premium-vpn-application-development.md?raw'),
+  import('../articles/edupath-ai-revolutionizing-educational-guidance-ai-personalization.md?raw')
+]);
       
-      const cssContent = await import('../articles/modern-css-techniques.md?raw');
-      console.log('✅ CSS content loaded:', typeof cssContent.default, 'length:', cssContent.default?.length);
-      
-      const reactContent = await import('../articles/react-performance-optimization.md?raw');
-      console.log('✅ React content loaded:', typeof reactContent.default, 'length:', reactContent.default?.length);
-      
-      const nodejsContent = await import('../articles/nodejs-backend-development.md?raw');
-      console.log('✅ Node.js content loaded:', typeof nodejsContent.default, 'length:', nodejsContent.default?.length);
+      console.log('✅ All article content loaded successfully');
       
       // Process each article
       const processArticle = (slug: string, rawContent: string) => {
@@ -99,15 +130,34 @@ export const loadArticles = async (): Promise<Article[]> => {
         console.log(`📅 Article date:`, data.date);
         return {
           slug,
-          metadata: data as ArticleMetadata,
+          metadata: data as unknown as ArticleMetadata,
           content: markdownContent
         };
       };
 
-      articles.push(processArticle('wordpress-development-guide', wordpressContent.default));
-      articles.push(processArticle('modern-css-techniques', cssContent.default));
-      articles.push(processArticle('react-performance-optimization', reactContent.default));
-      articles.push(processArticle('nodejs-backend-development', nodejsContent.default));
+      articles.push(processArticle('building-studyabroadgpt-ai-educational-guidance', wordpressContent.default));
+      articles.push(processArticle('lora-fine-tuning-beginners-resource-constrained-ai', cssContent.default));
+      articles.push(processArticle('future-ai-education-personalized-learning', reactContent.default));
+      articles.push(processArticle('edupath-ai-platform-research-to-product', nodejsContent.default));
+      
+      // Process new articles
+      articles.push(processArticle('from-bangladesh-to-india-international-student-ai-researcher', bangladeshIndiaContent.default));
+      articles.push(processArticle('building-ai-solutions-resource-constrained-environments', aiSolutionsContent.default));
+      articles.push(processArticle('future-educational-technology-ai-democratizing-education', eduTechContent.default));
+      articles.push(processArticle('entrepreneurship-tech-lessons-codestbd-premium-vpn', entrepreneurshipContent.default));
+      articles.push(processArticle('cultural-intelligence-ai-building-systems-local-contexts', culturalAIContent.default));
+      articles.push(processArticle('complete-guide-lora-fine-tuning-accessible-llms', loraGuideContent.default));
+      articles.push(processArticle('digital-marketing-ai-seo-content-strategy-educational-technology', digitalMarketingContent.default));
+      articles.push(processArticle('open-source-ai-contributing-global-ai-community', openSourceContent.default));
+      articles.push(processArticle('psychology-solitude-introversion-innovation-technology', psychologyContent.default));
+      articles.push(processArticle('research-product-complete-journey-ai-powered-educational-tools', researchProductContent.default));
+      
+      // Process additional articles from links.txt analysis
+      articles.push(processArticle('studyabroadgpt-cultural-context-ai-education', studyabroadgptCulturalContent.default));
+      articles.push(processArticle('creating-high-quality-synthetic-datasets-ecommerce-orders', syntheticDataContent.default));
+      articles.push(processArticle('setforge-sophisticated-qa-generation-educational-content', setforgeContent.default));
+      articles.push(processArticle('idea-to-appstore-premium-vpn-application-development', vpnAppContent.default));
+      articles.push(processArticle('edupath-ai-revolutionizing-educational-guidance-ai-personalization', edupathAIContent.default));
       
       console.log(`✅ Successfully loaded ${articles.length} articles`);
     } catch (importError) {
@@ -116,7 +166,7 @@ export const loadArticles = async (): Promise<Article[]> => {
       
       // Fallback to sample data if import fails
       articles.push({
-        slug: 'wordpress-development-guide',
+        slug: 'building-studyabroadgpt-ai-educational-guidance',
         metadata: {
           title: 'Getting Started with WordPress Development: A Complete Guide',
           description: 'Learn the fundamentals of WordPress development, from setting up your environment to creating custom themes and plugins.',
@@ -139,9 +189,6 @@ export const loadArticles = async (): Promise<Article[]> => {
     articles.forEach((article, index) => {
       console.log(`  ${index + 1}. ${article.slug}: ${article.metadata.title} (${article.content.length} chars) - Date: ${article.metadata.date}`);
     });
-    
-    // Cache the results
-    articlesCache = articles;
     
     return articles;
   } catch (error) {
@@ -189,5 +236,5 @@ export const getAllTags = async (): Promise<string[]> => {
 // Clear cache (useful for development)
 export const clearArticlesCache = (): void => {
   console.log('🗑️ Clearing articles cache');
-  articlesCache = null;
+  // Cache functionality removed - articles are loaded fresh each time
 }; 

@@ -9,6 +9,14 @@ import rehypeRaw from 'rehype-raw';
 import 'highlight.js/styles/github-dark.css';
 import Footer from '../components/Footer';
 
+// TypeScript interfaces for ReactMarkdown components
+interface MarkdownComponentProps {
+  children?: React.ReactNode;
+  className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -53,52 +61,52 @@ const BlogPostPage: React.FC = () => {
 
   // Custom components for ReactMarkdown
   const components = {
-    h1: ({ children, ...props }: any) => (
+    h1: ({ children, ...props }: MarkdownComponentProps) => (
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 mt-8 first:mt-0 leading-tight" {...props}>
         {children}
       </h1>
     ),
-    h2: ({ children, ...props }: any) => (
+    h2: ({ children, ...props }: MarkdownComponentProps) => (
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 mt-8 leading-tight" {...props}>
         {children}
       </h2>
     ),
-    h3: ({ children, ...props }: any) => (
+    h3: ({ children, ...props }: MarkdownComponentProps) => (
       <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 mt-6 leading-tight" {...props}>
         {children}
       </h3>
     ),
-    h4: ({ children, ...props }: any) => (
+    h4: ({ children, ...props }: MarkdownComponentProps) => (
       <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 mt-6 leading-tight" {...props}>
         {children}
       </h4>
     ),
-    p: ({ children, ...props }: any) => (
+    p: ({ children, ...props }: MarkdownComponentProps) => (
       <p className="text-gray-700 mb-4 leading-relaxed text-base sm:text-lg" {...props}>
         {children}
       </p>
     ),
-    ul: ({ children, ...props }: any) => (
+    ul: ({ children, ...props }: MarkdownComponentProps) => (
       <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700" {...props}>
         {children}
       </ul>
     ),
-    ol: ({ children, ...props }: any) => (
+    ol: ({ children, ...props }: MarkdownComponentProps) => (
       <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700" {...props}>
         {children}
       </ol>
     ),
-    li: ({ children, ...props }: any) => (
+    li: ({ children, ...props }: MarkdownComponentProps) => (
       <li className="text-gray-700 leading-relaxed" {...props}>
         {children}
       </li>
     ),
-    blockquote: ({ children, ...props }: any) => (
+    blockquote: ({ children, ...props }: MarkdownComponentProps) => (
       <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50 text-gray-800 italic" {...props}>
         {children}
       </blockquote>
     ),
-    code: ({ children, className, ...props }: any) => {
+    code: ({ children, className, ...props }: MarkdownComponentProps) => {
       const isInline = !className;
       if (isInline) {
         return (
@@ -113,9 +121,9 @@ const BlogPostPage: React.FC = () => {
         </code>
       );
     },
-    pre: ({ children, ...props }: any) => {
+    pre: ({ children, ...props }: MarkdownComponentProps) => {
       const codeElement = React.Children.toArray(children).find(
-        (child: any) => React.isValidElement(child) && child.type === 'code'
+        (child: React.ReactNode) => React.isValidElement(child) && child.type === 'code'
       );
       
       if (codeElement && React.isValidElement(codeElement)) {
@@ -153,39 +161,39 @@ const BlogPostPage: React.FC = () => {
       }
       return <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4" {...props}>{children}</pre>;
     },
-    table: ({ children, ...props }: any) => (
+    table: ({ children, ...props }: MarkdownComponentProps) => (
       <div className="overflow-x-auto my-6">
         <table className="min-w-full border border-gray-300 rounded-lg" {...props}>
           {children}
         </table>
       </div>
     ),
-    thead: ({ children, ...props }: any) => (
+    thead: ({ children, ...props }: MarkdownComponentProps) => (
       <thead className="bg-gray-50" {...props}>
         {children}
       </thead>
     ),
-    tbody: ({ children, ...props }: any) => (
+    tbody: ({ children, ...props }: MarkdownComponentProps) => (
       <tbody className="divide-y divide-gray-200" {...props}>
         {children}
       </tbody>
     ),
-    tr: ({ children, ...props }: any) => (
+    tr: ({ children, ...props }: MarkdownComponentProps) => (
       <tr className="hover:bg-gray-50" {...props}>
         {children}
       </tr>
     ),
-    th: ({ children, ...props }: any) => (
+    th: ({ children, ...props }: MarkdownComponentProps) => (
       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b border-gray-300" {...props}>
         {children}
       </th>
     ),
-    td: ({ children, ...props }: any) => (
+    td: ({ children, ...props }: MarkdownComponentProps) => (
       <td className="px-4 py-3 text-sm text-gray-700 border-b border-gray-200" {...props}>
         {children}
       </td>
     ),
-    a: ({ href, children, ...props }: any) => (
+    a: ({ href, children, ...props }: MarkdownComponentProps) => (
       <a 
         href={href} 
         className="text-blue-600 hover:text-blue-800 underline transition-colors" 
@@ -196,17 +204,17 @@ const BlogPostPage: React.FC = () => {
         {children}
       </a>
     ),
-    strong: ({ children, ...props }: any) => (
+    strong: ({ children, ...props }: MarkdownComponentProps) => (
       <strong className="font-semibold text-gray-900" {...props}>
         {children}
       </strong>
     ),
-    em: ({ children, ...props }: any) => (
+    em: ({ children, ...props }: MarkdownComponentProps) => (
       <em className="italic text-gray-800" {...props}>
         {children}
       </em>
     ),
-    hr: ({ ...props }: any) => (
+    hr: ({ ...props }: MarkdownComponentProps) => (
       <hr className="my-8 border-gray-300" {...props} />
     ),
   };

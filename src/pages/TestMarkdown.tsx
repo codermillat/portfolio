@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { loadArticles, getArticleBySlug } from '../utils/markdownLoader';
+import { loadArticles, getArticleBySlug, Article } from '../utils/markdownLoader';
 import { testMarkdownImport } from '../utils/simpleTest';
 
 const TestMarkdown: React.FC = () => {
-  const [articles, setArticles] = useState<any[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -23,7 +23,7 @@ const TestMarkdown: React.FC = () => {
         console.log('✅ Loaded articles:', allArticles.length);
         
         // Test loading specific article
-        const testArticle = await getArticleBySlug('modern-css-techniques');
+        const testArticle = await getArticleBySlug('lora-fine-tuning-beginners-resource-constrained-ai');
         console.log('✅ Test article:', testArticle ? 'Found' : 'Not found');
         
         setArticles(allArticles);

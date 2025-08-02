@@ -7,57 +7,141 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.millat.tech/about</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/projects</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.millat.tech/blog</loc>
     <lastmod>2025-01-28</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/getting-started-with-wordpress-development</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://www.millat.tech/blog/future-ai-education-personalized-learning</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/lora-fine-tuning-beginners-resource-constrained-ai</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/building-studyabroadgpt-ai-educational-guidance</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/edupath-ai-platform-research-to-product</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/from-bangladesh-to-india-international-student-ai-researcher</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/building-ai-solutions-resource-constrained-environments</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/future-educational-technology-ai-democratizing-education</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/entrepreneurship-tech-lessons-codestbd-premium-vpn</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/cultural-intelligence-ai-building-systems-local-contexts</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/complete-guide-lora-fine-tuning-accessible-llms</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/digital-marketing-ai-seo-content-strategy-educational-technology</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/open-source-ai-contributing-global-ai-community</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/psychology-solitude-introversion-innovation-technology</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/research-product-complete-journey-ai-powered-educational-tools</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/studyabroadgpt-cultural-context-ai-education</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/react-performance-optimization</loc>
-    <lastmod>2025-01-26</lastmod>
+    <loc>https://www.millat.tech/blog/creating-high-quality-synthetic-datasets-ecommerce-orders</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/modern-css-techniques</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://www.millat.tech/blog/setforge-sophisticated-qa-generation-educational-content</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/ai-ml-research-sharda-university</loc>
-    <lastmod>2025-01-24</lastmod>
+    <loc>https://www.millat.tech/blog/idea-to-appstore-premium-vpn-application-development</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/computer-vision-deep-learning</loc>
-    <lastmod>2025-01-23</lastmod>
+    <loc>https://www.millat.tech/blog/edupath-ai-revolutionizing-educational-guidance-ai-personalization</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/nodejs-backend-development</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://www.millat.tech/contact</loc>
+    <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/mobile-app-development</loc>
-    <lastmod>2025-01-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/seo-best-practices</loc>
-    <lastmod>2025-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 </urlset> 

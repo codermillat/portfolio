@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { loadArticles } from '../utils/markdownLoader';
+import { loadArticles, Article } from '../utils/markdownLoader';
 
 const MarkdownTest: React.FC = () => {
   const [status, setStatus] = useState<string>('Testing...');
-  const [articles, setArticles] = useState<any[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     const testMarkdown = async () => {

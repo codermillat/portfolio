@@ -14,7 +14,7 @@ export const testMarkdownLoader = async () => {
     });
     
     // Test loading specific article
-    const testSlug = 'modern-css-techniques';
+    const testSlug = 'lora-fine-tuning-beginners-resource-constrained-ai';
     const article = await getArticleBySlug(testSlug);
     if (article) {
       console.log(`\nFound article "${testSlug}":`);
