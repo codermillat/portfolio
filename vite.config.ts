@@ -21,34 +21,19 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom'],
           'vendor-router': ['react-router-dom'],
           'vendor-ui': ['lucide-react'],
-          
-          // Article chunks - split by category
-          'articles-ai-research': [
-            './src/articles/building-studyabroadgpt-ai-educational-guidance.md',
-            './src/articles/lora-fine-tuning-beginners-resource-constrained-ai.md',
-            './src/articles/future-ai-education-personalized-learning.md',
-            './src/articles/building-ai-solutions-resource-constrained-environments.md',
-            './src/articles/future-educational-technology-ai-democratizing-education.md',
-            './src/articles/cultural-intelligence-ai-building-systems-local-contexts.md',
-            './src/articles/complete-guide-lora-fine-tuning-accessible-llms.md',
-            './src/articles/open-source-ai-contributing-global-ai-community.md',
-          ],
-          'articles-business': [
-            './src/articles/entrepreneurship-tech-lessons-codestbd-premium-vpn.md',
-            './src/articles/digital-marketing-ai-seo-content-strategy-educational-technology.md',
-          ],
-          'articles-personal': [
-            './src/articles/from-bangladesh-to-india-international-student-ai-researcher.md',
-            './src/articles/psychology-solitude-introversion-innovation-technology.md',
-            './src/articles/research-product-complete-journey-ai-powered-educational-tools.md',
-          ],
-          'articles-product': [
-            './src/articles/edupath-ai-platform-research-to-product.md',
-          ],
         },
         chunkFileNames: (chunkInfo) => {
+          // Prevent markdown filenames from appearing in chunk names
           const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/').pop() : 'chunk';
-          return `assets/${facadeModuleId}-[hash].js`;
+          
+          // If it's a markdown file, use a generic name to avoid long filenames
+          if (facadeModuleId?.includes('.md')) {
+            return `assets/article-[hash].js`;
+          }
+          
+          // For other files, use a shortened version of the name
+          const cleanName = facadeModuleId?.replace(/\.(js|ts|tsx|jsx)$/, '') || 'chunk';
+          return `assets/${cleanName}-[hash].js`;
         },
       },
     },
