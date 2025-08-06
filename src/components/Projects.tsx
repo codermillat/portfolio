@@ -192,7 +192,7 @@ const Projects: React.FC = () => {
                           {project.technologies.map((tech, techIndex) => (
                             <span 
                               key={techIndex}
-                              className="px-3 py-1 text-xs sm:text-sm font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200"
+                              className="px-4 py-2 text-xs sm:text-sm font-medium text-primary-700 bg-primary-50 rounded-full border border-primary-200 hover:bg-primary-100 transition-colors duration-200 min-h-[44px] inline-flex items-center"
                             >
                               {tech}
                             </span>

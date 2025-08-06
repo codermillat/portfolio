@@ -203,7 +203,7 @@ const About: React.FC = () => {
               <div className="relative z-10 text-center">
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4">Currently Exploring</h3>
                 <p className="text-gray-300 mb-6 text-base sm:text-lg max-w-4xl mx-auto">
-                  Expanding expertise in cutting-edge technologies to build the future of meaningful digital solutions
+                  Expanding expertise in cutting-edge technologies to build the future of meaningful digital solutions.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center">
                   {[
@@ -212,7 +212,7 @@ const About: React.FC = () => {
                     "Voiceover + story-based content using ElevenLabs", 
                     "API-first architecture & automation systems"
                   ].map((tech, index) => (
-                    <span key={index} className="px-3 sm:px-4 py-2 bg-white/10 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300">
+                    <span key={index} className="px-4 py-3 bg-white/10 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors duration-300 min-h-[44px] inline-flex items-center">
                       {tech}
                     </span>
                   ))}

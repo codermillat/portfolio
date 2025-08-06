@@ -13,10 +13,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
-import TestMarkdown from './pages/TestMarkdown';
-import MarkdownTest from './components/MarkdownTest';
 import BlogStatus from './components/BlogStatus';
+import SEODashboard from './components/SEODashboard';
 import { trackPageView } from './utils/analytics';
+import { getHomepageSocialImage, updateSocialMetaTags } from './utils/socialImages';
 
 // Component to track route changes
 function RouteTracker() {
@@ -40,29 +40,64 @@ function App() {
 
   // SEO: Set document title and meta description dynamically
   useEffect(() => {
-    document.title = "MD MILLAT HOSEN — Full Stack Developer & Creative Strategist | Portfolio";
+    // Generate dynamic social image for homepage
+    const socialImageUrl = getHomepageSocialImage();
     
-    // Update meta description for better SEO
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'MD MILLAT HOSEN (codermillat) - Expert Full Stack Developer specializing in WordPress, React, Node.js, and mobile app development. Based in Greater Noida, India. Building meaningful solutions with technical excellence and creative strategy.');
-    }
+    // Update all social meta tags for homepage
+    updateSocialMetaTags(
+      "MD MILLAT HOSEN — Full Stack Developer & AI Researcher",
+      "Expert Full Stack Developer & AI Researcher specializing in WordPress, React, Node.js, and machine learning. Building meaningful solutions with excellence.",
+      socialImageUrl,
+      "https://www.millat.tech/"
+    );
     
-    // Add structured data for better search engine understanding
+    // Add enhanced structured data for better search engine understanding
     const addStructuredData = () => {
+      // Remove any existing structured data
+      const existingScript = document.querySelector('script[type="application/ld+json"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.text = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "MD MILLAT HOSEN Portfolio",
-        "description": "Professional portfolio of MD MILLAT HOSEN - Full Stack Developer & Creative Strategist",
+        "@type": ["Person", "WebPage"],
+        "name": "MD MILLAT HOSEN",
+        "givenName": "MD MILLAT",
+        "familyName": "HOSEN",
+        "jobTitle": "Full Stack Developer & AI Researcher",
+        "description": "Expert Full Stack Developer & AI Researcher specializing in WordPress, React, Node.js, and machine learning applications",
         "url": "https://www.millat.tech/",
-        "mainEntity": {
-          "@type": "Person",
-          "name": "MD MILLAT HOSEN",
-          "jobTitle": "Full Stack Developer & Creative Strategist",
-          "url": "https://www.millat.tech/"
+        "image": socialImageUrl,
+        "sameAs": [
+          "https://twitter.com/codermillat",
+          "https://linkedin.com/in/mdmillathosen",
+          "https://github.com/codermillat"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Greater Noida",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "India"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Galgotias University"
+        },
+        "knowsAbout": [
+          "Full Stack Development",
+          "WordPress Development",
+          "React.js",
+          "Node.js",
+          "Machine Learning",
+          "Educational Technology",
+          "AI Research"
+        ],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.millat.tech/"
         }
       });
       document.head.appendChild(script);
@@ -105,9 +140,8 @@ function App() {
           } />
                                 <Route path="/blog" element={<BlogPage />} />
                       <Route path="/blog/:slug" element={<BlogPostPage />} />
-                      <Route path="/test-markdown" element={<TestMarkdown />} />
-                      <Route path="/markdown-test" element={<MarkdownTest />} />
                       <Route path="/blog-status" element={<BlogStatus />} />
+                      <Route path="/seo-dashboard" element={<SEODashboard />} />
                       <Route path="/sitemap" element={
                         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                           <div className="text-center">

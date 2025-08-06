@@ -88,7 +88,7 @@ const Skills: React.FC = () => {
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-blue-500 mx-auto rounded-full mb-6" />
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              A comprehensive toolkit built through years of passionate learning and real-world application
+              A comprehensive toolkit built through years of passionate learning and real-world application.
             </p>
           </div>
 

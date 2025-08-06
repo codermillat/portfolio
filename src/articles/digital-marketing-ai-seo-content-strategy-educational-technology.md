@@ -14,7 +14,7 @@ gradient: "from-pink-500 to-purple-600"
 
 Imagine a world where artificial intelligence not only helps students learn but also helps educational institutions reach the right students at the right time. This is the intersection where digital marketing meets AI—a powerful combination that can transform how educational technology is developed, marketed, and adopted.
 
-As someone who has experienced both sides of this equation—working in digital marketing for a university's international relations division and developing AI-powered educational tools—I've discovered that the success of educational technology depends as much on effective marketing and SEO as it does on technical innovation.
+As someone who has experienced both sides of this equation—working in digital marketing for a university's international relations division and [developing AI-powered educational tools](/blog/building-studyabroadgpt-ai-educational-guidance)—I've discovered that the success of educational technology depends as much on effective marketing and SEO as it does on technical innovation.
 
 ## The Intersection: Where Marketing Meets AI
 
@@ -35,6 +35,8 @@ AI is transforming how educational technology is marketed:
 - **Predictive Analytics**: Understanding which students are most likely to benefit from specific tools
 - **Content Optimization**: AI can help create more effective marketing content
 - **User Experience**: AI improves the overall user experience, making marketing more effective
+
+This transformation reflects broader trends in [the future of AI in education](/blog/future-ai-education-personalized-learning), where personalization becomes key to effective engagement.
 
 ## My Journey: From Marketing to AI Development
 

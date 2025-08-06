@@ -68,13 +68,11 @@ export interface Article {
 export const loadArticles = async (): Promise<Article[]> => {
   
   try {
-    console.log('🔄 Loading markdown articles...');
     
     // Import markdown files directly with ?raw suffix
     const articles: Article[] = [];
     
     try {
-      console.log('📄 Attempting to import markdown files...');
       
       // Import article content with dynamic imports for better code splitting
 const [
@@ -119,15 +117,10 @@ const [
   import('../articles/edupath-ai-revolutionizing-educational-guidance-ai-personalization.md?raw')
 ]);
       
-      console.log('✅ All article content loaded successfully');
       
       // Process each article
       const processArticle = (slug: string, rawContent: string) => {
-        console.log(`🔧 Processing article: ${slug}`);
         const { data, content: markdownContent } = parseFrontmatter(rawContent);
-        console.log(`📝 Article metadata:`, data.title);
-        console.log(`📄 Content length:`, markdownContent.length);
-        console.log(`📅 Article date:`, data.date);
         return {
           slug,
           metadata: data as unknown as ArticleMetadata,
@@ -159,10 +152,8 @@ const [
       articles.push(processArticle('idea-to-appstore-premium-vpn-application-development', vpnAppContent.default));
       articles.push(processArticle('edupath-ai-revolutionizing-educational-guidance-ai-personalization', edupathAIContent.default));
       
-      console.log(`✅ Successfully loaded ${articles.length} articles`);
     } catch (importError) {
       console.error('❌ Error importing markdown files:', importError);
-      console.log('🔄 Falling back to sample data...');
       
       // Fallback to sample data if import fails
       articles.push({
@@ -185,9 +176,7 @@ const [
     // Sort articles by date (newest first)
     articles.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
     
-    console.log(`📊 Final articles count: ${articles.length}`);
     articles.forEach((article, index) => {
-      console.log(`  ${index + 1}. ${article.slug}: ${article.metadata.title} (${article.content.length} chars) - Date: ${article.metadata.date}`);
     });
     
     return articles;
@@ -198,43 +187,36 @@ const [
 };
 
 export const getArticleBySlug = async (slug: string): Promise<Article | null> => {
-  console.log(`🔍 Looking for article with slug: ${slug}`);
   const articles = await loadArticles();
   const article = articles.find(article => article.slug === slug);
-  console.log(`📄 Found article:`, article ? `${article.metadata.title} (Date: ${article.metadata.date})` : 'Not found');
   return article || null;
 };
 
 export const getFeaturedArticles = async (): Promise<Article[]> => {
   const articles = await loadArticles();
   const featured = articles.filter(article => article.metadata.featured);
-  console.log(`⭐ Featured articles: ${featured.length}`);
   return featured;
 };
 
 export const getArticlesByCategory = async (category: string): Promise<Article[]> => {
   const articles = await loadArticles();
   const filtered = articles.filter(article => article.metadata.category === category);
-  console.log(`📂 Articles in category "${category}": ${filtered.length}`);
   return filtered;
 };
 
 export const getAllCategories = async (): Promise<string[]> => {
   const articles = await loadArticles();
   const categories = [...new Set(articles.map(article => article.metadata.category))];
-  console.log(`📂 All categories:`, categories);
   return categories.sort();
 };
 
 export const getAllTags = async (): Promise<string[]> => {
   const articles = await loadArticles();
   const tags = [...new Set(articles.flatMap(article => article.metadata.tags))];
-  console.log(`🏷️ All tags:`, tags);
   return tags.sort();
 };
 
 // Clear cache (useful for development)
 export const clearArticlesCache = (): void => {
-  console.log('🗑️ Clearing articles cache');
   // Cache functionality removed - articles are loaded fresh each time
 }; 

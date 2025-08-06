@@ -36,11 +36,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold mb-4 text-lg">Services</h4>
             <ul className="text-gray-300 space-y-2">
-              <li><a href="#projects" className="hover:text-white transition-colors">WordPress Development</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">React Applications</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">Mobile App Development</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">SEO Optimization</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">UI/UX Design</a></li>
+              <li>WordPress Development</li>
+              <li>React Applications</li>
+              <li>Mobile App Development</li>
+              <li>SEO Optimization</li>
+              <li>UI/UX Design</li>
             </ul>
           </div>
 

@@ -101,7 +101,7 @@ const Creative: React.FC = () => {
                         <span className="text-xs">156 hearts</span>
                       </div>
                     </div>
-                    <button className="sm:ml-auto px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300 flex items-center gap-2 text-sm">
+                    <button className="sm:ml-auto px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-300 flex items-center gap-2 text-sm min-h-[44px] min-w-[44px]">
                       <Play size={14} />
                       Watch Film
                     </button>

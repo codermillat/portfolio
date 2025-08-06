@@ -9,7 +9,6 @@ import rehypeRaw from 'rehype-raw';
 import 'highlight.js/styles/github-dark.css';
 import Footer from '../components/Footer';
 import { trackBlogView, trackButtonClick } from '../utils/analytics';
-
 // TypeScript interfaces for ReactMarkdown components
 interface MarkdownComponentProps {
   children?: React.ReactNode;

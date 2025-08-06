@@ -12,9 +12,9 @@ gradient: "from-violet-500 to-purple-600"
 
 # From Research to Product: The Complete Journey of Building AI-Powered Educational Tools
 
-Imagine taking a research idea from a simple concept to a fully functional product that helps thousands of students worldwide. This is the journey I've experienced with StudyAbroadGPT—from initial research on LoRA fine-tuning to a deployed AI system that provides personalized educational guidance. This article explores the complete process of transforming research into practical, user-facing AI applications.
+Imagine taking a research idea from a simple concept to a fully functional product that helps thousands of students worldwide. This is the journey I've experienced with [StudyAbroadGPT](/blog/building-studyabroadgpt-ai-educational-guidance)—from initial research on [LoRA fine-tuning](/blog/complete-guide-lora-fine-tuning-accessible-llms) to a deployed AI system that provides personalized educational guidance. This article explores the complete process of transforming research into practical, user-facing AI applications.
 
-The journey from research to product is not linear—it's a complex, iterative process that requires technical expertise, user understanding, and strategic thinking. By sharing my experience with StudyAbroadGPT and EduPath-AI, I hope to provide insights that can help others navigate this challenging but rewarding path.
+The journey from research to product is not linear—it's a complex, iterative process that requires technical expertise, user understanding, and strategic thinking. By sharing my experience with StudyAbroadGPT and [EduPath-AI](/blog/edupath-ai-platform-research-to-product), I hope to provide insights that can help others navigate this challenging but rewarding path.
 
 ## The Research Foundation: Starting with a Problem
 
@@ -29,8 +29,8 @@ Every successful product starts with a clear understanding of the problem it's t
 - **Resource Constraints**: Limited access to AI technology for educational institutions
 
 **The Opportunity:**
-- **AI Technology**: Recent advances in large language models and fine-tuning techniques
-- **Resource Optimization**: New methods for making AI accessible with limited resources
+- **AI Technology**: Recent advances in large language models and [LoRA fine-tuning techniques](/blog/complete-guide-lora-fine-tuning-accessible-llms)
+- **Resource Optimization**: New methods for [making AI accessible with limited resources](/blog/building-ai-solutions-resource-constrained-environments)
 - **Global Need**: Growing demand for international education guidance
 - **Technology Gap**: Opportunity to bridge the gap between research and practical application
 
@@ -67,10 +67,10 @@ Every successful product starts with a clear understanding of the problem it's t
 ### Methodology Development
 
 **Technical Approach:**
-- **LoRA Fine-tuning**: Using parameter-efficient fine-tuning techniques
-- **4-bit Quantization**: Implementing quantization for resource optimization
+- **LoRA Fine-tuning**: Using [parameter-efficient fine-tuning techniques](/blog/complete-guide-lora-fine-tuning-accessible-llms)
+- **4-bit Quantization**: Implementing [quantization for resource optimization](/blog/building-ai-solutions-resource-constrained-environments)
 - **Two-Phase Training**: Combining synthetic data generation with manual curation
-- **Cultural Context**: Incorporating cultural markers and regional understanding
+- **Cultural Context**: Incorporating [cultural markers and regional understanding](/blog/cultural-intelligence-ai-building-systems-local-contexts)
 
 **Research Design:**
 - **Dataset Creation**: Developing a comprehensive dataset of educational conversations
@@ -157,7 +157,7 @@ Every successful product starts with a clear understanding of the problem it's t
 
 **Design Principles:**
 - **Simplicity**: Easy-to-use interface for students of all technical levels
-- **Cultural Sensitivity**: Design that respects and reflects cultural diversity
+- **Cultural Sensitivity**: Design that [respects and reflects cultural diversity](/blog/cultural-intelligence-ai-building-systems-local-contexts)
 - **Accessibility**: Ensuring the platform is accessible to users with different abilities
 - **Mobile-First**: Optimizing for mobile devices used by students worldwide
 
@@ -263,11 +263,11 @@ Every successful product starts with a clear understanding of the problem it's t
 
 **Resource Constraints:**
 - **Challenge**: Limited computational resources for AI development
-- **Solution**: LoRA fine-tuning and 4-bit quantization techniques
+- **Solution**: [LoRA fine-tuning and 4-bit quantization techniques](/blog/complete-guide-lora-fine-tuning-accessible-llms)
 
 **Cultural Sensitivity:**
 - **Challenge**: Ensuring AI systems understand cultural context
-- **Solution**: Culturally diverse training data and context-aware responses
+- **Solution**: [Culturally diverse training data and context-aware responses](/blog/cultural-intelligence-ai-building-systems-local-contexts)
 
 **Performance Optimization:**
 - **Challenge**: Balancing performance with resource efficiency
@@ -341,8 +341,8 @@ The success of AI-powered educational tools depends not just on technical innova
 
 > **Key Takeaway**: The most successful AI products combine rigorous research with user-centered design, creating solutions that are both technically innovative and practically valuable.
 
-For more insights on AI development, check out my research on [StudyAbroadGPT](https://arxiv.org/abs/2504.15610) and follow my journey in building accessible AI solutions for global education.
+For more insights on AI development, check out my research on [StudyAbroadGPT](https://arxiv.org/abs/2504.15610) and explore my articles on [building AI solutions for resource-constrained environments](/blog/building-ai-solutions-resource-constrained-environments) and [LoRA fine-tuning techniques](/blog/complete-guide-lora-fine-tuning-accessible-llms). Follow my journey in building accessible AI solutions for global education.
 
 ---
 
-*This article is part of my series on product development and AI applications. Follow me for more insights on transforming research into practical, impactful products.* 
+*This article is part of my series on product development and AI applications. For more insights on [digital marketing for educational technology](/blog/digital-marketing-ai-seo-content-strategy-educational-technology) and [cultural intelligence in AI systems](/blog/cultural-intelligence-ai-building-systems-local-contexts), follow me for practical strategies on transforming research into impactful products.* 

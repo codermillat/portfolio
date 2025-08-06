@@ -256,7 +256,7 @@ const FeaturedPostCard: React.FC<{
             {post.metadata.tags.slice(0, 2).map((tag: string) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors min-h-[44px]"
               >
                 <Tag className="w-3 h-3 mr-1" />
                 {tag}
@@ -265,7 +265,7 @@ const FeaturedPostCard: React.FC<{
           </div>
           <button
             onClick={() => onBlogClick(post.slug)}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 hover:scale-105 group-hover:bg-blue-50 px-3 py-2 rounded-lg"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 hover:scale-105 group-hover:bg-blue-50 px-4 py-3 rounded-lg min-h-[44px] min-w-[44px]"
           >
             Read More
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
