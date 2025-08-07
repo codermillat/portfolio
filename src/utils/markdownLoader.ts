@@ -94,7 +94,8 @@ const [
   syntheticDataContent,
   setforgeContent,
   vpnAppContent,
-  edupathAIContent
+  edupathAIContent,
+  islamicGuidanceContent
 ] = await Promise.all([
   import('../articles/building-studyabroadgpt-ai-educational-guidance.md?raw'),
   import('../articles/lora-fine-tuning-beginners-resource-constrained-ai.md?raw'),
@@ -114,7 +115,8 @@ const [
   import('../articles/creating-high-quality-synthetic-datasets-ecommerce-orders.md?raw'),
   import('../articles/setforge-sophisticated-qa-generation-educational-content.md?raw'),
   import('../articles/idea-to-appstore-premium-vpn-application-development.md?raw'),
-  import('../articles/edupath-ai-revolutionizing-educational-guidance-ai-personalization.md?raw')
+  import('../articles/edupath-ai-revolutionizing-educational-guidance-ai-personalization.md?raw'),
+  import('../articles/dangers-chatgpt-islamic-guidance-ai-research-perspective.md?raw')
 ]);
       
       
@@ -132,8 +134,6 @@ const [
       articles.push(processArticle('lora-fine-tuning-beginners-resource-constrained-ai', cssContent.default));
       articles.push(processArticle('future-ai-education-personalized-learning', reactContent.default));
       articles.push(processArticle('edupath-ai-platform-research-to-product', nodejsContent.default));
-      
-      // Process new articles
       articles.push(processArticle('from-bangladesh-to-india-international-student-ai-researcher', bangladeshIndiaContent.default));
       articles.push(processArticle('building-ai-solutions-resource-constrained-environments', aiSolutionsContent.default));
       articles.push(processArticle('future-educational-technology-ai-democratizing-education', eduTechContent.default));
@@ -144,13 +144,12 @@ const [
       articles.push(processArticle('open-source-ai-contributing-global-ai-community', openSourceContent.default));
       articles.push(processArticle('psychology-solitude-introversion-innovation-technology', psychologyContent.default));
       articles.push(processArticle('research-product-complete-journey-ai-powered-educational-tools', researchProductContent.default));
-      
-      // Process additional articles from links.txt analysis
       articles.push(processArticle('studyabroadgpt-cultural-context-ai-education', studyabroadgptCulturalContent.default));
       articles.push(processArticle('creating-high-quality-synthetic-datasets-ecommerce-orders', syntheticDataContent.default));
       articles.push(processArticle('setforge-sophisticated-qa-generation-educational-content', setforgeContent.default));
       articles.push(processArticle('idea-to-appstore-premium-vpn-application-development', vpnAppContent.default));
       articles.push(processArticle('edupath-ai-revolutionizing-educational-guidance-ai-personalization', edupathAIContent.default));
+      articles.push(processArticle('dangers-chatgpt-islamic-guidance-ai-research-perspective', islamicGuidanceContent.default));
       
     } catch (importError) {
       console.error('❌ Error importing markdown files:', importError);
@@ -175,9 +174,6 @@ const [
 
     // Sort articles by date (newest first)
     articles.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
-    
-    articles.forEach((article, index) => {
-    });
     
     return articles;
   } catch (error) {

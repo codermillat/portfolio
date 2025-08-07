@@ -68,17 +68,19 @@ const BlogPostPage: React.FC = () => {
   // Custom components for ReactMarkdown
   const components = {
     h1: ({ children, ...props }: MarkdownComponentProps) => (
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 mt-8 first:mt-0 leading-tight" {...props}>
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6 mt-8 first:mt-0 leading-tight" {...props}>
         {children}
       </h1>
     ),
     h2: ({ children, ...props }: MarkdownComponentProps) => (
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 mt-8 leading-tight" {...props}>
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4 mt-8 leading-tight relative" {...props}>
+        <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></span>
         {children}
       </h2>
     ),
     h3: ({ children, ...props }: MarkdownComponentProps) => (
-      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 mt-6 leading-tight" {...props}>
+      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 mt-6 leading-tight relative pl-4" {...props}>
+        <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></span>
         {children}
       </h3>
     ),
@@ -88,35 +90,49 @@ const BlogPostPage: React.FC = () => {
       </h4>
     ),
     p: ({ children, ...props }: MarkdownComponentProps) => (
-      <p className="text-gray-700 mb-4 leading-relaxed text-base sm:text-lg" {...props}>
+      <p className="mb-4 text-gray-800 leading-relaxed text-base font-medium" {...props}>
         {children}
       </p>
     ),
     ul: ({ children, ...props }: MarkdownComponentProps) => (
-      <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700" {...props}>
-        {children}
+      <ul className="list-none mb-4 space-y-2 text-gray-800" {...props}>
+        {React.Children.map(children, (child) => 
+          React.isValidElement(child) ? 
+            React.cloneElement(child as React.ReactElement<any>, {
+              className: "flex items-start space-x-3"
+            }) : child
+        )}
       </ul>
     ),
     ol: ({ children, ...props }: MarkdownComponentProps) => (
-      <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700" {...props}>
-        {children}
+      <ol className="list-none mb-4 space-y-2 text-gray-800 counter-reset-list" {...props}>
+        {React.Children.map(children, (child) => 
+          React.isValidElement(child) ? 
+            React.cloneElement(child as React.ReactElement<any>, {
+              className: "flex items-start space-x-3 counter-increment-list"
+            }) : child
+        )}
       </ol>
     ),
     li: ({ children, ...props }: MarkdownComponentProps) => (
-      <li className="text-gray-700 leading-relaxed" {...props}>
-        {children}
+      <li className="text-gray-800 leading-relaxed flex items-start space-x-3 font-medium" {...props}>
+        <span className="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2"></span>
+        <span className="flex-1">{children}</span>
       </li>
     ),
     blockquote: ({ children, ...props }: MarkdownComponentProps) => (
-      <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50 text-gray-800 italic" {...props}>
-        {children}
+      <blockquote className="border-l-4 border-gradient-to-b from-blue-500 to-purple-500 bg-gradient-to-r from-blue-50 to-purple-50 pl-6 py-4 my-6 text-gray-800 italic rounded-r-lg shadow-sm relative overflow-hidden" {...props}>
+        <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500"></div>
+        <div className="relative z-10">
+          {children}
+        </div>
       </blockquote>
     ),
     code: ({ children, className, ...props }: MarkdownComponentProps) => {
       const isInline = !className;
       if (isInline) {
         return (
-          <code className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono" {...props}>
+          <code className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-2 py-1 rounded-md text-sm font-mono border border-blue-200/50" {...props}>
             {children}
           </code>
         );
@@ -168,34 +184,34 @@ const BlogPostPage: React.FC = () => {
       return <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4" {...props}>{children}</pre>;
     },
     table: ({ children, ...props }: MarkdownComponentProps) => (
-      <div className="overflow-x-auto my-6">
-        <table className="min-w-full border border-gray-300 rounded-lg" {...props}>
+      <div className="overflow-x-auto my-6 rounded-lg border border-gray-200 shadow-sm">
+        <table className="min-w-full" {...props}>
           {children}
         </table>
       </div>
     ),
     thead: ({ children, ...props }: MarkdownComponentProps) => (
-      <thead className="bg-gray-50" {...props}>
+      <thead className="bg-gradient-to-r from-blue-500 to-purple-600 text-white" {...props}>
         {children}
       </thead>
     ),
     tbody: ({ children, ...props }: MarkdownComponentProps) => (
-      <tbody className="divide-y divide-gray-200" {...props}>
+      <tbody className="divide-y divide-gray-200 bg-white" {...props}>
         {children}
       </tbody>
     ),
     tr: ({ children, ...props }: MarkdownComponentProps) => (
-      <tr className="hover:bg-gray-50" {...props}>
+      <tr className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200" {...props}>
         {children}
       </tr>
     ),
     th: ({ children, ...props }: MarkdownComponentProps) => (
-      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b border-gray-300" {...props}>
+      <th className="px-6 py-4 text-left text-sm font-semibold text-white" {...props}>
         {children}
       </th>
     ),
     td: ({ children, ...props }: MarkdownComponentProps) => (
-      <td className="px-4 py-3 text-sm text-gray-700 border-b border-gray-200" {...props}>
+      <td className="px-6 py-4 text-sm text-gray-700 border-b border-gray-100" {...props}>
         {children}
       </td>
     ),
@@ -366,13 +382,13 @@ const BlogPostPage: React.FC = () => {
   const readingTime = getReadingTime(post.content);
 
   return (
-    <article className="min-h-screen bg-gray-50">
+    <article className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Navigation */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div className="bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <button
             onClick={() => navigate('/blog')}
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
+            className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors text-sm font-medium"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
@@ -381,34 +397,40 @@ const BlogPostPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <div className={`bg-gradient-to-br ${post.metadata.gradient} text-white py-12 sm:py-16 lg:py-20`}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`bg-gradient-to-br ${post.metadata.gradient} text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden`}>
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-white/20 rounded-full -translate-x-36 -translate-y-36"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-48 translate-y-48"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Badge */}
-          <div className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-white/30 backdrop-blur-sm rounded-full text-sm font-bold text-white mb-6 border border-white/40 shadow-lg">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
             {post.metadata.category}
           </div>
           
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black mb-4 sm:mb-6 leading-tight text-white drop-shadow-lg">
             {post.metadata.title}
           </h1>
           
-          <p className="text-base sm:text-lg lg:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-white mb-6 sm:mb-8 max-w-3xl leading-relaxed font-medium drop-shadow-md">
             {post.metadata.description}
           </p>
           
           {/* Meta Information */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-blue-100 text-sm sm:text-base">
-            <div className="flex items-center">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-white text-sm sm:text-base font-medium">
+            <div className="flex items-center bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
               <User className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span className="font-medium">{post.metadata.author}</span>
+              <span className="font-semibold">{post.metadata.author}</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span>{formatDate(post.metadata.date)}</span>
+              <span className="font-semibold">{formatDate(post.metadata.date)}</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
               <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              <span>{readingTime} min read</span>
+              <span className="font-semibold">{readingTime} min read</span>
             </div>
           </div>
         </div>
@@ -416,16 +438,19 @@ const BlogPostPage: React.FC = () => {
 
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 overflow-hidden relative">
+          {/* Decorative header */}
+          <div className="h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+          
           {/* Tags */}
           <div className="px-6 sm:px-8 lg:px-12 pt-6 sm:pt-8 lg:pt-12">
-            <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+            <div className="flex flex-wrap gap-3 mb-8 sm:mb-10">
               {post.metadata.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors"
+                  className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium hover:from-blue-200 hover:to-purple-200 transition-all duration-200 border border-blue-200/50 shadow-sm"
                 >
-                  <Tag className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5" />
+                  <Tag className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 text-blue-600" />
                   {tag}
                 </span>
               ))}
@@ -434,7 +459,7 @@ const BlogPostPage: React.FC = () => {
 
           {/* Article Content */}
           <div className="px-6 sm:px-8 lg:px-12 pb-6 sm:pb-8 lg:pb-12">
-            <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
+            <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-strong:text-gray-900 prose-em:text-gray-800 prose-blue">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight, rehypeRaw]}
@@ -446,11 +471,11 @@ const BlogPostPage: React.FC = () => {
           </div>
 
           {/* Share Section */}
-          <div className="border-t border-gray-100 px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
+          <div className="border-t border-gradient-to-r from-blue-100 via-purple-50 to-indigo-100 px-6 sm:px-8 lg:px-12 py-6 sm:py-8 bg-gradient-to-r from-blue-50/30 via-purple-50/30 to-indigo-50/30">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2">Share this article</h3>
-                <p className="text-gray-600 text-sm sm:text-base">Help others discover this content</p>
+                <h3 className="text-base sm:text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-1 sm:mb-2">Share this article</h3>
+                <p className="text-gray-700 text-sm sm:text-base font-medium">Help others discover this content</p>
               </div>
               <div className="flex gap-2 sm:gap-3">
                 <button
@@ -459,7 +484,7 @@ const BlogPostPage: React.FC = () => {
                     const text = post.metadata.title;
                     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
                   }}
-                  className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105"
                 >
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
@@ -469,7 +494,7 @@ const BlogPostPage: React.FC = () => {
                     const url = `https://www.millat.tech/blog/${post.slug}`;
                     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
                   }}
-                  className="inline-flex items-center px-3 sm:px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+                  className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-lg hover:from-indigo-700 hover:to-purple-800 transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105"
                 >
                   <Share2 className="w-4 h-4 mr-2" />
                   LinkedIn

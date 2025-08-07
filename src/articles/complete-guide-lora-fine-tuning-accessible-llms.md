@@ -1,3 +1,4 @@
+---
 title: "From Rural Bangladesh to AI Research: My Complete LoRA Fine-Tuning Journey"
 description: "Discover how a Bangladeshi student built StudyAbroadGPT using advanced LoRA techniques on a $50 budget. Complete guide to parameter-efficient training for developing countries and resource-constrained environments."
 author: "MD MILLAT HOSEN"
@@ -7,6 +8,7 @@ category: "AI & Research"
 featured: true
 excerpt: "Learn how I built an advanced educational AI system using LoRA fine-tuning on a $50 budget as a Bangladeshi student in India. Complete technical guide with cultural context and real-world constraints."
 gradient: "from-emerald-500 to-blue-600"
+---
 
 # From Rural Bangladesh to AI Research: My Complete LoRA Fine-Tuning Journey
 
