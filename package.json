@@ -34,7 +34,10 @@
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "type-check": "tsc --noEmit",
     "analyze": "npm run build && npx vite-bundle-analyzer dist",
-    "clean": "rm -rf dist node_modules/.vite"
+    "clean": "rm -rf dist node_modules/.vite",
+    "sitemap:generate": "node scripts/generate-sitemap.js",
+    "sitemap:validate": "node scripts/validate-sitemap.js",
+    "sitemap:check": "npm run sitemap:validate"
   },
   "dependencies": {
     "highlight.js": "^11.11.1",

@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.millat.tech/</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.millat.tech/blog</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/future-ai-education-personalized-learning</loc>
-    <lastmod>2025-01-28</lastmod>
+    <loc>https://www.millat.tech/blog/dangers-chatgpt-islamic-guidance-ai-research-perspective</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/building-ai-solutions-resource-constrained-environments</loc>
+    <lastmod>2025-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/complete-guide-lora-fine-tuning-accessible-llms</loc>
+    <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.millat.tech/blog/lora-fine-tuning-beginners-resource-constrained-ai</loc>
-    <lastmod>2025-01-28</lastmod>
+    <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -31,31 +43,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/edupath-ai-platform-research-to-product</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/from-bangladesh-to-india-international-student-ai-researcher</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/building-ai-solutions-resource-constrained-environments</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/future-educational-technology-ai-democratizing-education</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/entrepreneurship-tech-lessons-codestbd-premium-vpn</loc>
+    <loc>https://www.millat.tech/blog/creating-high-quality-synthetic-datasets-ecommerce-orders</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -67,13 +55,49 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/complete-guide-lora-fine-tuning-accessible-llms</loc>
+    <loc>https://www.millat.tech/blog/digital-marketing-ai-seo-content-strategy-educational-technology</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/digital-marketing-ai-seo-content-strategy-educational-technology</loc>
+    <loc>https://www.millat.tech/blog/edupath-ai-platform-research-to-product</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/edupath-ai-revolutionizing-educational-guidance-ai-personalization</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/entrepreneurship-tech-lessons-codestbd-premium-vpn</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/from-bangladesh-to-india-international-student-ai-researcher</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/future-ai-education-personalized-learning</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/future-educational-technology-ai-democratizing-education</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.millat.tech/blog/idea-to-appstore-premium-vpn-application-development</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -97,33 +121,15 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/studyabroadgpt-cultural-context-ai-education</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.millat.tech/blog/creating-high-quality-synthetic-datasets-ecommerce-orders</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.millat.tech/blog/setforge-sophisticated-qa-generation-educational-content</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.millat.tech/blog/idea-to-appstore-premium-vpn-application-development</loc>
+    <loc>https://www.millat.tech/blog/studyabroadgpt-cultural-context-ai-education</loc>
     <lastmod>2025-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.millat.tech/blog/edupath-ai-revolutionizing-educational-guidance-ai-personalization</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset> 
+</urlset>
