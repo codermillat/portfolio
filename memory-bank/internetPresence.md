@@ -22,6 +22,8 @@ AI/ML (LLMs, LoRA, datasets), Web/Android Dev, DevOps, SEO, Content, Coding comp
 
 _Last updated: 2025-08-25_
 
+- **2025-08-25:** Added "The Market Gap in AI & EdTech for Developing Countries" to the canonical blog index and cross-reference list.
+
 ---
 
 # Internet Presence & Sources
@@ -54,6 +56,7 @@ _Last updated: 2025-08-25_
 
 ## Key Articles & Blog Posts (millat.tech/blog)
 
+- [The Market Gap in AI & EdTech for Developing Countries: Why Local Context and Accessibility Matter](https://www.millat.tech/blog/ai-edtech-market-gap-developing-countries)
 - [Why Using ChatGPT for Islamic Guidance is Dangerous: A Research-Based AI Perspective](https://www.millat.tech/blog/dangers-chatgpt-islamic-guidance-ai-research-perspective)
 - [LoRA Fine-Tuning Tutorial: Your First AI Model in 30 Minutes](https://www.millat.tech/blog/lora-fine-tuning-beginners-resource-constrained-ai)
 - [AI Innovation in Developing Countries: Building StudyAbroadGPT on a Village Internet Connection](https://www.millat.tech/blog/building-ai-solutions-resource-constrained-environments)

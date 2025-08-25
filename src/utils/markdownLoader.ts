@@ -95,7 +95,8 @@ const [
   setforgeContent,
   vpnAppContent,
   edupathAIContent,
-  islamicGuidanceContent
+  islamicGuidanceContent,
+  aiEdtechMarketGapContent
 ] = await Promise.all([
   import('../articles/building-studyabroadgpt-ai-educational-guidance.md?raw'),
   import('../articles/lora-fine-tuning-beginners-resource-constrained-ai.md?raw'),
@@ -116,7 +117,8 @@ const [
   import('../articles/setforge-sophisticated-qa-generation-educational-content.md?raw'),
   import('../articles/idea-to-appstore-premium-vpn-application-development.md?raw'),
   import('../articles/edupath-ai-revolutionizing-educational-guidance-ai-personalization.md?raw'),
-  import('../articles/dangers-chatgpt-islamic-guidance-ai-research-perspective.md?raw')
+  import('../articles/dangers-chatgpt-islamic-guidance-ai-research-perspective.md?raw'),
+  import('../articles/ai-edtech-market-gap-developing-countries.md?raw')
 ]);
       
       
@@ -150,6 +152,7 @@ const [
       articles.push(processArticle('idea-to-appstore-premium-vpn-application-development', vpnAppContent.default));
       articles.push(processArticle('edupath-ai-revolutionizing-educational-guidance-ai-personalization', edupathAIContent.default));
       articles.push(processArticle('dangers-chatgpt-islamic-guidance-ai-research-perspective', islamicGuidanceContent.default));
+      articles.push(processArticle('ai-edtech-market-gap-developing-countries', aiEdtechMarketGapContent.default));
       
     } catch (importError) {
       console.error('❌ Error importing markdown files:', importError);
@@ -215,4 +218,4 @@ export const getAllTags = async (): Promise<string[]> => {
 // Clear cache (useful for development)
 export const clearArticlesCache = (): void => {
   // Cache functionality removed - articles are loaded fresh each time
-}; 
+};
